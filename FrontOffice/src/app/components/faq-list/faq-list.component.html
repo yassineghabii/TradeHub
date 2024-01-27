@@ -1,0 +1,15 @@
+<p>faq-list works!</p>
+<!-- faq-list.component.html -->
+<div *ngFor="let faq of faqs">
+  <div class="faq-item">
+    <h4>{{ faq.question }}</h4>
+    <p>{{ faq.answer }}</p>
+  </div>
+</div>
+
+<!-- faq-list.component.html -->
+<div *ngFor="let faq of faqs; let i = index" class="faq-item">
+  <h4>{{ faq.question }}</h4>
+  <p>{{ faq.answer }}</p>
+  <!--<a routerLink="/faq/{{ i }}">View Details</a>-->
+</div>

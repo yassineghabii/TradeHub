@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <link href="{{ url_for('serve_static_css', filename='v93.min.css') }}" rel="stylesheet" type="text/css"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthèse des fiches-conseil</title>
+</head>
+<body>
+    <h1>Synthèse des fiches-conseil</h1>
+    <div>
+        {{ synthese_fiches_content|safe }}
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<div class="blank-layout-container justify-content-center align-items-center bg-light-primary">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .fullscreen-section {
+      background-image: url('assets/images/ta.jpg');
+      background-size: cover;
+      background-position: center top;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Réinitialisation des marges et des paddings pour tous les éléments */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+  <div class="fullscreen-section">
+
+
+  <mat-card class="cardWithShadow boxed-auth" style="max-width: 20%; margin: auto; backdrop-filter: blur(5px); background: rgba(0, 0, 0, 0); color: white;">
+      <mat-card-content class="p-32">
+
+        <div class="text-center mb-2 d-flex flex-column justify-content-center align-items-center" style="height: 100px; font-weight: bold; color: white;">
+          <p class="mt-2">Connectez-vous à votre compte TradeHub</p>
+          <div class="d-flex justify-content-center align-items-center">
+            <asl-google-signin-button (click)="initiateGoogleAuth()" style="margin-right: 10px;"></asl-google-signin-button>
+            <button class="btn btn-facebook" (click)="initiateFbAuth()">
+              <img src="assets/images/f.png" alt="Logo Facebook">
+            </button>
+            <button class="btn btn-microsoft" (click)="initiateMAuth()">
+              <img src="assets/images/m.png" alt="Logo Microsoft">
+            </button>
+            <button class="btn btn-amazon" (click)="initiateAAuth()">
+              <img src="assets/images/a.png" alt="Logo Amazon">
+            </button>
+          </div>
+        </div>
+
+        <div class="divider mb-4 text-center" style="font-weight: bold; color: black;">
+          <span>Alternative d'accès</span>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mb-4">
+          <mat-label class="mat-subtitle-2 f-s-14 f-w-600 mb-2 d-block" style="font-weight: bold; color: #ffffff;">Email</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary" style="color: #ffffff;">
+            <input matInput formControlName="email" placeholder="xyz@gmail.com" style="color: #ffffff; ::placeholder { color: #ffffff; }" />
+          </mat-form-field>
+
+          <mat-label class="mat-subtitle-2 f-s-14 f-w-600 mb-2 d-block" style="font-weight: bold; color: white;">Mot de passe</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary" style="color: #ffffff;">
+            <input matInput type="password" formControlName="password" placeholder="Mot de passe" style="color: #ffffff;" />
+          </mat-form-field>
+
+          <div *ngIf="errorMessage" class="alert alert-danger" style="font-weight: bold; color: white;">{{ errorMessage }}</div>
+
+          <button type="submit" mat-raised-button color="accent" class="w-100 mt-2" [disabled]="!loginForm.valid" style="font-weight: bold; color: whitesmoke;">Se connecter</button>
+        </form>
+
+        <div class="d-block f-w-500 text-center mt-2" style="font-weight: bold; color: white;">
+          <a [routerLink]="['/register']" class="text-decoration-none text-primary f-w-500 f-s-14"> Rejoignez TradeHub !</a>
+          <br><br>
+          <a [routerLink]="['/forget']" class="text-primary f-w-600 text-decoration-none">Mot de passe oublié ?</a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

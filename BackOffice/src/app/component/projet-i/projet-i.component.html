@@ -1,0 +1,438 @@
+<style>
+    /* Style de base pour les champs de date */
+    input[type="date"] {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px;
+        font-size: 16px;
+        width: 100%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style lorsque le champ de date est en focus */
+    input[type="date"]:focus {
+        border-color: #007bff; /* Couleur de bordure au focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre au focus */
+    }
+
+    /* Style pour le texte à l'intérieur du champ de date */
+    input[type="date"]::placeholder {
+        color: #888; /* Couleur du texte de l'espace réservé */
+    }
+
+    /* Style pour le bouton d'effacement de la date */
+    input[type="date"]::-webkit-clear-button {
+        display: none; /* Masquer le bouton d'effacement */
+    }
+
+    /* Style pour le bouton du calendrier de sélection */
+    input[type="date"]::-webkit-inner-spin-button {
+        display: none; /* Masquer le bouton du calendrier */
+    }
+    /* Réduire la largeur du calendrier à 80% de la largeur parente */
+    .pff {
+        text-align: center; /* Centre le texte horizontalement */
+    }
+    .pfff {
+        display: inline-block; /* Assure que le texte est centré horizontalement */
+    }
+
+    .container {
+        width: 80%;
+    }
+    .custom-hr {
+        background-color: #2041d1; /* Noir foncé */
+        height: 2px; /* Épaisseur de la ligne */
+    }
+    .button {
+        background-color: #b63100;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button1{
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: rgb(209, 54, 54);
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    h3{
+        display: block;
+        font-size: 1.17em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+        background-color:DodgerBlue;
+        text-align:center
+    }
+    .modalDialog {
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 1);
+        z-index: 99999;
+        opacity: 0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+    }
+    .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modalDialog > div {
+        width: 400px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: -moz-linear-gradient(#0d747b, #01a6b2);
+        background: -webkit-linear-gradient(#2edbe8, #01a6b2);
+        background: -o-linear-gradient(#2edbe8, #01a6b2);
+    }
+    .close {
+        background: #606061;
+        color: #ffffff;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+    .close:hover {
+        background: #6ed1d8;
+    }
+</style>
+
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="row" class="section-padding-bottom : 5px">
+                    </div>
+                    <div class="header">
+                        <h4 class="title">Formulaire ajout des projets d'investissement</h4>
+                    </div>
+                    <div class="content">
+
+                        <form #myForm="ngForm">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Nom </label>
+                                        <input type="text" class="form-control" placeholder="Entrer le nom du projet" name="nom"   #nom="ngModel"  [(ngModel)] = "Projet.nom">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input type="text" class="form-control" placeholder="Entrer la description du projet" name="description"   #description="ngModel"  [(ngModel)] = "Projet.description" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date de début du projet</label>
+                                        <input type="date" class="form-control" placeholder="Entrer la date de début " name="date_debut"   #date_debut="ngModel"  [(ngModel)] = "Projet.date_debut">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date de fin du projet</label>
+                                        <input type="date" class="form-control" placeholder="Entrer la date de fin " name="date_fin"   #date_fin="ngModel"  [(ngModel)] = "Projet.date_fin">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>cout initial du projet</label>
+                                        <input type="text" class="form-control" placeholder="Entrer le cout du projet " name="cout_initial "   #cout_initial="ngModel"  [(ngModel)] = "Projet.cout_initial">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Taux d'interet</label>
+                                        <input type="number" step="0.01" class="form-control" placeholder="Entrer le taux d'interet du projet " name="taux_interet"   #taux_interet="ngModel"  [(ngModel)] = "Projet.taux_interet" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="localisation">Localisation du projet</label>
+                                        <select id="input-last-name" class="form-control form-control-alternative" name="localisation" [(ngModel)]="Projet.localisation" placeholder="Selectionner la localisation..">
+                                            <option value="" disabled selected>Selectionner la localisation </option>
+                                            <option value="Ariana">Ariana</option>
+                                            <option value="Béja">Béja</option>
+                                            <option value="Bizerte">Bizerte</option>
+                                            <option value="Gabès">Gabès</option>
+                                            <option value="Gafsa">Gafsa</option>
+                                            <option value="Jendouba">Jendouba</option>
+                                            <option value="Kairouan">Kairouan</option>
+                                            <option value="Kasserine">Kasserine</option>
+                                            <option value="Kébili">Kébili</option>
+                                            <option value="Kef">Kef</option>
+                                            <option value="Mahdia">Mahdia</option>
+                                            <option value="Manouba">Manouba</option>
+                                            <option value="Médenine">Médenine</option>
+                                            <option value="Monastir">Monastir</option>
+                                            <option value="Nabeul">Nabeul</option>
+                                            <option value="Sfax">Sfax</option>
+                                            <option value="Sidi Bouzid">Sidi Bouzid</option>
+                                            <option value="Siliana">Siliana</option>
+                                            <option value="Sousse">Sousse</option>
+                                            <option value="Tataouine">Tataouine</option>
+                                            <option value="Tozeur">Tozeur</option>
+                                            <option value="Tunis">Tunis</option>
+                                            <option value="Zaghouan">Zaghouan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Responsable du projet</label>
+                                        <input type="text" class="form-control" placeholder="Entrer le responsable du projet " name="responsable_projet"   #responsable_projet="ngModel"  [(ngModel)] = "Projet.responsable_projet" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="type">Statut du projet</label>
+                                    <select id="input-last-name" class="form-control form-control-alternative" name="statutProjet" [(ngModel)]="Projet.statutProjet" placeholder="Selectionner le statut..">
+                                        <option value="" disabled selected>Selectionner le statut du projet </option>
+                                        <option value="ENCOURS">ENCOURS</option>
+                                        <option value="ANNULE">ANNULE</option>
+                                        <option value="ENATTENTE">ENATTENTE</option>
+                                        <option value="TERMINE">TERMINE</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary" (click)="myForm.reset()">clear form</button>
+                            <button type="submit" class="btn btn-primary pull-right" (click) = "addProjet()">Ajouter</button>
+                            <br>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="https://projetlocatif.fr/wp-content/uploads/2019/06/maison-euros.png" alt="..."/>
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <a href="#">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h4 class="title">Gestion des projets d'investissement
+                                    <small>Mohamed Aziz Jaziri</small>
+                                </h4>
+                            </a>
+                        </div>
+                        <p class="description text-center">Le module de projet d'investissement vous permettra de concevoir, évaluer et présenter des stratégies d'investissement prometteuses pour favoriser la croissance et la rentabilité de votre entreprise.
+                        </p>
+                    </div>
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="my-4 custom-hr" />
+    <div class="content table-responsive table-full-width">
+        <div class="header pff">
+            <h4 class="title ">Liste des projets d'investissement</h4>
+        </div>
+        <select id="input-last-name" class="form-control form-control-alternative" name="localisation" [(ngModel)]="loca" (ngModelChange)="getprojetbyloca()">
+            <option value="" disabled selected>Selectionner la localisation </option>
+            <option value="Ariana">Ariana</option>
+            <option value="Béja">Béja</option>
+            <option value="Bizerte">Bizerte</option>
+            <option value="Gabès">Gabès</option>
+            <option value="Gafsa">Gafsa</option>
+            <option value="Jendouba">Jendouba</option>
+            <option value="Kairouan">Kairouan</option>
+            <option value="Kasserine">Kasserine</option>
+            <option value="Kébili">Kébili</option>
+            <option value="Kef">Kef</option>
+            <option value="Mahdia">Mahdia</option>
+            <option value="Manouba">Manouba</option>
+            <option value="Médenine">Médenine</option>
+            <option value="Monastir">Monastir</option>
+            <option value="Nabeul">Nabeul</option>
+            <option value="Sfax">Sfax</option>
+            <option value="Sidi Bouzid">Sidi Bouzid</option>
+            <option value="Siliana">Siliana</option>
+            <option value="Sousse">Sousse</option>
+            <option value="Tataouine">Tataouine</option>
+            <option value="Tozeur">Tozeur</option>
+            <option value="Tunis">Tunis</option>
+            <option value="Zaghouan">Zaghouan</option>
+        </select>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Date debut</th>
+                <th>Date fin</th>
+                <th>Cout initial</th>
+                <th>Taux d'interet</th>
+                <th>Localisation</th>
+                <th>Responsable projet</th>
+                <th>Statut du projet</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let i of listProjet">
+                <td>{{i.id}}</td>
+                <td>{{i.nom}}</td>
+                <td>{{i.description}}</td>
+                <td>{{i.date_debut}}</td>
+                <td>{{i.date_fin}}</td>
+                <td>{{i.cout_initial}}</td>
+                <td>{{i.taux_interet}}</td>
+                <td>{{i.localisation}}</td>
+                <td>{{i.responsable_projet}}</td>
+                <td>{{i.statutProjet}}</td>
+                <td><button type="submit" class="btn btn-secondary" (click)="deleteProjet(i.id)">delete</button></td>
+                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="edit(i)">update</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr class="my-4 custom-hr" />
+    <iframe title="PI_finance" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=2727f024-71e0-4e0e-8854-8dccfefc6565&autoAuth=true&ctid=513486ec-6643-4f17-a508-76478311be42" frameborder="0" allowFullScreen="true"></iframe>
+
+</div>
+<!--Modification du projet d'investissement-->
+<div class="modal" tabindex="-1" id="exampleModal" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-right">Modification d'un projet d'investissement </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #updateForm="ngForm" (ngSubmit)="updateProjet()">
+                    <div class="form-group">
+                        <label for="nom">Nom du projet :</label>
+                        <input type="text" #nom [(ngModel)]="Projetupdate.nom" name="nom" id="nom" class="form-control"
+                               placeholder="nom du projet">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description du projet :</label>
+                        <input type="text" #description [(ngModel)]="Projetupdate.description" name="description" id="description"
+                               class="form-control" placeholder="description du projet">
+                    </div>
+                    <div class="form-group">
+                        <label for="date_debut">Date de debut du projet :</label>
+                        <input type="date" #date_debut [(ngModel)]="Projetupdate.date_debut" name="date_debut" id="date_debut"
+                               class="form-control" placeholder="date de debut du projet">
+                    </div>
+                    <div class="form-group">
+                        <label for="date_fin">Date de fin du projet :</label>
+                        <input type="date" #date_debut [(ngModel)]="Projetupdate.date_fin" name="date_fin" id="date_fin"
+                               class="form-control" placeholder="date de fin du projet">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>cout initial du projet</label>
+                            <input type="text" class="form-control" placeholder="Entrer le cout du projet " name="cout_initial "   #cout_initial="ngModel"  [(ngModel)] = "Projetupdate.cout_initial">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Taux d'interet</label>
+                            <input type="number" step="0.01" class="form-control" placeholder="Entrer le taux d'interet du projet " name="taux_interet"   #taux_interet="ngModel"  [(ngModel)] = "Projetupdate.taux_interet" >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="localisation">Localisation du projet</label>
+                            <select id="input-last-name" class="form-control form-control-alternative" name="localisation" [(ngModel)]="Projetupdate.localisation" placeholder="Selectionner la localisation..">
+                                <option value="" disabled selected>Selectionner la localisation </option>
+                                <option value="Ariana">Ariana</option>
+                                <option value="Béja">Béja</option>
+                                <option value="Bizerte">Bizerte</option>
+                                <option value="Gabès">Gabès</option>
+                                <option value="Gafsa">Gafsa</option>
+                                <option value="Jendouba">Jendouba</option>
+                                <option value="Kairouan">Kairouan</option>
+                                <option value="Kasserine">Kasserine</option>
+                                <option value="Kébili">Kébili</option>
+                                <option value="Kef">Kef</option>
+                                <option value="Mahdia">Mahdia</option>
+                                <option value="Manouba">Manouba</option>
+                                <option value="Médenine">Médenine</option>
+                                <option value="Monastir">Monastir</option>
+                                <option value="Nabeul">Nabeul</option>
+                                <option value="Sfax">Sfax</option>
+                                <option value="Sidi Bouzid">Sidi Bouzid</option>
+                                <option value="Siliana">Siliana</option>
+                                <option value="Sousse">Sousse</option>
+                                <option value="Tataouine">Tataouine</option>
+                                <option value="Tozeur">Tozeur</option>
+                                <option value="Tunis">Tunis</option>
+                                <option value="Zaghouan">Zaghouan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Responsable du projet</label>
+                            <input type="text" class="form-control" placeholder="Entrer le responsable du projet " name="responsable_projet"   #responsable_projet="ngModel"  [(ngModel)] = "Projetupdate.responsable_projet" >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="type">Statut du projet</label>
+                        <select id="input-last-name" class="form-control form-control-alternative" name="statutProjet" [(ngModel)]="Projetupdate.statutProjet" placeholder="Selectionner le statut..">
+                            <option value="" disabled selected>Selectionner le statut du projet </option>
+                            <option value="ENCOURS">ENCOURS</option>
+                            <option value="ANNULE">ANNULE</option>
+                            <option value="ENATTENTE">ENATTENTE</option>
+                            <option value="TERMINE">TERMINE</option>
+                        </select>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

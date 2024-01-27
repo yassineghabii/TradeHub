@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Profil financier</h1>
+
+  <!-- Display success or error message at the top -->
+  <div class="message" [hidden]="!showMessage">
+    {{ message }}
+  </div>
+
+  <form [formGroup]="financialProfileForm" (ngSubmit)="updateFinancialProfile()">
+    <div>
+      <label for="age">Age :</label>
+      <input type="number" id="age" formControlName="age" />
+    </div>
+    <div>
+      <label for="gender">Gender :</label>
+      <input type="number" id="gender" formControlName="gender" />
+    </div>
+    <div>
+      <label for="job">Job :</label>
+      <input type="number" id="job" formControlName="job" />
+    </div>
+    <div>
+      <label for="housing">Housing :</label>
+      <input type="number" id="housing" formControlName="housing" />
+    </div>
+    <div>
+      <label for="saving_accounts">Saving Accounts :</label>
+      <input type="number" id="saving_accounts" formControlName="saving_accounts" />
+    </div>
+    <div>
+      <label for="credit_history">Credit History :</label>
+      <input type="number" id="credit_history" formControlName="credit_history" />
+    </div>
+    <div>
+      <label for="credit_amount">Credit Amount :</label>
+      <input type="number" id="credit_amount" formControlName="credit_amount" />
+    </div>
+    <div>
+      <label for="duration">Duration :</label>
+      <input type="number" id="duration" formControlName="duration" />
+    </div>
+    <div>
+      <label for="purpose">Purpose :</label>
+      <input type="number" id="purpose" formControlName="purpose" />
+    </div>
+    <div>
+      <label for="risk">Risk :</label>
+      <input type="number" id="risk" formControlName="risk" />
+    </div>
+    <button type="submit">Enregistrer le profil financier</button>
+  </form>
+  </div>

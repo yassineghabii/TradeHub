@@ -1,0 +1,11 @@
+.center-container {
+  display: flex;
+  align-items: center; /* This will vertically align the item */
+  justify-content: center; /* This will horizontally align the item */
+  height: 100vh; /* This will take the full viewport height */
+}
+
+/* Optional: You might want to add some padding or margin to the inner container for better spacing */
+.container {
+  padding: 20px;
+}

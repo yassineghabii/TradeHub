@@ -1,0 +1,22 @@
+<div class="card-container">
+  <div class="credit-card" *ngFor="let card of userCards">
+    <div class="credit-card-logo">
+      <i class="fa fa-credit-card"></i>
+    </div>
+    <div class="credit-card-number">
+      {{ card.number }}
+    </div>
+    <div class="credit-card-details">
+      <div>
+        <span>Expire fin</span>
+        <span>{{ card.exp_month }}/{{ card.exp_year }}</span>
+      </div>
+      <div>
+        {{ card.type_de_carte }}
+      </div>
+    </div>
+    <div class="credit-card-name">
+      {{ card.wallet.user.firstname }} {{ card.wallet.user.lastname }}
+    </div>
+  </div>
+</div>

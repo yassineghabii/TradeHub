@@ -1,0 +1,6 @@
+openai
+speech_recognition
+reportlab
+docx
+mysql
+face_recognition

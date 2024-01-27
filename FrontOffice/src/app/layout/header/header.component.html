@@ -1,0 +1,168 @@
+<!-- Navbar Start -->
+<nav *ngIf="shouldDisplayHeader() && shouldDisplayHeader1()" class="navbar sticky-top navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+
+  <a href="index.html" class="navbar-brand p-0">
+      <img src="assets/images/tradehub.PNG" alt="tradehub Logo" width="150" height="60">
+  </a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto py-0 align-items-center">
+
+      <div class="dropdown nav-item" *ngIf="!getToken()">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Connexion
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" routerLink="login">Se connecter</a>
+          <a class="dropdown-item" routerLink="register">S'inscrire</a>
+        </div>
+
+      </div>
+    
+
+      <!-- <a routerLink="" class="nav-item nav-link small-button" style="display: flex; align-items: center;">Accueil</a> -->
+
+      <style>
+        .dropdown-item {
+          gap: 0rem; /* Ajustez cette valeur selon vos besoins */
+        }
+      </style>
+      
+      
+        <div class="dropdown nav-item  " style="display: flex; align-items: center;">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="dropdownUserProfile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-item1 nav-link "><span class="small-button">Marché Financier</span></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUserProfile">
+            <a class="dropdown-item d-flex align-items-center text-danger" routerLink="/trade" style="gap: .5rem;">
+              <span style="font-size: .875rem; align-items: center;">Marché Financier</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger" routerLink="/ordre_achat" style="gap: .5rem;">
+              <span style="font-size: .875rem; align-items: center;">Ordre Achat</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/ordre_vente" style="gap: .5rem; cursor: pointer;">
+              <span style="font-size: .875rem; align-items: center;">Ordre Vente</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/trans" style="gap: .5rem; cursor: pointer;">
+              <span style="font-size: .875rem; align-items: center;">Transaction</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/Power" style="gap: .5rem; cursor: pointer;">
+              <span style="font-size: .875rem; align-items: center;">Trading Energies</span>
+            </a>
+          </div>
+        </div>
+
+
+      
+
+      <div class="dropdown nav-item  " style="display: flex; align-items: center;">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="dropdownUserProfile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="gap: 0.1rem;">
+          <span class="nav-item1 nav-link "><span class="small-button">PORTEFEUILLE</span></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end small-button" aria-labelledby="dropdownUserProfile">
+          <a class="dropdown-item d-flex align-items-center text-danger" routerLink="/wallet" style="gap: .5rem;">
+            <span style="font-size: .875rem; align-items: center;">Portfolio</span>
+          </a>
+          <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/alloc" style="gap: .5rem; cursor: pointer;">
+            <span style="font-size: .875rem; align-items: center;">Équilibreur Portefeuille</span>
+          </a>
+        </div>
+      </div>
+
+        <div class="dropdown nav-item  " style="display: flex; align-items: center;">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="dropdownUserProfile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-item1 nav-link"><span class="small-button">MarketInsight</span></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end small-button" aria-labelledby="dropdownUserProfile">
+            <a class="dropdown-item d-flex align-items-center text-danger" routerLink="/StockAnalyse" style="gap: .5rem;">
+              <span style="font-size: .875rem; align-items: center;">Stock Analyse</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/StockPrediction" style="gap: .5rem; cursor: pointer;">
+              <span style="font-size: .875rem; align-items: center;">Market Prediction</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/chatbot" style="gap: .5rem; cursor: pointer;">
+              <span style="font-size: .875rem; align-items: center;">Chatbot Financier</span>
+            </a>
+          </div>
+        </div>
+        
+
+        
+
+        <div class="dropdown nav-item  " style="display: flex; align-items: center;">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="dropdownUserProfile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-item1 nav-link"><span class="small-button">Formation & Actualités</span></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end small-button" aria-labelledby="dropdownUserProfile">
+            <a class="dropdown-item d-flex align-items-center text-danger" routerLink="/formation" style="gap: .5rem;">
+              <span style="font-size: .875rem; align-items: center;">Formations</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger" routerLink="/support" style="gap: .5rem;">
+              <span style="font-size: .875rem; align-items: center;">Supports Pédagogiques</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/Actua" style="gap: .5rem; cursor: pointer;">
+              <span style="font-size: .875rem; align-items: center;">Actualités Financières</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/economique" style="gap: .5rem; cursor: pointer;">
+              <span style="font-size: .875rem; align-items: center;">Calendrier Economique</span>
+            </a>
+            
+          </div>
+        </div>
+
+        
+
+       
+        <div class="dropdown nav-item  " style="display: flex; align-items: center;">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="dropdownUserProfile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-item1 nav-link "><span class="small-button">Assistance </span></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end small-button" aria-labelledby="dropdownUserProfile">
+            <a class="dropdown-item d-flex align-items-center text-danger" routerLink="/topic" style="gap: .5rem;">
+              <span style="font-size: .875rem; align-items: center;">Forum</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger"  routerLink="/reclamation" style="gap: .5rem; cursor: pointer;">
+              <span style="font-size: .875rem; align-items: center;">Réclamation</span>
+            </a>
+          </div>
+        </div>
+     
+
+        <div class="dropdown nav-item" *ngIf="getToken()" style="display: flex; align-items: center;">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="dropdownUserProfile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="welcome-message">{{ getName() }}</span>
+            <img [src]="'http://localhost:8080/users/'+ getUserId() +'/image'" alt="Profile Image" class="profile-photo rounded-circle ms-2" width="40" height="40">
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUserProfile">
+            <a class="dropdown-item d-flex align-items-center text-danger" routerLink="/profil" style="gap: .5rem;">
+              <i class="fa fa-user" style="font-size: .875rem;"></i>
+              <span style="font-size: .875rem;">Profil</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center text-danger" (click)="logout()" style="gap: .5rem; cursor: pointer;">
+              <i class="fa fa-sign-out-alt" style="font-size: .875rem;"></i>
+              <span style="font-size: .875rem;">Se Déconnecter</span>
+            </a>
+          </div>
+        </div>
+
+
+
+      
+
+
+
+        
+
+      
+      
+
+      
+    </div>
+  </div>
+
+</nav>
+<!-- Navbar End -->

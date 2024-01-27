@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-SZXxX4whmKt4m+Z1BT3xba71p2Q+eklD/3HEUaMDW9LqGq8p5Ff6n+TwQbPAMgpI" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .row-centered {
+      justify-content: center;
+    }
+    .security-info {
+      background-color: #f8f9fa; /* Lighter grey to soften the look */
+      border-color: #007bff; /* Bootstrap primary color for a consistent appearance */
+      color: #495057; /* Dark grey color for text, ensures legibility */
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .security-info h3 {
+      color: #007bff; /* Bootstrap primary color to stand out */
+      font-weight: 700; /* Bold font weight for the header */
+    }
+
+    .security-info p {
+      font-size: 1rem; /* Comfortable reading size */
+      line-height: 1.5; /* Spacious line-height for readability */
+      margin-bottom: 1rem; /* Space between paragraphs */
+    }
+
+    .security-info .fa-shield-alt {
+      color: #28a745; /* Bootstrap success color indicating security */
+      margin-right: 0.5rem; /* Space between icon and text */
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="container-fluid bg-dark text-secondary p-1">
+  <i class="fa fa-user-circle fa-3x text-primary mb-3" aria-hidden="true"></i>
+  <h1 class="title">Mon Profil</h1>
+  <h2 class="subtitle">Détails du Profil</h2>
+  <p class="text">Consultez les informations de votre profil.</p>
+</div>
+<br><br>
+
+<div class="row row-centered">
+    <div class="col-md-5">
+
+      <div class="card profile-details bg-light p-4 border rounded mb-4">
+  <div class="profile-container">
+    <!-- Profile Image -->
+    <div class="profile-photo-container text-center mb-3">
+      <img [src]="'http://localhost:8080/users/'+ getUserId() +'/image'" alt="Profile Image" class="profile-photo rounded-circle" width="80" height="80">
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Nom:</label>
+      <input type="text" id="lastName" class="form-control" value="{{clientProfile.lastname}}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="firstName">Prénom:</label>
+      <input type="text" id="firstName" class="form-control" value="{{clientProfile.firstname}}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="cin">CIN:</label>
+      <input type="text" id="cin" class="form-control" value="{{clientProfile.cin}}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Numéro Téléphone:</label>
+      <input type="tel" id="phoneNumber" class="form-control" value="{{clientProfile.phone_number}}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="address">Addresse:</label>
+      <input type="text" id="address" class="form-control" value="{{clientProfile.address}}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control" value="{{clientProfile.email}}" readonly>
+    </div>
+  </div>
+        <div style="text-align: center;">
+          <button class="btn btn-primary mt-3" style="display: inline-block; white-space: nowrap;" (click)="openChangePasswordModal()">Changer mot de passe</button>
+        </div>
+    </div>
+
+  </div>
+
+    <div class="col-md-5"><br>
+      <div class="card security-info p-4 mb-4" style="border: none;"><br>
+        <h3 style="color: #152440; margin-bottom: 1.5rem;"><i class="fas fa-shield-alt" style="color: #f3525a;"></i> Engagement pour la sécurité des données</h3><br>
+        <ul class="fa-ul" style="font-weight: bold;">
+          <li><span class="fa-li"><i class="fas fa-circle" style="color: #152440;"></i></span>Votre vie privée et votre sécurité sont notre priorité absolue. Nous employons des technologies de pointe pour garantir que vos informations personnelles sont stockées de manière sécurisée et constamment protégées.</li><br>
+          <li><span class="fa-li"><i class="fas fa-circle" style="color: #152440;"></i></span>Renforcez la sécurité de votre compte facilement. Notre outil de mise à jour sécurisée vous guide pas à pas : en quelques clics, votre mot de passe est renouvelé et votre sérénité préservée.</li><br>
+          <li><span class="fa-li"><i class="fas fa-circle" style="color: #152440;"></i></span>Parce que la transparence est la base de la confiance, nous vous informons régulièrement sur nos pratiques de sécurité et les moyens que nous déployons pour la renforcer.</li><br>
+          <li><span class="fa-li"><i class="fas fa-circle" style="color: #152440;"></i></span>Votre confiance nous honore, et c'est avec sérieux que nous nous engageons à assurer l'intégrité et la confidentialité de vos données. Votre sérénité, c’est la signature de notre engagement.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

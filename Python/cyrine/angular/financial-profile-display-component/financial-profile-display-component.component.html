@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0; /* Remove default margin */
+    }
+
+    .container-fluid.bg-dark {
+      padding: 3rem 5rem; /* Adjust as needed */
+    }
+
+    .display-3,
+    .display-5,
+    .lead {
+      font-weight: 500;
+    }
+
+    .display-3 {
+      font-size: 2.5rem; /* Adjust as needed */
+    }
+
+    .lead {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      box-shadow: none;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #0046d5;
+      box-shadow: 0 0 5px rgba(0, 70, 213, 0.5);
+    }
+
+    .btn {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background-color: #f3525a !important;
+      border-color: #f3525a !important;
+    }
+
+    .editor-toolbar i {
+      margin: 0 10px;
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .editor-toolbar i:hover {
+      color: #0046d5;
+    }
+
+    .alert {
+      border-radius: 8px;
+    }
+
+    .bg-dark {
+      background-color: #152440 !important;
+    }
+
+    .btn-primary:hover {
+      background-color: #d3464a !important;
+      border-color: #d3464a !important;
+    }
+
+    /* Additional Styles for Financial Profile Container */
+    .financial-profile-container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      max-width: 500px; /* Adjust as needed */
+      margin: 0 auto; /* Center the container */
+      text-align: left;
+      background-color: #f8f8f8;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 10px; /* Add some space from the top */
+      margin-bottom: 10px; /* Add some space from the bottom */
+    }
+
+    .profile-item {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    /* Styles for the 4x4 grid */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+
+    .grid-item {
+      margin-bottom: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container-fluid bg-dark p-3 mb-1">
+    <div class="row">
+      <div class="col-12 text-center">
+        <i class="fa fa-calculator fa-3x text-primary mb-3" aria-hidden="true"></i>
+        <h1 class="display-3 text-white mb-1 animated fadeIn">Profil Financier</h1>
+        <p class="lead text-white-50">Consultez les détails de votre profil financier.</p>
+      </div>
+    </div>
+  </div>
+  <h2>Votre Profil Financier</h2>
+  <div class="container">
+    <div *ngIf="financialProfile" class="financial-profile-container grid-container">
+      
+      <div class="grid-item">
+        <strong>Saving Accounts:</strong> {{ financialProfile.saving_accounts }}
+      </div>
+      <div class="grid-item">
+        <strong>Credit History:</strong> {{ financialProfile.credit_history }}
+      </div>
+      <div class="grid-item">
+        <strong>Credit Amount:</strong> {{ financialProfile.credit_amount }}
+      </div>
+      
+      <div class="grid-item">
+        <strong>Risk:</strong> {{ financialProfile.risk }}
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

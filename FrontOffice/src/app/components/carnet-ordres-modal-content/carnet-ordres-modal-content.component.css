@@ -1,0 +1,80 @@
+/* Style général du carnet d'ordres */
+.carnet-ordres {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour l'en-tête du tableau */
+.carnet-ordres table thead {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: #004466; /* Couleur de l'en-tête */
+}
+
+/* Style pour chaque ligne de données */
+.carnet-ordres table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Couleur de fond des lignes de données paires */
+}
+
+/* Style pour les cellules du tableau */
+.carnet-ordres table td, .carnet-ordres table th {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  color: #333; /* Couleur du texte dans les cellules */
+}
+
+/* Style pour les cellules "Total" */
+.carnet-ordres table tfoot td {
+  font-weight: bold;
+  background-color: #e5e5e5;
+}
+
+/* Style pour les lignes en gras */
+.bold-text {
+  font-weight: bold;
+  color: #004466; /* Couleur du texte en gras */
+}
+.single-bar-container {
+  display: flex;
+  width: 100%;
+  height: 5px; /* Ajustez la hauteur de la barre ici */
+  margin-bottom: 10px;
+  overflow: hidden; /* Masque tout ce qui dépasse de la barre */
+  border-radius: 5px; /* Ajoutez des coins arrondis */
+  background-color: #f0f0f0; /* Couleur de fond */
+}
+
+.single-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.achat,
+.vente {
+  height: 100%;
+  transition: width 0.5s ease; /* Transition fluide lors du changement de largeur */
+}
+
+.achat {
+  background-color: green; /* Couleur pour les achats */
+}
+
+.vente {
+  background-color: red; /* Couleur pour les ventes */
+}
+.left-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 15px;
+  border: none;
+  background: transparent;
+  color: #000; /* Couleur de l'icône */
+  font-size: 24px; /* Taille de la police */
+
+}

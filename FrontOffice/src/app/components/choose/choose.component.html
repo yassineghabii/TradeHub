@@ -1,0 +1,64 @@
+<div class="blank-layout-container justify-content-center align-items-center bg-light-primary">
+  <div class="position-relative row w-100 h-100 justify-content-center">
+    <div class="col-lg-4 d-flex align-items-center justify-content-center" style="height: 100vh;">
+      <mat-card class="cardWithShadow boxed-auth" style="max-width: 100%; margin: auto;">
+        <mat-card-content class="p-32">
+          <div class="text-center mb-4">
+            <a [routerLink]="['/']">
+              <img src="./assets/images/vermeg.png" class="align-middle mb-2" alt="logo" />
+            </a>
+            <p>Mettez à jour vos informations</p>
+          </div>
+
+          <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" class="mb-4">
+            <div class="form-group">
+              <label for="chosenPwd">Choisir un mot de passe</label>
+              <input type="password" class="form-control" id="chosenPwd" formControlName="chosenPwd">
+              <small class="text-danger" *ngIf="updateForm.get('chosenPwd').touched && updateForm.get('chosenPwd').invalid && updateForm.get('chosenPwd').errors['required']">Ce champ est obligatoire.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="verificationPwd">Vérifier le mot de passe</label>
+              <input type="password" class="form-control" id="verificationPwd" formControlName="verificationPwd">
+              <small class="text-danger" *ngIf="updateForm.get('verificationPwd').touched && updateForm.get('verificationPwd').invalid && updateForm.get('verificationPwd').errors['required']">Ce champ est obligatoire.</small>
+            </div>
+            <div class="form-group">
+              <label for="type">Type de votre Portefeuille</label>
+              <select class="form-control" id="type" formControlName="type">
+                <option *ngFor="let walletType of Object.values(WalletEnum)" [value]="walletType">{{ walletType }}</option>
+              </select>
+              <small class="text-danger" *ngIf="updateForm.get('type').touched && updateForm.get('type').invalid && updateForm.get('type').errors['required']">Le Type de votre Portefeuille est obligatoire.</small>
+            </div>
+            <div class="form-group">
+              <label for="profileImage">Image de profil</label>
+              <input type="file" class="form-control" id="profileImage" formControlName="profileImage" (change)="onFileChange($event)">
+              <small class="text-danger" *ngIf="updateForm.get('profileImage').touched && updateForm.get('profileImage').invalid && updateForm.get('profileImage').errors['required']">Une image est obligatoire.</small>
+            </div>
+            <div class="form-group">
+              <label for="cin">Numéro Carte D'identité</label>
+              <input type="text" class="form-control" id="cin" formControlName="cin">
+              <small class="text-danger" *ngIf="updateForm.get('cin').touched && updateForm.get('cin').invalid && updateForm.get('cin').errors['required']">CIN est obligatoire.</small>
+            </div>
+            <div class="form-group">
+              <label for="phone_number">Numéro Téléphone</label>
+              <input type="text" class="form-control" id="phone_number" formControlName="phone_number">
+              <small class="text-danger" *ngIf="updateForm.get('phone_number').touched && updateForm.get('phone_number').invalid && updateForm.get('phone_number').errors['required']">Num Tél est obligatoire.</small>
+            </div>
+            <div class="form-group">
+              <label for="address">Adresse</label>
+              <input type="text" class="form-control" id="address" formControlName="address">
+              <small class="text-danger" *ngIf="updateForm.get('address').touched && updateForm.get('address').invalid && updateForm.get('address').errors['required']">Num Tél est obligatoire.</small>
+            </div>
+
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+            <div class="d-flex justify-content-center mt-3">
+              <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid">Mettre à jour</button>
+            </div>
+          </form>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

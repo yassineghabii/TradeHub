@@ -1,0 +1,52 @@
+<!-- payment.component.html -->
+
+<div class="container-fluid bg-dark p-1 mb-1 reduce-margin ">
+  <div class="col-12 text-center">
+    <i class="fa fa-credit-card fa-3x text-primary mb-3" aria-hidden="true"></i>
+    <h1 class="display-3 text-white mb-1 animated fadeIn" style="font-size: 2rem;">Chargement du Portefeuille</h1>
+    <h2 class="display-5 text-primary mb-2" style="font-size: 1.5rem;">Détails de Paiement</h2>
+    <p class="lead text-white-50" style="font-size: 1rem;">Veuillez entrer les informations de paiement pour charger votre portefeuille.</p>
+  </div>
+</div>
+
+<div class="stripe-form main-container container-space ">
+<div class="form-group">
+    <label for="cardNumber" class="stripe-label">Numéro de carte</label>
+    <div class="input-container stripe-input-container">
+      <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="cardDetails.number" placeholder="1234 5678 9012 3456" class="stripe-input" (input)="formatCardNumber($event)" maxlength="19">
+      <div class="card-icons-container">
+        <img src="assets/img/visa.png" alt="Visa" class="card-icon">
+        <img src="assets/img/mastercard.png" alt="MasterCard" class="card-icon">
+        <img src="assets/img/unionpay.png" alt="UnionPay" class="card-icon">
+        <img src="assets/img/amex.png" alt="American Express" class="card-icon">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="expiryMonth" class="stripe-label">Date d'expiration</label>
+    <div class="expiry-date">
+      <input type="text" id="expiryMonth" name="expiryMonth" [(ngModel)]="cardDetails.expMonth" placeholder="MM" maxlength="2" class="stripe-input">
+      <span>/</span>
+      <input type="text" id="expiryYear" name="expiryYear" [(ngModel)]="cardDetails.expYear" placeholder="YY" maxlength="2" class="stripe-input">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cvc" class="stripe-label">Code de sécurité</label>
+    <input type="text" id="cvc" name="cvc" [(ngModel)]="cardDetails.cvc" placeholder="CVC" maxlength="3" class="stripe-input">
+  </div>
+
+  <div class="form-group">
+    <label for="amount" class="stripe-label">Montant</label>
+    <div class="input-container">
+      <input type="text" id="amount" name="amount" [(ngModel)]="cardDetails.amount" placeholder="Montant à charger" class="stripe-input">
+      <span class="currency-symbol">{{ cardDetails.currency }}</span>
+    </div>
+  </div>
+
+  <button class="pay-button" (click)="chargeWallet()">
+    <mat-icon class="lock-icon">lock</mat-icon> Payer
+  </button>
+
+</div>

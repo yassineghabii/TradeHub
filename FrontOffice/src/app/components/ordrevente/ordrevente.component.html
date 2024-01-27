@@ -1,0 +1,79 @@
+<div>
+  <div class="container-fluid bg-dark text-secondary p-1">
+    <i class="fa fa-shopping-cart fa-3x text-primary mb-3" aria-hidden="true"></i>
+    <h1 class="title">Ordres de Vente</h1>
+    <h2 style="font-size: 1.5rem; color: #007bff;">Détails des Ordres de Vente</h2>
+    <p class="text">Consultez les détails de vos ordres de vente .</p>
+  </div>
+
+  <div class="select-table-container mt-4">
+    <div class="select-container">
+      <select class="form-select form-select-lg mb-3"
+              [(ngModel)]="selectedType" (change)="onTypeChange()">
+        <option value="limite">Vente limite</option>
+        <option value="marche">Vente au marché</option>
+      </select>
+    </div>
+
+    <!-- Table for 'Achat Limite' -->
+    <div class="table-container" *ngIf="selectedType === 'limite'">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Quantité</th>
+          <th>Prix Limite</th>
+          <th>Status</th>
+          <th>Durée Validité</th>
+          <th>Date Ordre</th>
+          <th>Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ordre of ordresAchatLimite">
+          <td>{{ordre.symbole}}
+          <td>{{ ordre.quantite }}</td>
+          <td>{{ ordre.prix_limite_v }}</td>
+          <td>{{ ordre.statut }}</td>
+          <td>{{ ordre.duree_validite === 'UN_MOIS' ? 'Un mois' : ordre.duree_validite === 'UNE_SEMAINE' ? 'Une semaine' : ordre.duree_validite === 'JOUR_MEME' ? 'Jour même' : ordre.duree_validite }}</td>
+          <td>{{ ordre.date_ordre_v }}</td>
+          <td>
+            <button class="btn btn-danger"
+                    *ngIf="ordre.statut === 'EnAttente' || ordre.statut === 'Annulé' || ordre.statut === 'Executé'"
+                    [disabled]="ordre.statut !== 'EnAttente'"
+                    (click)="annulerOrdreVente(ordre.id_ordre_v)">
+              <i class="fas fa-times"></i> <!-- Remplace le texte par une icône d'annulation -->
+            </button>
+          </td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table for 'Achat au Marché' -->
+    <div class="table-container" *ngIf="selectedType === 'marche'">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Quantité</th>
+          <th>Prix Au Marché</th>
+          <th>Status</th>
+          <th>Date Ordre</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ordre of ordresAchatAuMarche">
+          <td>{{ordre.symbole}}
+          <td>{{ ordre.quantite }}</td>
+          <td>{{ ordre.prix_au_marche_v }}</td>
+          <td>{{ ordre.statut }}</td>
+          <td>{{ ordre.date_ordre_v }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

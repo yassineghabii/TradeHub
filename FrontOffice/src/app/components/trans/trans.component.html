@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction Details</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+    }
+    .container-fluid {
+      background-color: #343a40;
+      color: #ddd;
+      padding: 20px 0;
+    }
+    .container-fluid i {
+      color: #007bff;
+    }
+    .container-fluid .title {
+      font-size: 2rem;
+      color: #fff;
+    }
+    .container-fluid .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .container-fluid .text {
+      font-size: 1rem;
+      color: #adadad;
+    }
+    .transaction-table {
+      width: 90%;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      text-align: center; /* Centre le contenu dans les cellules */
+
+
+    }
+    .transaction-table table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      table-layout: auto;
+
+    }
+    .transaction-table th {
+      background-color: #152440;
+      color: #ffffff;
+      padding: 14px 20px;
+      text-transform: uppercase;
+    }
+    .transaction-table th, .transaction-table td {
+      border: 1px solid #dddddd;
+      padding: 12px 20px;
+    }
+    .transaction-table tbody tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+    .transaction-table tbody tr:hover {
+      background-color: #ddd;
+    }
+    .search-input {
+      font-size: 15px;
+      padding: 15px;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 20px;
+
+    }
+    .fa-search {
+      margin-left: -30px;
+      cursor: pointer;  font-size: 15px; /* Augmente la taille de l'icône */
+
+
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid bg-dark text-secondary p-1">
+  <i class="fa fa-money-bill-wave fa-3x text-primary mb-3"></i>
+  <h1 class="title">Transactions</h1>
+  <h2 class="subtitle">Détails des Transactions</h2>
+  <p class="text">Consultez les détails de vos transactions financières.</p>
+</div>
+<br>
+<div class="transaction-table-responsive">
+  <input type="text" class="search-input" placeholder="Rechercher transaction">
+  <i class="fas fa-search"></i>
+
+  <div class="transaction-table">
+    <table>
+      <thead>
+      <tr>
+        <th>Référence</th>
+        <th>Quantité exécutée</th>
+        <th>Prix d'exécution</th>
+        <th>Type de transaction</th>
+        <th>Date d'exécution</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let transaction of transactions">
+      <td>{{ transaction.id_transaction }}</td>
+      <td>{{ transaction.quantite_execute }}</td>
+      <td>{{ transaction.prix_execution }}</td>
+      <td>{{ transaction.type_transaction=== 'ACHAT_AU_MARCHE' ? 'Achat au marché' : transaction.type_transaction === 'VENTE_AU_MARCHE' ? 'Vente au marché' : transaction.type_transaction === 'ACHAT_LIMITE' ? 'Achat limite' : transaction.type_transaction  === 'VENTE_LIMITE' ? 'Vente limite' : transaction.type_transaction}}</td>
+
+      <td>{{ transaction.date_execution }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>

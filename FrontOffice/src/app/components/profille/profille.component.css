@@ -1,0 +1,96 @@
+.subtitle {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+.title {
+  font-size: 2rem;
+  color: #fff;
+}
+.text {
+  font-size: 1rem; /* Taille réduite du texte */
+  color: #777;
+}
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Profile Header Style */
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #1b2838;
+  padding: 20px;
+  color: white;
+}
+
+.profile-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #66c0f4;
+  padding: 3px;
+}
+
+.profile-title h1,
+.profile-title h2 {
+  margin: 0;
+}
+
+.profile-title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-title h2 {
+  font-size: 1.5rem;
+}
+
+/* Profile Body Style */
+.profile-body {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-details {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 800px; /* Adjust as per your layout */
+}
+
+.profile-details label {
+  color: #777;
+}
+
+.profile-details input.form-control {
+  background-color: #e9ecef;
+  border: none;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 5px;
+}
+.container-fluid {
+  background-color: #343a40;
+  text-align: center;
+  display: flex;             /* Activation de flexbox */
+  flex-direction: column;    /* Orientation des éléments enfants en colonne */
+  align-items: center;       /* Centrage des éléments enfants sur l'axe transversal */
+  justify-content: center;   /* Centrage des éléments enfants sur l'axe principal si vous voulez également centrer verticalement */
+  height: 20vh;             /* Hauteur optionnelle pour centrer le contenu sur tout l'écran */
+}

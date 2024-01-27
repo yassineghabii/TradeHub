@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Authentification</title>
+  <!-- Ajoutez les liens vers vos bibliothèques CSS et JS ici, par exemple Bootstrap et Font Awesome -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      width: 400px;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h3, p {
+      margin-bottom: 20px;
+    }
+
+    .input-group-text {
+      background-color: #fff; /* Couleur de fond pour l'icône */
+    }
+
+    input[type="text"], input[type="password"] {
+      border-radius: 20px;
+    }
+
+    .login-button {
+      border-radius: 20px;
+    }
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #333; /* Couleur du texte */
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #666; /* Couleur du texte */
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="login-container">
+  <div class="text-center">
+    <h3>Authentification</h3>
+    <p>Connectez-vous à votre compte</p>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group input-container">
+      <label for="id_admin" style="font-size: 16px;">Identifiant</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-user"></i></span>
+        </div>
+        <input type="text" id="id_admin" class="form-control" style="font-size: 16px;" placeholder="Identifiant" formControlName="id_admin">
+      </div>
+      <small class="error-text" style="font-size: 14px; color: #d32f2f;">
+        L'identifiant est requis.
+      </small>
+
+      <!-- Messages d'erreur ici -->
+    </div>
+
+    <div class="form-group input-container">
+      <label for="password" style="font-size: 16px;">Mot de passe</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-key"></i></span>
+        </div>
+        <input type="password" id="password" class="form-control" style="font-size: 16px;" placeholder="Mot de passe" formControlName="password">
+      </div>
+      <!-- Messages d'erreur ici -->
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3 error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary login-button" style="font-size: 18px;">Connecter</button>
+    </div>
+    <div class="text-center">
+      <!-- Autres éléments ici si nécessaire -->
+    </div>
+  </form>
+</div>
+</body>
+
+</html>

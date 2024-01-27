@@ -1,0 +1,132 @@
+.wallet-container {
+  background-color: #F4F4F4;
+  border: 1px solid #E7E7E7;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+.wallet-details-label, .wallet-details-balance {
+  flex: 1; /* Distribuer l'espace également */
+  text-align: center; /* Centrer le texte */
+  margin: 10px 20px; /* Espacement autour des éléments */
+}
+
+
+/* Un style spécifique pour la quantité pour la distinguer, si nécessaire */
+.wallet-details-balance {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.wallet-title {
+  font-size: 24px;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.wallet-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; /* Assurez-vous que l'élément est un bloc pour appliquer les marges automatiques */
+  text-align: left;
+  margin-bottom: 40px;
+
+}
+.label1 {
+  font-weight: bold;
+  width: 1000000000000000000000000000000px; /* Utilisation de vw pour spécifier 90% de la largeur de la fenêtre */
+  font-size: 17px;
+  margin-bottom: 9px;
+
+  text-align: left;
+}
+.balance {
+  font-size: 18px;
+}
+.hidden-characters {
+  color: transparent; /* Rendre les caractères invisibles en les rendant de la même couleur que l'arrière-plan */
+}
+/* Styles pour améliorer l'affichage du message */
+.app-description {
+  font-size: 18px; /* Taille de la police */
+  line-height: 1.5; /* Hauteur de ligne pour un espacement confortable entre les lignes */
+  text-align: left; /* Centrage du texte */
+  color: #333; /* Couleur du texte */
+  margin-bottom: 20px; /* Marge en bas du message */
+}
+
+.date {
+  font-style: italic;
+}
+
+.status {
+  color: #00A676;
+}
+
+.token {
+  font-family: monospace;
+  word-break: break-all;
+}
+
+.type {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.hidden {
+  display: none;
+}
+.custom-dialog-container {
+  background: rgba(0, 0, 0, 0.5); /* Fond assombri */
+  border-radius: 10px;
+}
+
+.custom-backdrop {
+  background: rgba(0, 0, 0, 0.5); /* Fond assombri */
+}
+.no-scroll {
+  overflow: hidden !important;
+}
+.content-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Wrap the items when the width is too small */
+  gap: 20px; /* Provide some space between SVG and table */
+}
+
+.svg-container {
+  flex-basis: 50%; /* allocates 50% of the horizontal space for the SVG if possible */
+  max-width: 500px;
+  margin-right: 120px; /* Ajoute un espace de 20px à droite du conteneur SVG */
+
+}
+
+.table-container {
+  flex-basis: 24%; /* allocates 50% of the horizontal space for the table if possible */
+  text-align: center;
+
+}
+.table {
+  text-align: center;
+
+}
+@media (max-width: 768px) {
+  /* On small screens, stack the SVG and the table vertically */
+  .content-center {
+    flex-direction: column;
+  }
+}

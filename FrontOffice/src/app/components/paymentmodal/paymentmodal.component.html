@@ -1,0 +1,66 @@
+<div class="stripe-form main-container container-space">
+  <div class="close-icon-container" (click)="closePaymentModal()">
+    <mat-icon>close</mat-icon>
+  </div>
+
+  <form [formGroup]="paymentForm">
+
+    <div class="form-group">
+      <label for="number" class="stripe-label">Numéro de carte</label>
+      <div class="input-container stripe-input-container">
+        <input matInput type="text" id="number" formControlName="number" placeholder="1234 5678 9012 3456" class="stripe-input" maxlength="16">
+        <div class="card-icons-container">
+          <img src="assets/img/visa.png" alt="Visa" class="card-icon">
+          <img src="assets/img/mastercard.png" alt="MasterCard" class="card-icon">
+          <img src="assets/img/unionpay.png" alt="UnionPay" class="card-icon">
+          <img src="assets/img/amex.png" alt="American Express" class="card-icon">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="expMonth" class="stripe-label">Date d'expiration</label>
+      <div class="expiry-date">
+        <input matInput type="text" id="exp_month" formControlName="exp_month" placeholder="MM" maxlength="2" class="stripe-input">
+        <span>/</span>
+        <input matInput type="text" id="exp_year" formControlName="exp_year" placeholder="YY" maxlength="2" class="stripe-input">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cvc" class="stripe-label">Code de sécurité</label>
+      <input matInput type="text" id="cvc" formControlName="cvc" placeholder="CVC" maxlength="3" class="stripe-input">
+    </div>
+
+    <div class="form-group">
+      <label for="currency" class="stripe-label">Devise</label>
+      <mat-select id="currency" formControlName="currency" class="stripe-input" placeholder="Choisissez votre devise">
+        <mat-option disabled selected>Choisissez votre devise</mat-option>
+        <mat-option *ngFor="let currency of supportedCurrencies" [value]="currency">{{ currency }}</mat-option>
+      </mat-select>
+    </div>
+
+    <div class="form-group">
+      <label for="amount" class="stripe-label">Montant</label>
+      <div class="input-container">
+        <input matInput type="text" id="amount" formControlName="amount" placeholder="Montant à charger" class="stripe-input">
+        <span class="currency-symbol">{{ cardDetails.currency }}</span>
+      </div>
+    </div>
+
+    <!-- Bouton de chargement -->
+    <button mat-raised-button color="primary" class="w-30 mt-2" (click)="chargeWallet()">
+      Charger
+    </button>
+
+    <!-- Conteneur du timer -->
+    <div class="timer-container">
+      <!-- Affichage du temps restant si supérieur à zéro -->
+      <p *ngIf="remainingTime > 0" class="timer-text">Temps restant : {{ formatTime(remainingTime) }}</p>
+      <!-- Message de temps écoulé si le temps est inférieur ou égal à zéro -->
+      <p *ngIf="remainingTime <= 0" class="timer-text">Temps écoulé</p>
+    </div>
+
+  </form>
+
+</div>

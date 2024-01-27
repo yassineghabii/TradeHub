@@ -1,0 +1,345 @@
+<style>
+    /* Style de base pour les champs de date */
+input[type="date"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style lorsque le champ de date est en focus */
+input[type="date"]:focus {
+  border-color: #007bff; /* Couleur de bordure au focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre au focus */
+}
+
+/* Style pour le texte à l'intérieur du champ de date */
+input[type="date"]::placeholder {
+  color: #888; /* Couleur du texte de l'espace réservé */
+}
+
+/* Style pour le bouton d'effacement de la date */
+input[type="date"]::-webkit-clear-button {
+  display: none; /* Masquer le bouton d'effacement */
+}
+
+/* Style pour le bouton du calendrier de sélection */
+input[type="date"]::-webkit-inner-spin-button {
+  display: none; /* Masquer le bouton du calendrier */
+}
+    /* Réduire la largeur du calendrier à 80% de la largeur parente */
+    .pff {
+  text-align: center; /* Centre le texte horizontalement */
+}
+.pfff {
+  display: inline-block; /* Assure que le texte est centré horizontalement */
+}
+
+.container {
+    width: 80%;
+}
+.custom-hr {
+  background-color: #2041d1; /* Noir foncé */
+  height: 2px; /* Épaisseur de la ligne */
+}
+/* Réduire la hauteur du calendrier à 400 pixels */
+full-calendar {
+    height: 400px;
+    margin: 20px;
+    padding: 10px;
+}
+    .button {
+      background-color: #b63100;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .button1{
+      background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(209, 54, 54);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+    }
+    h3{
+      display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  background-color:DodgerBlue;
+  text-align:center
+    }
+    .modalDialog {
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 1);
+        z-index: 99999;
+        opacity: 0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+      }
+      .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .modalDialog > div {
+        width: 400px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: -moz-linear-gradient(#0d747b, #01a6b2);
+        background: -webkit-linear-gradient(#2edbe8, #01a6b2);
+        background: -o-linear-gradient(#2edbe8, #01a6b2);
+      }
+      .close {
+        background: #606061;
+        color: #ffffff;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+      }
+      .close:hover {
+        background: #6ed1d8;
+      }
+    </style>
+ 
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="row" class="section-padding-bottom : 5px">
+                    </div>
+                    <div class="header">
+                        <h4 class="title">Formulaire ajout des Supports pédagogique</h4>  
+                    </div>
+                    <div class="content">
+                      
+                        <form #myForm="ngForm">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Nom </label>
+                                        <input type="text" class="form-control" placeholder="Entrer le nom du support" name="nom"   #nom="ngModel"  [(ngModel)] = "Support.nom">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input type="text" class="form-control" placeholder="Entrer la description du suppport" name="description"   #description="ngModel"  [(ngModel)] = "Support.description" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Type du support </label>
+                                        <select id="input-last-name" class="form-control form-control-alternative" name="type" [(ngModel)]="Support.type" placeholder="Selectionner le type ..">
+                                        <option value="" disabled selected>Selectionner le type de support </option>
+                                        <option value="VIDEO">VIDEO</option>
+                                        <option value="LIVRE">LIVRE</option>
+                                        <option value="ARTICLE">ARTICLE</option>                 
+                                        </select>      
+                                     </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Lien du media</label>
+                                        <!--<input type="text" class="form-control" placeholder="Entrer lien image ou video du support" name="medialink"   #medialink="ngModel"  [(ngModel)] = "Support.medialink" >-->
+                                        <input type="file"  (change)="readUrl($event)" accept="image/*, video/*" name="medialink"   #medialink="ngModel"  [(ngModel)] = "Support.medialink">
+                                        <img [src]="url">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary" (click)="myForm.reset()">clear form</button>
+                            <button type="submit" class="btn btn-primary pull-right" (click) = "addSupport()">Ajouter</button>
+                            <br>
+                            <div class="clearfix"></div>
+                        </form>
+                          </div>
+                          
+                         
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="https://da32ev14kd4yl.cloudfront.net/versioned/boostyourbiz/BYL/Innovations%20Pdagogiques%20peu%20Coteuses.jpg" alt="..."/>
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <a href="#">
+                              <br/>
+                              <br/>
+                              <br/>
+                              <br/>
+                              <br/>          
+                                <h4 class="title">Gestion des supports pédagogique<br />
+                             
+                                    <small>Mohamed Aziz Jaziri</small>
+                                </h4>
+                            </a>
+                        </div>
+                        <p class="description text-center"> Bibliothèque de supports pédagogiques, y compris des vidéos, des articles et des livres électroniques.
+                        </p>
+                    </div>
+                    <hr>
+                
+                </div>
+            </div>
+        </div>
+        
+   </div>
+  
+   <hr class="my-4 custom-hr" />
+   <div class="content table-responsive table-full-width">
+    <div class="header pff">
+        <h4 class="title ">Liste des supports pédagogique</h4>
+    </div>
+    <form>
+      <div class="form-group d-flex align-items-center">
+        <select id="input-last-name" class="form-control form-control-alternative mr-2" name="type" [(ngModel)]="ttype" (ngModelChange)="getSupportBytype()">
+          <option value="" disabled selected>Selectionner le type de support</option>
+          <option value="VIDEO">VIDEO</option>
+          <option value="LIVRE">LIVRE</option>
+          <option value="ARTICLE">ARTICLE</option>
+        </select>
+      </div>
+    </form>
+    <table class="table table-hover table-striped">
+          <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Date de publication</th>
+                <th>Type</th>
+                <th>Lien media</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let i of listSupport">
+                <td>{{i.id}}</td>
+                <td>{{i.nom}}</td>
+                <td>{{i.description}}</td>
+                <td>{{i.date_publication}}</td>
+                <td>{{i.type}}</td>
+                <!--<td>{{i.medialink}}</td>-->
+                <td>
+                    <ng-container *ngIf="isImage(i.medialink); else videoTemplate">
+                        <img [src]="i.medialink" alt="Image" width="100" height="100">
+                    </ng-container>
+                    <ng-template #videoTemplate>
+                        <video width="320" height="240" controls>
+                            <source [src]="i.medialink" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </ng-template>
+                </td>
+                  <td><button type="submit" class="btn btn-secondary" (click)="deleteSupport(i.id)">delete</button></td>      
+                 <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="edit(i)">update</button></td>
+              </tr>
+          </tbody>
+    </table>
+</div>
+<hr class="my-4 custom-hr" />
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" >Type des supports pédagogique</button>
+
+</div>
+
+  <!--Modification support-->
+  <div class="modal" tabindex="-1" id="exampleModal" data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-right">Modification support pédagogique </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #updateForm="ngForm" (ngSubmit)="updateSupport()">
+                <div class="form-group">
+                  <label for="nom">Nom du support :</label>
+                  <input type="text" #nom [(ngModel)]="Supportupdate.nom" name="nom" id="nom" class="form-control"
+                    placeholder="nom du support">
+                </div>
+                <div class="form-group">
+                  <label for="description">Description du support :</label>
+                  <input type="text" #description [(ngModel)]="Supportupdate.description" name="description" id="description"
+                    class="form-control" placeholder="description du support">
+                </div>
+                <div class="form-group">
+                  <label for="type">Type du support :</label>
+                  <select id="input-last-name" class="form-control form-control-alternative" name="type" [(ngModel)]="Supportupdate.type" placeholder="Selectionner le type ..">
+                    <option value="VIDEO">VIDEO</option>
+                    <option value="LIVRE">LIVRE</option>
+                    <option value="ARTICLE">ARTICLE</option>                 
+                  </select>     
+                </div>
+  
+                <div class="form-group">
+                  <input type="submit" value="Update" class="btn btn-sm btn-primary" >
+                </div>
+    </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--stat support pédagogique-->
+  <div class="modal" tabindex="-1" id="exampleModal1" data-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Type des supports pédagogique </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+    
+        <div>
+          <canvas id="lineChart1" width="400" height="400"></canvas>
+        </div>
+
+  
+  
+      </div>
+    </div>
+  </div>
+</div>

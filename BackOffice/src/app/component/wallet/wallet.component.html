@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Portefeuilles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Importation de la police Roboto -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Ajout de la police Roboto */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        tbody {
+            display: block;
+            overflow-y: auto;
+        }
+
+        thead, tbody tr {
+            display: table;
+            width: 100%; /* 100% de la largeur du tableau */
+            table-layout: fixed; /* Afin que les largeurs des cellules soient cohérentes entre thead et tbody */
+
+        }
+        .content {
+            padding: 20px;
+            max-height: 700px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+            overflow-y: auto;
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        thead {
+            background-color: #f5f5f5;
+        }
+
+        th {
+            padding: 25px;
+            padding-bottom: 10px;
+            font-weight: 500; /* Moyennement gras pour la police Roboto */
+        }
+
+        .text-success {
+            color: green;
+        }
+
+        .text-danger {
+            color: red;
+        }
+
+        /* Styles pour le titre */
+        .title {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .search-container {
+            position: relative;
+            width: 20%; /* Ajustez cette valeur si nécessaire */
+            margin-right: 20px; /* marge à droite */
+            margin-left: 5px; /* marge à gauche */
+            margin-bottom: 1px; /* marge en bas pour espacer la barre de recherche du tableau */
+            display: inline-block; /* permettre à d'autres éléments de s'aligner à côté */
+        }
+
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            padding-right: 40px; /* Espace pour l'icône de recherche */
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #007BFF; /* Changer la couleur de la bordure au focus */
+            outline: none;
+        }
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #f5f5f5; /* Assure une couleur de fond pour l'en-tête lors du défilement */
+        }
+
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            cursor: pointer;
+        }
+        .material-icons:hover {
+            cursor: pointer;
+            color: #007BFF; /* ou toute autre couleur de votre choix */
+        }
+        th:nth-child(3), td:nth-child(3) { /* E-Mail */
+            width: 17%;
+        }
+
+        th:nth-child(8), td:nth-child(8), /* Actif? */
+        th:nth-child(10), td:nth-child(10) { /* Action */
+            width: 8%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Liste Des Portefeuilles</h4>
+                    </div>
+                    <!-- Zone de recherche -->
+                    <div class="search-container">
+                        <input class="search-input" type="text" [(ngModel)]="searchStr" (input)="searchWallets()" placeholder=" Rechercher Portefeuille...">
+                        <i class="material-icons search-icon">search</i>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                    <table class="table table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>CIN</th>
+                                <th>E-Mail</th>
+                                <th>Solde Réel</th>
+                                <th>Solde Virtuel</th>
+                                <th>Date de Création</th>
+                                <th>Type de Portefeuille</th>
+                                <th>Actif?</th>
+                                <th>Activer/Désactiver</th>
+                                <th>Action</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let wallet of filteredWallets">
+                                <td>{{ wallet.user.firstname }} {{ wallet.user.lastname }}</td>
+                                <td>{{ wallet.user.cin }}</td>
+                                <td>{{ wallet.user.email }}</td>
+                                <td>{{ wallet.Real_balance | number:'1.2-2' }} {{ wallet.Real_Currency }}</td>
+                                <td>{{ wallet.Virtual_balance | number:'1.2-2' }} {{ wallet.Virtual_Currency }}</td>
+                                <td>{{ wallet.createdAt }}</td>
+                                <td>{{ wallet.type }}</td>
+                                <td><i class="material-icons" [ngClass]="{'text-success': wallet.isActive, 'text-danger': !wallet.isActive}">{{wallet.isActive ? 'check_circle' : 'cancel'}}</i></td>
+                                <td (click)="toggleWalletStatus(wallet.id_wallet, wallet.isActive)">
+                                    <i class="material-icons">{{ wallet.isActive ? 'toggle_on' : 'toggle_off' }}</i>
+                                </td>
+                                <td>
+                                    <i class="material-icons text-danger" style="cursor:pointer;" (click)="deleteWallet(wallet.id_wallet)">delete</i>
+                                </td>
+
+                            </tr>
+                            </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

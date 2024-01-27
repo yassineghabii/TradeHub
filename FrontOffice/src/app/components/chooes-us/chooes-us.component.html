@@ -1,0 +1,30 @@
+<div class="container-fluid py-6 px-5">
+  <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+    <h1 class="display-5 mb-0">Pourquoi nous choisir ?</h1>
+    <hr class="w-25 mx-auto bg-primary">
+  </div>
+  <div class="row g-5">
+    <!-- Première colonne de services -->
+    <div class="col-lg-4">
+      <ng-container *ngFor="let item of servcies">
+        <app-chooes-us-box [data]="item"></app-chooes-us-box>
+      </ng-container>
+    </div>
+    <!-- Deuxième colonne de services -->
+    <div class="col-lg-4">
+      <ng-container *ngFor="let item of serviceTwo">
+        <app-chooes-us-box [data]="item"></app-chooes-us-box>
+      </ng-container>
+    </div>
+    <!-- Image et description supplémentaire -->
+    <div class="col-lg-4">
+      <div class="d-block bg-primary h-100 text-center">
+        <img class="img-fluid" src="../../../assets/images/3.jpg" alt="" width="300" height="200">
+        <div class="p-4">
+          <p class="text-white mb-4">Optez pour la meilleure plateforme de prévision de crédits. Notre technologie de pointe et notre expertise sont au service de votre avenir financier.</p>
+          <a href="http://localhost:4200/chatbot" class="btn btn-light py-md-3 px-md-5 rounded-pill mb-2">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

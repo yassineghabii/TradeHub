@@ -1,0 +1,59 @@
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ici est votre balise viewport -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet"> <!-- Font Poppins -->
+  </head>
+  
+  <body>
+  <div class="container-fluid bg-dark p-3 mb-1">
+    <div class="row">
+      <div class="col-12 text-center">
+        <i class="fa fa-line-chart fa-3x text-primary mb-3" aria-hidden="true"></i>
+  
+        <h1 class="display-3 text-white mb-1 animated fadeIn">Reclamation</h1> <!-- Animation fadeIn -->
+        <!--   <h2 class="display-5 text-primary mb-2">Demande de CrÃ©dit</h2>
+           <p class="lead text-white-50">Entrez vos informations pour obtenir une estimation rapide.</p>  -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- reclamation-form.component.html -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header" style="background-color: #152440; color: white;">
+            <h1 class="display-5 mb-0">Reclamation Form</h1>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="reclamationForm" (ngSubmit)="addReclamation()">
+              <!-- <div class="mb-3">
+                <label for="date" class="form-label">Date:</label>
+                <input type="date" id="date" formControlName="date" class="form-control" />
+              </div> -->
+  
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" formControlName="email" class="form-control" />
+              </div>
+  
+              <div class="mb-3">
+                <label for="email" class="form-label">Sujet:</label>
+                <input type="email" id="Sujet" formControlName="email" class="form-control" />
+              </div>
+  
+              <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea id="description" formControlName="description" class="form-control"></textarea>
+              </div>
+  
+              <!-- Add more fields if needed -->
+  
+              <button type="submit" [disabled]="!reclamationForm.valid" class="btn btn-primary" style="align-content: center">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

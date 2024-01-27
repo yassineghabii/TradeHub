@@ -1,0 +1,218 @@
+/* Ajoutez ces styles à votre fichier de styles CSS */
+
+.stripe-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000; /* assurez-vous que le modal est au-dessus de l'overlay */
+  max-width: 400px;
+  width: 100%; /* Ajoutez cette ligne pour occuper la largeur totale */
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.close-icon-container {
+  position: absolute;
+  top: 10px; /* Ajustez la valeur pour définir la distance par rapport au haut */
+  right: 10px; /* Ajustez la valeur pour définir la distance par rapport à droite */
+  cursor: pointer;
+}
+.expiry-date {
+  display: flex;
+  align-items: center;
+}
+
+.expiry-date input[type="text"] {
+  margin-right: 5px; /* Ajoutez une marge entre les champs MM et YY */
+}
+
+.close-icon {
+  color: red; /* Couleur de l'icône en rouge */
+}
+
+
+.stripe-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+.input-container {
+  position: relative;
+}
+
+
+
+.stripe-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+}
+
+.expiry-date {
+  display: flex;
+}
+
+.expiry-date input {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.currency-symbol {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #333;
+}
+
+.pay-button {
+  background-color: #008CBA;
+  color: #fff;
+  padding: 15px 20px;
+  border: 1px solid #008CBA;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  display: block; /* Affiche le bouton en tant que bloc */
+  margin: 0 auto; /* Utilise la marge automatique pour centrer horizontalement */
+  width: 15%; /* Ajuste la largeur du bouton */
+
+}
+
+.pay-button:hover {
+  background-color: #005f73;
+  border-color: #005f73;
+}/* Ajoutez ces styles à votre fichier de styles CSS */
+
+
+
+
+.input-container {
+  position: relative;
+}
+
+
+/* Ajoutez ces styles pour positionner la dernière image exactement en dessous du champ */
+.stripe-input-container {
+  position: relative;
+}
+
+.card-icons-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap; /* Permet aux icônes de passer à la ligne si nécessaire */
+}
+
+.card-icon {
+  width: 25px; /* Ajustez la taille selon vos besoins */
+  margin-left: 5px; /* Ajoutez un espacement entre les icônes */
+}
+
+.input-container {
+  position: relative;
+}
+
+.stripe-input {
+  padding: 15px;
+  width: calc(100% - 0px); /* Ajustez la largeur pour compenser la marge des icônes */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Ajoutez ces styles à votre fichier de styles CSS */
+
+.pay-button {
+  background-color: #152440; /* Couleur du thème du header (bg-dark) */
+  color: #fff;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.pay-button:hover {
+  background-color: #292b2c; /* Couleur de survol du bouton */
+}
+
+.lock-icon {
+  margin-right: 8px; /* Ajustez l'espacement entre l'icône et le texte selon vos besoins */
+}
+
+
+
+
+
+/* Ajoutez ces styles à votre fichier de styles CSS */
+
+.main-container {
+  margin: auto; /* Cela centre le conteneur horizontalement */
+  padding: 20px;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.container-space {
+  margin-top: 50px; /* Ajoutez un espace en haut du conteneur */
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* ajustez l'opacité ici selon vos préférences */
+  z-index: 9999; /* assurez-vous que l'overlay est au-dessus de tout le reste */
+}
+
+.stripe-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000; /* assurez-vous que le modal est au-dessus de l'overlay */
+}
+
+/* Ajoutez un style pour désactiver le défilement lorsque le modal est ouvert */
+.no-scroll {
+  overflow: hidden !important;
+}
+
+.hidden {
+  display: none;
+}
+/* Ajoutez ces styles à votre fichier CSS */
+
+.custom-dialog-container {
+  background: rgba(0, 0, 0, 0.5); /* Fond assombri */
+  border-radius: 10px;
+}
+
+.custom-backdrop {
+  background: rgba(0, 0, 0, 0.5); /* Fond assombri */
+}

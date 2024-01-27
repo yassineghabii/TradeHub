@@ -1,0 +1,155 @@
+/* Ajoutez ces styles à votre fichier de styles CSS */
+
+.stripe-form {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.stripe-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+.input-container {
+  position: relative;
+}
+
+
+
+.stripe-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+}
+
+.expiry-date {
+  display: flex;
+}
+
+.expiry-date input {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.currency-symbol {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #333;
+}
+
+.pay-button {
+  background-color: #008CBA;
+  color: #fff;
+  padding: 15px 20px;
+  border: 1px solid #008CBA;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.pay-button:hover {
+  background-color: #005f73;
+  border-color: #005f73;
+}
+
+/* Ajoutez ces styles à votre fichier de styles CSS */
+
+
+
+
+.input-container {
+  position: relative;
+}
+
+
+/* Ajoutez ces styles pour positionner la dernière image exactement en dessous du champ */
+.stripe-input-container {
+  position: relative;
+}
+
+.card-icons-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap; /* Permet aux icônes de passer à la ligne si nécessaire */
+}
+
+.card-icon {
+  width: 25px; /* Ajustez la taille selon vos besoins */
+  margin-left: 5px; /* Ajoutez un espacement entre les icônes */
+}
+
+.input-container {
+  position: relative;
+}
+
+.stripe-input {
+  padding: 15px;
+  width: calc(100% - 0px); /* Ajustez la largeur pour compenser la marge des icônes */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Ajoutez ces styles à votre fichier de styles CSS */
+
+.pay-button {
+  background-color: #152440; /* Couleur du thème du header (bg-dark) */
+  color: #fff;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.pay-button:hover {
+  background-color: #292b2c; /* Couleur de survol du bouton */
+}
+
+.lock-icon {
+  margin-right: 8px; /* Ajustez l'espacement entre l'icône et le texte selon vos besoins */
+}
+
+
+
+
+
+/* Ajoutez ces styles à votre fichier de styles CSS */
+
+.main-container {
+  margin: auto; /* Cela centre le conteneur horizontalement */
+  padding: 20px;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.container-space {
+  margin-top: 50px; /* Ajoutez un espace en haut du conteneur */
+}

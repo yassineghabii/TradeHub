@@ -1,0 +1,74 @@
+
+<div>
+    <h1>Reclamations</h1>
+
+    <br />
+    <button type="button" class="btn btn-primary" (click)="showProcessedReclamations = !showProcessedReclamations">
+        Réclamations Traitées
+    </button>
+    <button type="button" class="btn btn-primary" (click)="showPendingReclamations = !showPendingReclamations" >
+       Réclamations en Attente
+    </button>
+
+    <br /><br />
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Email</th>
+            <th>Description</th>
+            <th>Statut</th>
+            <!-- Add other properties here -->
+        </tr>
+        </thead>
+        <tbody *ngIf="showProcessedReclamations">
+        <tr *ngFor="let reclamation of processedReclamations">
+            <td>{{ reclamation.id }}</td>
+            <td>{{ reclamation.date }}</td>
+            <td>{{ reclamation.email }}</td>
+            <td>{{ reclamation.description }}</td>
+            <td>{{ reclamation.status }}</td>
+
+            <td>
+                <button (click)="updateReclamation(reclamation.id, { status: 'RESOLVED' })" class="btn btn-success">Resolve</button>  </td>
+            <td>
+                <button (click)="deleteReclamation(reclamation.id)" class="btn btn-danger">Delete</button> </td>
+
+            <!-- Add other property fields here -->
+        </tr>
+        </tbody>
+        <tbody *ngIf="showPendingReclamations">
+        <tr *ngFor="let reclamation of pendingReclamations">
+            <td>{{ reclamation.id }}</td>
+            <td>{{ reclamation.date }}</td>
+            <td>{{ reclamation.email }}</td>
+            <td>{{ reclamation.description }}</td>
+            <td>{{ reclamation.status }}</td>
+
+            <td>
+                <button (click)="updateReclamation(reclamation.id, { status: 'RESOLVED' })" class="btn btn-success">Resolve</button>
+                <button (click)="deleteReclamation(reclamation.id)" class="btn btn-danger">Delete</button>
+            </td>
+            <!-- Add other property fields here -->
+        </tr>
+        </tbody>
+        <tbody *ngIf="!showProcessedReclamations && !showPendingReclamations">
+        <tr *ngFor="let reclamation of reclamations">
+            <td>{{ reclamation.id }}</td>
+            <td>{{ reclamation.date }}</td>
+            <td>{{ reclamation.email }}</td>
+            <td>{{ reclamation.description }}</td>
+            <td>{{ reclamation.status }}</td>
+
+            <td>
+                <button (click)="updateReclamation(reclamation.id, { status: 'RESOLVED' })" class="btn btn-success">Resolve</button>
+                <button (click)="deleteReclamation(reclamation.id)" class="btn btn-danger">Delete</button>
+            </td>
+            <!-- Add other property fields here -->
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+

@@ -1,0 +1,71 @@
+/* trade.component.css */
+
+.market-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #152440; /* Couleur de fond sombre */
+  color: #fff; /* Couleur du texte blanc ou clair */
+}
+.form-content {
+  max-height: 80vh; /* Ajustez la taille maximale du formulaire selon vos besoins */
+  overflow-y: auto; /* Ajoutez une barre de défilement vertical si le contenu dépasse la taille maximale */
+}
+
+.market-table th {
+  background-color: #152440; /* Couleur de fond sombre */
+}
+
+.market-table tbody tr:hover {
+  background-color: #152440; /* Couleur de fond sombre */
+}
+.title {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.text {
+  font-size: 1rem; /* Taille réduite du texte */
+  color: #777;
+}
+.container-fluid {
+  background-color: #343a40;
+  padding: 20px 0;
+  text-align: center;
+}
+.market-table th,tbody,td {
+  padding: 12px;
+  text-align: center; /* Ajout de la centralisation du texte */
+  border-bottom: 1px solid #ddd;
+
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .fade-in-out {
+    animation: fadeInOut 3s ease-in-out infinite;
+  }
+  .d-flex.justify-content-between.mb-3 button {
+    margin-right: 0;
+  }
+
+  .d-flex.justify-content-between {
+    margin-bottom: 0;
+  }
+  /* Styles pour le bouton actif, lumineux */
+  .active-btn {
+    opacity: 1; /* Pleinement opaque pour l'apparence active */
+  }
+
+  /* Styles pour simuler l'apparence désactivée mais en restant cliquable */
+  .disabled-look {
+    opacity: 0.5; /* Semi-transparent pour l'apparence "désactivée", différent du vrai état disabled */
+    cursor: not-allowed; /* Optionnel: changer le curseur pour simuler l'état désactivé */
+  }
+}

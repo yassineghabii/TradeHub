@@ -1,0 +1,29 @@
+.profil-container {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 20px;
+    text-align: left;
+}
+
+.profile-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.profile-list {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-item {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Style pour le mot de passe masqué */
+.profile-item strong:last-child {
+    font-size: 14px;
+    color: #888;
+}

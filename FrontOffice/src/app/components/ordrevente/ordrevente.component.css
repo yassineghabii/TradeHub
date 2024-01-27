@@ -1,0 +1,78 @@
+.container-fluid {
+  width: 100%;
+  background-color: #343a40;
+  color: #6c757d;
+  padding: 1rem; /* Added padding for aesthetic spacing */
+}
+
+/* Styling for the icons, titles, subtitles, and text */
+.container-fluid i,
+.container-fluid .title,
+.container-fluid .subtitle,
+.container-fluid .text {
+  display: block; /* makes sure it takes the full width */
+  text-align: center;
+}
+
+/* Titles and text specifically */
+.container-fluid .title {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.container-fluid .subtitle {
+  color: #adb5bd;
+  margin-bottom: 0.25rem;
+}
+
+.container-fluid .text {
+  color: #ced4da;
+}
+
+/* Select container at the top of the tables */
+.select-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+/* The select element in the form */
+.form-select {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Ensuring that tables are responsive */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Style for the tables and cells to center content */
+.table {
+  width: 100%;
+  margin: auto;
+}
+
+.table th,
+.table td {
+  text-align: center; /* Center align table headers and cells */
+  vertical-align: middle; /* Align cells to the middle of the row */
+}
+.title {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+.text {
+  font-size: 1rem; /* Taille réduite du texte */
+  color: #777;
+}
+.container-fluid {
+  background-color: #343a40;
+  padding: 20px 0;
+  text-align: center;
+}

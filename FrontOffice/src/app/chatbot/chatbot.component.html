@@ -1,0 +1,30 @@
+<!-- Début Chatbot -->
+<div class="container mt-5">
+  <div class="chat-container bg-white rounded shadow">
+    <div class="chat-header bg-dark rounded-top">
+      <h2 class="text-center text-white py-2">Assistance Virtuelle</h2>
+    </div>
+    <div class="chat-content p-3">
+      <div *ngFor="let msg of allMessages" [class.bg-user]="msg.sender === 'user'" [class.bg-bot]="msg.sender === 'bot'">
+        <div class="message" [class.bg-bot]="msg.sender === 'bot'" [class.bg-user]="msg.sender === 'user'">
+          {{ msg.message }}
+        </div>
+        <div class="timestamp">{{ msg.time }}</div>
+      </div>
+    </div>
+    <div class="chat-input p-3">
+      <textarea class="form-control mb-2" [(ngModel)]="userMessage" (keydown.enter)="onSendMessage(); $event.preventDefault()" placeholder="Tapez votre message ici..."></textarea>
+      <button class="btn btn-dark" (click)="onSendMessage()">Envoyer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Ajout du formulaire pour l'envoi de fichier -->
+<div class="container mt-5">
+  <form (ngSubmit)="onUploadFile()" class="text-center">
+    <input class="form-control mb-3" #fileInput type="file" name="csv-file" accept=".csv">
+    <button class="btn btn-primary" type="submit">Analyser</button>
+  </form>
+  <button class="btn btn-primary" (click)="startSpeechRecognition()"><i class="fa fa-microphone"></i></button> <!-- Bouton du microphone -->
+
+</div>

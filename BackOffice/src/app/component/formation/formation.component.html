@@ -1,0 +1,409 @@
+<style>
+    /* Style de base pour les champs de date */
+input[type="date"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style lorsque le champ de date est en focus */
+input[type="date"]:focus {
+  border-color: #007bff; /* Couleur de bordure au focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre au focus */
+}
+
+/* Style pour le texte à l'intérieur du champ de date */
+input[type="date"]::placeholder {
+  color: #888; /* Couleur du texte de l'espace réservé */
+}
+
+/* Style pour le bouton d'effacement de la date */
+input[type="date"]::-webkit-clear-button {
+  display: none; /* Masquer le bouton d'effacement */
+}
+
+/* Style pour le bouton du calendrier de sélection */
+input[type="date"]::-webkit-inner-spin-button {
+  display: none; /* Masquer le bouton du calendrier */
+}
+    /* Réduire la largeur du calendrier à 80% de la largeur parente */
+    .pff {
+  text-align: center; /* Centre le texte horizontalement */
+}
+.pfff {
+  display: inline-block; /* Assure que le texte est centré horizontalement */
+}
+
+.container {
+    width: 80%;
+}
+.custom-hr {
+  background-color: #2041d1; /* Noir foncé */
+  height: 2px; /* Épaisseur de la ligne */
+}
+/* Réduire la hauteur du calendrier à 400 pixels */
+full-calendar {
+    height: 400px;
+    margin: 20px;
+    padding: 10px;
+}
+    .button {
+      background-color: #b63100;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .button1{
+      background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(209, 54, 54);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+    }
+    h3{
+      display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  background-color:DodgerBlue;
+  text-align:center
+    }
+    .modalDialog {
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 1);
+        z-index: 99999;
+        opacity: 0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+      }
+      .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .modalDialog > div {
+        width: 400px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: -moz-linear-gradient(#0d747b, #01a6b2);
+        background: -webkit-linear-gradient(#2edbe8, #01a6b2);
+        background: -o-linear-gradient(#2edbe8, #01a6b2);
+      }
+      .close {
+        background: #606061;
+        color: #ffffff;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+      }
+      .close:hover {
+        background: #6ed1d8;
+      }
+    </style>
+ 
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="row" class="section-padding-bottom : 5px">
+                    </div>
+                    <div class="header">
+                        <h4 class="title">Formulaire ajout des formations</h4>  
+                    </div>
+                    <div class="content">
+                      
+                        <form #myForm="ngForm">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Nom </label>
+                                        <input type="text" class="form-control" placeholder="Entrer le nom formation" name="nom"   #nom="ngModel"  [(ngModel)] = "Formation.nom">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Thematique</label>
+                                        <input type="text" class="form-control" placeholder="Entrer la thematique de la formation" name="thematique"   #thematique="ngModel"  [(ngModel)] = "Formation.thematique" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input type="text" class="form-control" placeholder="Entrer la description de la formation" name="description"   #description="ngModel"  [(ngModel)] = "Formation.description">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date de début de la formation</label>
+                                        <input type="date" class="form-control" placeholder="Entrer la date de début " name="date_debut"   #date_debut="ngModel"  [(ngModel)] = "Formation.date_debut">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date de fin de la formation</label>
+                                        <input type="date" class="form-control" placeholder="Entrer la date de fin " name="date_fin"   #date_fin="ngModel"  [(ngModel)] = "Formation.date_fin">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Capacité des participants</label>
+                                        <input type="number" class="form-control" placeholder="Entrer le nombre de participants max " name="Capacite"   #capacite="ngModel"  [(ngModel)] = "Formation.capacite">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Organisateur de la formation</label>
+                                        <input type="text" class="form-control" placeholder="Entrer le nom et prenom de l'Organisateur" name="organisateur"   #organisateur="ngModel"  [(ngModel)] = "Formation.organisateur" >
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary" (click)="myForm.reset()">clear form</button>
+                            <button type="submit" class="btn btn-primary pull-right" (click) = "addFormation()">Ajouter</button>
+                            <br>
+                            <div class="clearfix"></div>
+                        </form>
+                          </div>
+                          
+                         
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="https://th.bing.com/th/id/OIP.Hvx2xUQUDqKI_gTfpRD2TgHaBl?pid=ImgDet&w=1920&h=412&rs=1" alt="..."/>
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <a href="#">
+                                <hr>
+                                <hr>
+                                <hr>
+                                <hr> 
+                                <hr>            
+                                <h4 class="title">Gestion des formations<br />
+                              
+                                    <small>Mohamed Aziz Jaziri</small>
+                                </h4>
+                            </a>
+                        </div>
+                        <p class="description text-center">Explorez nos formations interactifs pour acquérir une compréhension approfondie des concepts de trading et d'investissement et ceux via nos réunions, conférences et séminaires.
+                        </p>
+                    </div>
+                    <hr>
+                
+                </div>
+            </div>
+        </div>
+        
+   </div>
+  
+   <hr class="my-4 custom-hr" />
+   <div class="content table-responsive table-full-width">
+    <div class="header pff">
+        <h4 class="title ">Liste des formations</h4>
+    </div>
+    <div class="form-group">
+        <label>Date de début :</label>
+        <input type="date"  [(ngModel)]="date_Debut">
+      </div>
+      
+      <div class="form-group">
+        <label>Date de fin :</label>
+        <input type="date"  [(ngModel)]="date_Fin">
+      </div>
+      
+      <button class="btn btn-primary" (click)="getFormationPeriode(date_Debut, date_Fin)">Rechercher</button>
+    <table class="table table-hover table-striped">
+          <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Thematique</th>
+                <th>Date debut</th>
+                <th>Date fin</th>
+                <th>Capacite max</th>
+                <th>Organisateur</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let i of listFormation">
+                <td>{{i.id}}</td>
+                <td>{{i.nom}}</td>
+                <td>{{i.description}}</td>
+                <td>{{i.thematique}}</td>
+                <td>{{i.date_debut}}</td>
+                <td>{{i.date_fin}}</td>
+                <td>{{i.capacite}}</td>
+                <td>{{i.organisateur}}</td>
+                  <td><button type="submit" class="btn btn-secondary" (click)="deleteFormation(i.id)">delete</button></td>      
+                 <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="edit(i)">update</button></td>
+                 <td><button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal2" (click)="getParticipant(i.id)" >Afficher liste des participants</button></td>      
+                </tr>
+          </tbody>
+    </table>
+</div>
+<hr class="my-4 custom-hr" />
+   <div class="row doctors-team-style-2" >
+    <div class="container mt-5">
+       <h3>Calendrier des formations & planning</h3>
+        <full-calendar  [options]='calendarOptions' ></full-calendar>
+    </div>
+</div>
+<hr class="my-4 custom-hr" />
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" >Line Chart Formations</button>
+
+
+</div>
+  <!--Modification formation-->
+ <div class="modal" tabindex="-1" id="exampleModal" data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-right">Modification formation </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #updateForm="ngForm" (ngSubmit)="updateFormation()">
+                <div class="form-group">
+                  <label for="nom">Nom de la formation :</label>
+                  <input type="text" #nom [(ngModel)]="Formationupdate.nom" name="nom" id="nom" class="form-control"
+                    placeholder="nom de la formation">
+                </div>
+                <div class="form-group">
+                  <label for="description">Description de la formation :</label>
+                  <input type="text" #description [(ngModel)]="Formationupdate.description" name="description" id="description"
+                    class="form-control" placeholder="description de la formation">
+                </div>
+                <div class="form-group">
+                  <label for="thematique">thematique de la formation :</label>
+                  <input type="text" #thematique [(ngModel)]="Formationupdate.thematique" name="thematique" id="thematique"
+                    class="form-control" placeholder="thematique de la formation">
+                </div>
+                <div class="form-group">
+                  <label for="date_debut">Date de debut de la formation :</label>
+                  <input type="date" #date_debut [(ngModel)]="Formationupdate.date_debut" name="date_debut" id="date_debut"
+                    class="form-control" placeholder="date de debut de la formation">
+                </div>
+                <div class="form-group">
+                  <label for="date_fin">Date de fin de la formation :</label>
+                  <input type="date" #date_debut [(ngModel)]="Formationupdate.date_fin" name="date_fin" id="date_fin"
+                    class="form-control" placeholder="date de fin de la formation">
+                </div>
+                <div class="form-group">
+                  <label for="capacite">Capacite de la formation :</label>
+                  <input type="number" #capacite [(ngModel)]="Formationupdate.capacite" name="capacite" id="capacite"
+                    class="form-control" placeholder="capacite de la formation">
+                </div>
+                <div class="form-group">
+                  <label for="organisateur">Organisateur de la formation :</label>
+                  <input type="text" #organisateur [(ngModel)]="Formationupdate.organisateur" name="organisateur" id="organisateur"
+                    class="form-control" placeholder="organisateur de la formation">
+                </div>
+  
+                <div class="form-group">
+                  <input type="submit" value="Update" class="btn btn-primary" >
+                </div>
+    </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Affichage des participants a un évenement-->
+<div class="modal" tabindex="-1" id="exampleModal2" data-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-right">Liste des participants</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="content table-responsive table-full-width">
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>CIN</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of ListParticipant">
+                  <td>{{i.firstName}}</td>
+                  <td>{{i.lastName}}</td>
+                  <td>{{i.email}}</td>
+                  <td>{{i.cin}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--stat formations-->
+  <div class="modal" tabindex="-1" id="exampleModal1" data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Line chart sur les formations </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+      
+          <div>
+            <canvas id="formationChart" width="400" height="400"></canvas>
+          </div>
+  
+    
+    
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,103 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste Des Cartes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* CSS pour le corps de la page */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* CSS pour la barre de recherche */
+        .search-container {
+            position: relative;
+            width: 20%;
+            margin-right: 20px;
+            margin-left: 5px;
+            margin-bottom: 1px;
+            display: inline-block;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            padding-right: 40px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .search-input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        /* CSS pour les cartes */
+        /* ... (votre CSS pour les cartes) ... */
+    </style>
+</head>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Liste Des Cartes</h4>
+                    </div>
+                    <div class="search-container">
+                        <input class="search-input" type="text" [(ngModel)]="searchStr" (input)="searchCards()" placeholder="Rechercher Carte...">
+                        <i class="material-icons search-icon">search</i>
+                    </div>
+
+                    <div class="content card-container">
+                        <div class="credit-card" *ngFor="let card of listCards">
+                            <div class="credit-card-logo">
+                                <!-- Remplacement de la classe pour FontAwesome 4.x -->
+                                <i class="fa fa-credit-card"></i>
+                            </div>
+                            <div class="credit-card-number">
+                                {{ card.number }}
+                            </div>
+                            <div class="credit-card-details">
+                                <div>
+                                    <span>Expire fin</span>
+                                    <span>{{ card.exp_month }}/{{ card.exp_year }}</span>
+                                </div>
+                                <div>
+                                    {{ card.type_de_carte }}
+                                </div>
+                            </div>
+                            <div class="credit-card-name">
+                                {{card.prenom_nom}}
+                            </div>
+                            <!-- Ajoutez cette partie pour l'icône de suppression -->
+                            <div class="card-delete-icon" (click)="deleteCard(card.id_card)">
+                                <i class="fa fa-trash text-danger"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

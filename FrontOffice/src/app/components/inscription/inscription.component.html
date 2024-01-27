@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Formulaire d'inscription</title>
+  <!-- Ajoutez vos liens CDN pour Angular, Angular Material, etc. ici -->
+</head>
+<body>
+<div class="center-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div style="margin-bottom: 84px;"></div> <!-- Ajout d'un espace de 20 pixels, vous pouvez ajuster cette valeur -->
+        <br><br><br>
+        <h3 class="text-center">Rejoignez Nous</h3>
+        <div style="margin-bottom: 75px;"></div> <!-- Ajout d'un espace de 20 pixels, vous pouvez ajuster cette valeur -->
+
+        <div class="card shadow-lg">
+          <div class="card-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+              <div class="row">
+                <!-- Colonnes de gauche -->
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Nom</mat-label>
+                      <input matInput type="text" placeholder="Entrez votre nom" formControlName="lastname">
+                      <mat-error *ngIf="registrationForm.get('lastname').touched && registrationForm.get('lastname').hasError('required')">Le nom est obligatoire.</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Email</mat-label>
+                      <input matInput type="email" placeholder="Entrez votre email" formControlName="email">
+                      <mat-error *ngIf="registrationForm.get('email').touched && registrationForm.get('email').invalid">
+                        <span *ngIf="registrationForm.get('email').errors['required']">L'email est obligatoire.</span>
+                        <span *ngIf="registrationForm.get('email').errors['email']">Format de l'email invalide.</span>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Numéro de téléphone</mat-label>
+                      <input matInput type="tel" placeholder="Entrez votre numéro de téléphone" formControlName="phonenumber">
+                      <mat-error *ngIf="registrationForm.get('phonenumber').touched && registrationForm.get('phonenumber').invalid">
+                        <span *ngIf="registrationForm.get('phonenumber').errors['required']">Le numéro de téléphone est obligatoire.</span>
+                        <span *ngIf="registrationForm.get('phonenumber').errors['pattern']">Format de numéro de téléphone invalide.</span>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>CIN</mat-label>
+                      <input matInput type="text" placeholder="Entrez votre CIN" formControlName="cin">
+                      <mat-error *ngIf="registrationForm.get('cin').touched && registrationForm.get('cin').invalid">
+                        <span *ngIf="registrationForm.get('cin').errors['required']">Le CIN est obligatoire.</span>
+                        <span *ngIf="registrationForm.get('cin').errors['pattern']">Le CIN doit avoir exactement 8 chiffres.</span>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Adresse</mat-label>
+                      <input matInput type="text" placeholder="Entrez votre adresse" formControlName="address">
+                      <mat-error *ngIf="registrationForm.get('address').touched && registrationForm.get('address').hasError('required')">L'adresse est obligatoire.</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <!-- Colonnes de droite -->
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Prénom</mat-label>
+                      <input matInput type="text" placeholder="Entrez votre prénom" formControlName="firstname">
+                      <mat-error *ngIf="registrationForm.get('firstname').touched && registrationForm.get('firstname').hasError('required')">Le prénom est obligatoire.</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Mot de passe</mat-label>
+                      <input matInput type="password" placeholder="Entrez votre mot de passe" formControlName="pwd_user">
+                      <mat-error *ngIf="registrationForm.get('pwd_user').touched && registrationForm.get('pwd_user').hasError('required')">Le mot de passe est obligatoire.</mat-error>
+                      <mat-error *ngIf="registrationForm.get('pwd_user').touched && registrationForm.get('pwd_user').hasError('invalidPassword')">
+longuer 8 majus minis spécial                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Confirmer mot de passe</mat-label>
+                      <input matInput type="password" placeholder="Confirmez votre mot de passe" formControlName="confirmPassword">
+                      <mat-error *ngIf="registrationForm.get('confirmPassword').touched && registrationForm.get('confirmPassword').hasError('required')">
+                        La confirmation est obligatoire.</mat-error>
+                      <mat-error *ngIf="registrationForm.get('confirmPassword').touched && registrationForm.get('confirmPassword').hasError('passwordMismatch')">
+                        Les mdps ne correspondent pas.
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Type de Portefeuille</mat-label>
+                      <mat-select formControlName="type" (selectionChange)="onWalletTypeChange($event)">
+                        <mat-option *ngFor="let walletType of walletEnumKeys()" [value]="walletType">
+                          {{ walletType }}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="registrationForm.get('type').touched && registrationForm.get('type').hasError('required')">
+                        Veuillez sélectionner un type de portefeuille.
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="profileImage">Sélectionnez votre image de profil</label>
+                    <input type="file" class="form-control" id="profileImage" (change)="onImageSelected($event)" accept="image/*" formControlName="profileImage">
+                    <small *ngIf="registrationForm.get('profileImage')?.touched && registrationForm.get('profileImage')?.errors && registrationForm.get('profileImage')?.errors['required']" class="text-danger">
+                      L'upload de l'image de profil est obligatoire.
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between mt-3">
+                <button type="submit" mat-raised-button color="primary" class="w-30 mt-2" [disabled]="!registrationForm.valid">S'inscrire</button>
+                <button mat-raised-button color="primary" class="w-30 mt-2" routerLink="/login">Se connecter</button>
+              </div>
+            </form>
+
+            <div *ngIf="message" class="mt-3">
+              {{ message }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<br><br><br>
+</html>

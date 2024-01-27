@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ici est votre balise viewport -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet"> <!-- Font Poppins -->
+</head>
+
+<body>
+
+<div class="container-fluid bg-dark p-3 mb-1">
+  <div class="row">
+    <div class="col-12 text-center">
+      <i class="fa fa-calculator fa-3x text-primary mb-3" aria-hidden="true"></i> <!-- Icône de calculatrice -->
+      <h1 class="display-3 text-white mb-1 animated fadeIn">Estimation en Temps Réel</h1> <!-- Animation fadeIn -->
+      <h2 class="display-5 text-primary mb-2">Demande de Crédit</h2>
+      <p class="lead text-white-50">Entrez vos informations pour obtenir une estimation rapide.</p> <!-- Classe "lead" pour plus d'importance -->
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-secondary px-0">
+  <div class="row g-0">
+    <div class="col-lg-6 py-6 px-5">
+      <div style="margin-top: 70px;"></div>
+
+      <h1 class="display-5 mb-4">Informations requises</h1>
+      <form [formGroup]="creditForm" (ngSubmit)="onPredict()">
+        <div class="row g-3">
+
+          <!-- Âge -->
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="number" min="0" class="form-control" id="age" placeholder="Saisissez votre âge"[formControl]="ageControl">
+              <label for="age">Âge</label>
+            </div>
+            <div *ngIf="ageControl.hasError('required') && ageControl.touched" class="text-danger">Le champ âge est obligatoire.</div>
+            <div *ngIf="ageControl.hasError('min') && ageControl.touched" class="text-danger">Veuillez saisir un âge minimum de 25 ans.</div>
+            <div *ngIf="ageControl.hasError('max') && ageControl.touched" class="text-danger">L'âge maximum autorisé est de 59 ans.</div>
+          </div>
+
+          <!-- Éducation -->
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="number" min="0" class="form-control" id="ed" placeholder="Entrez votre niveau d'éducation (1-5)" [formControl]="edControl">
+              <label for="ed">Niveau d'éducation</label>
+            </div>
+            <div *ngIf="edControl.hasError('required') && edControl.touched" class="text-danger">Le champ niveau d'éducation est obligatoire.</div>
+            <div *ngIf="edControl.hasError('min') && edControl.touched" class="text-danger">Veuillez entrer un niveau d'éducation d'au moins 1.</div>
+            <div *ngIf="edControl.hasError('max') && edControl.touched" class="text-danger">Veuillez entrer un niveau d'éducation de 5 au maximum.</div>
+          </div>
+
+          <!-- Emploi -->
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="number" min="0" class="form-control" id="employ" placeholder="Indiquez votre emploi" [formControl]="employControl">
+              <label for="employ">Poste actuel</label>
+            </div>
+            <div *ngIf="employControl.hasError('required') && employControl.touched" class="text-danger">Le champ emploi est obligatoire.</div>
+          </div>
+
+          <!-- Adresse -->
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="number" min="0" class="form-control" id="address" placeholder="Saisissez votre adresse" [formControl]="addressControl">
+              <label for="address">Adresse</label>
+            </div>
+            <div *ngIf="addressControl.hasError('required') && addressControl.touched" class="text-danger">Le champ adresse est obligatoire.</div>
+          </div>
+
+          <!-- Revenu -->
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="number" min="0" class="form-control" id="income" placeholder="Indiquez votre revenu mensuel" [formControl]="incomeControl">
+              <label for="income">Revenu mensuel</label>
+            </div>
+            <div *ngIf="incomeControl.hasError('required') && incomeControl.touched" class="text-danger">Le revenu mensuel est obligatoire.</div>
+          </div>
+
+          <!-- Ratio Dette/Revenu -->
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="number" min="0" class="form-control" id="debtinc" placeholder="Indiquez le ratio dette/revenu" [formControl]="debtincControl">
+              <label for="debtinc">Ratio Dette/Revenu</label>
+            </div>
+            <div *ngIf="debtincControl.hasError('required') && debtincControl.touched" class="text-danger">Le ratio dette/revenu est obligatoire.</div>
+          </div>
+
+          <!-- Dette de Crédit -->
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="number" min="0" class="form-control" id="creddebt" placeholder="Montant de votre dette de crédit" [formControl]="creddebtControl">
+              <label for="creddebt">Dette de crédit</label>
+            </div>
+            <div *ngIf="creddebtControl.hasError('required') && creddebtControl.touched" class="text-danger">Le montant de la dette de crédit est obligatoire.</div>
+          </div>
+
+          <!-- Autres Dettes -->
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="number"  min="0" class="form-control" id="othdebt" placeholder="Montant des autres dettes" [formControl]="othdebtControl">
+              <label for="othdebt">Autres dettes</label>
+            </div>
+            <div *ngIf="othdebtControl.hasError('required') && othdebtControl.touched" class="text-danger">Veuillez indiquer le montant de vos autres dettes.</div>
+          </div>
+
+
+          <!-- Bouton de soumission -->
+          <div class="submit-section col-12 d-flex justify-content-start align-items-center mt-4">
+            <button type="submit" class="btn btn-primary custom-btn mr-2" [disabled]="isLoading || creditForm.invalid">
+              <i class="fas fa-calculator"></i> Résultat
+            </button>
+            <button type="button" class="btn btn-secondary custom-btn" (click)="resetFormAndResult()">
+              <i class="fas fa-redo-alt"></i> Réinitialiser
+            </button>
+            <div *ngIf="isLoading" class="spinner ml-3"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-lg-6 py-6 px-5">
+      <!-- AccordVision Content -->
+      <div id="editor" style="height:620px;"></div>
+
+      <div class="editor-toolbar">
+        <i class="fa fa-play-circle" (click)="continueTyping()" title="Continuer Écriture"></i>
+        <i class="fa fa-stop-circle" (click)="stopTyping()" title="Stop Écriture"></i>
+        <i class="fa fa-undo" (click)="resetTyping()" title="Réinitialiser Écriture"></i>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/blog.component.css">
+<style>
+  .shadow-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .card {
+    border-radius: 15px;
+  }
+  .card-header {
+    font-size: 1.5rem;
+  }
+  button, input, .input-group {
+    margin-bottom: 1rem;
+  }
+  .btn {
+    border-radius: 5px;
+  }
+</style>
+
+</body>
+
+</html>

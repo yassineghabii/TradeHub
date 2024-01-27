@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Votre titre ici</title>
+  <style>
+    /* Vos styles CSS ici */
+
+    /* Réduction de la taille de la police */
+    .text-primary {
+      font-size: 12px !important;
+    }
+
+    /* Styles pour la section de contact */
+    .bg-dark {
+      --bs-bg-opacity: 1;
+      background-color: #152440;
+    }
+
+    .container-fluid {
+      margin-top: 10px;
+      height: 60px; /* Définit une hauteur spécifique pour le conteneur */
+
+    }
+
+    /* Contenu de la section de contact affiché sans retour à la ligne */
+    .contact-info {
+      display: flex;
+      text-align: left; /* Centrage du texte */
+    }
+
+    .contact-info p {
+      margin-right: 20px;
+      white-space: nowrap; /* Empêche le retour à la ligne */
+    }
+
+    .contact-info i {
+      margin-right: 1px;
+    }
+    .hidden-characters {
+      color: transparent; /* Rendre les caractères invisibles en les rendant de la même couleur que l'arrière-plan */
+    }
+    /* Pour réduire l'espacement entre les lignes */
+    .element {
+      line-height: 0.8; /* Valeur inférieure pour réduire l'espacement entre les lignes */
+    }
+    .footer {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: white; /* Utilisation du mot-clé 'white' pour le blanc */
+    }
+    .contenu-principal {
+      margin-bottom: 1px; /* Hauteur du footer + espace */
+    }
+    /*
+</style>
+</head>
+<body>
+
+  <!-- Votre contenu ici -->
+
+<div class="footer">
+
+<div class="container-fluid bg-dark text-secondary p-1" style="margin-top: 27px;">
+  <div class="row g-2 align-items-center">
+    <div class="col-lg-2 col-md-2">
+      <!-- Contenu pour cette colonne (si nécessaire) -->
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <address class="contact-info">
+
+        <h5 class="text-white mb-1">CONTACT<span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span></h5>
+        <p><i class="bi bi-geo-alt text-primary me-1"></i>Rue du Lac Biwa, Les Berges du Lac, Tunis 1053, Tunisie</p>
+        <p><i class="bi bi-envelope-open text-primary me-2"></i>info@vermeg.com</p>
+        <p><i class="bi bi-telephone text-primary me-2"></i>+216 71 160 600</p><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span><span class="hidden-characters">_</span>
+        <h5 class="text-white mb-1">Suivez<span class="hidden-characters">_</span>Nous<span class="hidden-characters">_</span><span class="hidden-characters">_</span></h5>
+        <a href="https://twitter.com/vermeg"><i class="fab fa-twitter"></i></a><span class="hidden-characters">_</span>
+        <a href="https://www.facebook.com/vermeg/"><i class="fab fa-facebook-f"></i></a><span class="hidden-characters">_</span>
+        <a href="https://www.linkedin.com/company/vermeg/"><i class="fab fa-linkedin-in"></i></a><span class="hidden-characters">_</span>
+        <a href="https://www.youtube.com/channel/UCcqHGA28BuAs-f0rHDhMRHg"><i class="fab fa-youtube"></i></a>
+
+      </address>
+    </div>
+  </div>
+</div>
+
+  </div>
+</body>
+</html>

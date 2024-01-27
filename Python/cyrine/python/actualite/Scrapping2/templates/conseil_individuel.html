@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conseils</title>
+    <link href="{{ url_for('serve_static_css', filename='v93.min.css') }}" rel="stylesheet" type="text/css"/>
+
+    <!-- Add any additional styles or scripts here -->
+</head>
+<body>
+    
+    <!-- Display the image -->
+
+    <!-- Display the article content -->
+    <div>
+        {{ conseil_content | safe }}
+    </div>
+
+    <!-- Add any additional HTML elements or styling here -->
+</body>
+</html>

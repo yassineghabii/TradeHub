@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"> </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle custom-color" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-user custom-color"></i>&nbsp; <span class="custom-color-text">{{ getFullName() }}</span> <!-- Ajout de la classe custom-color-text ici -->
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/#/profil"><i class="glyphicon glyphicon-user"></i> Mon Profil</a></li>
+                        <li><a href="#" (click)="logout(); $event.preventDefault()"><i class="glyphicon glyphicon-log-out"></i> Se Déconnecter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

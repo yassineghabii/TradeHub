@@ -1,0 +1,30 @@
+<!-- app.component.html
+<asl-google-signin-button *ngIf="!user"></asl-google-signin-button>
+<div *ngIf="user">
+  <img src="{{ user.photoUrl}}">
+  <div>
+    <h4>{{ user.name }}</h4>
+    <p>{{ user.email }}</p>
+    <p>{{ user.firstName }}</p>
+    <p>{{ user.idToken }}</p>
+    <p>{{ user.lastName }}</p>
+    <p>{{ user.id}}</p>
+
+
+
+
+  </div>
+</div>-->
+
+<ng-container *ngIf="shouldShowHeaderAndFooter()">
+  <app-header></app-header>
+</ng-container>
+<div class="container-fluid mb-4">
+  <app-scroll *ngIf="showScroll$ | async" (scrollToTop)="onScrollToTop()"></app-scroll>
+  <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+  <router-outlet></router-outlet>
+</div>
+
+<ng-container *ngIf="shouldShowHeaderAndFooter()">
+  <app-footer></app-footer>
+</ng-container>

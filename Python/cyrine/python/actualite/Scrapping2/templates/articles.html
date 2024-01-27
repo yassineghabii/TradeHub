@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <link href="{{ url_for('serve_static_css', filename='v93.min.css') }}" rel="stylesheet" type="text/css"/>
+
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            text-align: justify;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<script src="{{ url_for('serve_static_images', filename='jqtools29.min.js') }}"></script>  </script>
+
+<body>
+    <div>
+        {{ article_content|safe }}
+        <img alt="" src="/i/hausse.gif" style="margin: 0 15px 0 15px">
+        <img alt="" src="/i/baisse.gif" style="margin: 0 15px 0 15px">
+        
+
+    </div>
+    <a href="{{ url_for('index') }}">Retour à la liste des articles</a>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+ <head>
+  <meta charset="utf-8"/>
+  <link href="/css2/v93.min.css" rel="stylesheet" type="text/css"/>
+  <link href="/i/favicon32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <meta content="296266907136787" property="fb:pages">
+   <title>
+    Convertisseur de devises ilboursa.com
+   </title>
+   <meta content="Convertissez toutes les devises de la planète avec cet outil très simple d'utilisation" name="description"/>
+   
+   <div class="contentpad" id="containerPage">
+    <h1 class="hright">
+     Le convertisseur de devises
+    </h1>
+    <p class="bold">
+     Utilisez cet outil pour convertir les principales devises de la planète.
+    </p>
+    <div class="head_deroul alct" style="margin-top: 30px; padding: 15px">
+     <select class="txtbox" id="currency1">
+      <option value="TND">
+       Dinar Tunisien (TND)
+      </option>
+      <option value="USD">
+       Dollar américain (USD)
+      </option>
+      <option selected="selected" value="EUR">
+       Euro (EUR)
+      </option>
+      <option value="CHF">
+       Franc Suisse (CHF)
+      </option>
+      <option value="GBP">
+       Livre sterling (GBP)
+      </option>
+      <option value="JPY">
+       Yen (JPY)
+      </option>
+      <option value="">
+       ----------------------------------
+      </option>
+      <option value="THB">
+       Bath Thailandais (THB)
+      </option>
+      <option value="BTC">
+       Bitcoin (BTC)
+      </option>
+      <option value="GHS">
+       Cédi Ghanéen (GHS)
+      </option>
+      <option value="DKK">
+       Couronne danoise (DKK)
+      </option>
+      <option value="ISK">
+       Couronne islandaise (ISK)
+      </option>
+      <option value="NOK">
+       Couronne norvégienne (NOK)
+      </option>
+      <option value="SEK">
+       Couronne suédoise (SEK)
+      </option>
+      <option value="CZK">
+       Couronne tchèque(CZK)
+      </option>
+      <option value="DZD">
+       Dinar Algérien (DZD)
+      </option>
+      <option value="LYD">
+       Dinar Lybien (LYD)
+      </option>
+      <option value="AED">
+       Dirham Emirats Arabes Unis (AED)
+      </option>
+      <option value="MAD">
+       Dirham marocain (MAD)
+      </option>
+      <option value="AUD">
+       Dollar australien (AUD)
+      </option>
+      <option value="CAD">
+       Dollar canadien (CAD)
+      </option>
+      <option value="HKD">
+       Dollar hong-kongais (HKD)
+      </option>
+      <option value="NZD">
+       Dollar néo-zélandais (NZD)
+      </option>
+      <option value="SGD">
+       Dollar de Singapour (SGD)
+      </option>
+      <option value="TWD">
+       Dollar taiwanais (TWD)
+      </option>
+      <option value="HUF">
+       Forint hongrois (HUF)
+      </option>
+      <option value="XOF">
+       Franc CFA (XOF)
+      </option>
+      <option value="XPF">
+       Franc Pacifique (XPF)
+      </option>
+      <option value="TRY">
+       Livre turque (TRY)
+      </option>
+      <option value="NGN">
+       Naira Nigérian (NGN)
+      </option>
+      <option value="ARS">
+       Peso Argentin (ARS)
+      </option>
+      <option value="COP">
+       Peso colombien (COP)
+      </option>
+      <option value="MXN">
+       Peso mexicain (MXN)
+      </option>
+      <option value="PHP">
+       Peso philippin (PHP)
+      </option>
+      <option value="ZAR">
+       Rand sud-africain (ZAR)
+      </option>
+      <option value="BRL">
+       Real brésilien (BRL)
+      </option>
+      <option value="QAR">
+       Rial du Qatar (QAR)
+      </option>
+      <option value="MYR">
+       Ringgit Malais (MYR)
+      </option>
+      <option value="RUB">
+       Rouble russe (RUB)
+      </option>
+      <option value="INR">
+       Roupie indienne (INR)
+      </option>
+      <option value="IDR">
+       Roupie indonésienne (IDR)
+      </option>
+      <option value="PKR">
+       Roupie pakistanaise (PKR)
+      </option>
+      <option value="ILS">
+       Shekel israélien (ILS)
+      </option>
+      <option value="KES">
+       Shilling kenyan (KES)
+      </option>
+      <option value="KRW">
+       Won sud coréen (KRW)
+      </option>
+      <option value="CNY">
+       Yuan chinois (CNY)
+      </option>
+      <option value="PLN">
+       Zloty polonais (PLN)
+      </option>
+     </select>
+     <span id="curequ">
+      =
+     </span>
+     <select class="txtbox" id="currency2">
+      <option selected="selected" value="TND">
+       Dinar Tunisien (TND)
+      </option>
+      <option value="USD">
+       Dollar américain (USD)
+      </option>
+      <option value="EUR">
+       Euro (EUR)
+      </option>
+      <option value="CHF">
+       Franc Suisse (CHF)
+      </option>
+      <option value="GBP">
+       Livre sterling (GBP)
+      </option>
+      <option value="JPY">
+       Yen (JPY)
+      </option>
+      <option value="">
+       ----------------------------------
+      </option>
+      <option value="THB">
+       Bath Thailandais (THB)
+      </option>
+      <option value="BTC">
+       Bitcoin (BTC)
+      </option>
+      <option value="GHS">
+       Cédi Ghanéen (GHS)
+      </option>
+      <option value="DKK">
+       Couronne danoise (DKK)
+      </option>
+      <option value="ISK">
+       Couronne islandaise (ISK)
+      </option>
+      <option value="NOK">
+       Couronne norvégienne (NOK)
+      </option>
+      <option value="SEK">
+       Couronne suédoise (SEK)
+      </option>
+      <option value="CZK">
+       Couronne tchèque(CZK)
+      </option>
+      <option value="DZD">
+       Dinar Algérien (DZD)
+      </option>
+      <option value="LYD">
+       Dinar Lybien (LYD)
+      </option>
+      <option value="AED">
+       Dirham Emirats Arabes Unis (AED)
+      </option>
+      <option value="MAD">
+       Dirham marocain (MAD)
+      </option>
+      <option value="AUD">
+       Dollar australien (AUD)
+      </option>
+      <option value="CAD">
+       Dollar canadien (CAD)
+      </option>
+      <option value="HKD">
+       Dollar hong-kongais (HKD)
+      </option>
+      <option value="NZD">
+       Dollar néo-zélandais (NZD)
+      </option>
+      <option value="SGD">
+       Dollar de Singapour (SGD)
+      </option>
+      <option value="TWD">
+       Dollar taiwanais (TWD)
+      </option>
+      <option value="HUF">
+       Forint hongrois (HUF)
+      </option>
+      <option value="XOF">
+       Franc CFA (XOF)
+      </option>
+      <option value="XPF">
+       Franc Pacifique (XPF)
+      </option>
+      <option value="TRY">
+       Livre turque (TRY)
+      </option>
+      <option value="NGN">
+       Naira Nigérian (NGN)
+      </option>
+      <option value="ARS">
+       Peso Argentin (ARS)
+      </option>
+      <option value="COP">
+       Peso colombien (COP)
+      </option>
+      <option value="MXN">
+       Peso mexicain (MXN)
+      </option>
+      <option value="PHP">
+       Peso philippin (PHP)
+      </option>
+      <option value="ZAR">
+       Rand sud-africain (ZAR)
+      </option>
+      <option value="BRL">
+       Real brésilien (BRL)
+      </option>
+      <option value="QAR">
+       Rial du Qatar (QAR)
+      </option>
+      <option value="MYR">
+       Ringgit Malais (MYR)
+      </option>
+      <option value="RUB">
+       Rouble russe (RUB)
+      </option>
+      <option value="INR">
+       Roupie indienne (INR)
+      </option>
+      <option value="IDR">
+       Roupie indonésienne (IDR)
+      </option>
+      <option value="PKR">
+       Roupie pakistanaise (PKR)
+      </option>
+      <option value="ILS">
+       Shekel israélien (ILS)
+      </option>
+      <option value="KES">
+       Shilling kenyan (KES)
+      </option>
+      <option value="KRW">
+       Won sud coréen (KRW)
+      </option>
+      <option value="CNY">
+       Yuan chinois (CNY)
+      </option>
+      <option value="PLN">
+       Zloty polonais (PLN)
+      </option>
+     </select>
+     <p class="alct">
+      <img alt="" class="cp" id="swap" src="/i/swap_icon.png"/>
+     </p>
+     <table align="center">
+      <tr>
+       <td class="w140 alct">
+        <img alt="" height="30" id="imgC1" src="/5/flag/eur.png" width="40"/>
+       </td>
+       <td>
+        <input class="txtbox" id="txtCurr1" onkeypress="return isNumberKey(event)" type="text"/>
+        =
+        <input class="bold quote_down txtbox" id="txtCurr2" onkeypress="return isNumberKey(event)" type="text"/>
+       </td>
+       <td class="w140 alct">
+        <img alt="" height="30" id="imgC2" src="/5/flag/tnd.png" width="40"/>
+       </td>
+      </tr>
+     </table>
+     <p>
+      Cours de référence (
+      <b>
+       22/10/2023
+      </b>
+      ) utilisé pour la conversion :
+      <b>
+       <span id="lblRate">
+       </span>
+       <span id="lblParity">
+        TND/EUR
+       </span>
+      </b>
+     </p>
+     <div class="clearfix" id="tbldev">
+      <div>
+       <img alt="usd" src="/5/flag/USD.png"/>
+       <span id="tUSD">
+       </span>
+      </div>
+      <div>
+       <img alt="EUR" src="/5/flag/EUR.png"/>
+       <span id="tEUR">
+       </span>
+      </div>
+      <div>
+       <img alt="GBP" src="/5/flag/GBP.png"/>
+       <span id="tGBP">
+       </span>
+      </div>
+      <div>
+       <img alt="CHF" src="/5/flag/CHF.png"/>
+       <span id="tCHF">
+       </span>
+      </div>
+      <div>
+       <img alt="JPY" src="/5/flag/JPY.png"/>
+       <span id="tJPY">
+       </span>
+      </div>
+      <div>
+       <img alt="GHS" src="/5/flag/GHS.png"/>
+       <span id="tGHS">
+       </span>
+      </div>
+      <div>
+       <img alt="NGN" src="/5/flag/NGN.png"/>
+       <span id="tNGN">
+       </span>
+      </div>
+      <div>
+       <img alt="XOF" src="/5/flag/XOF.png"/>
+       <span id="tXOF">
+       </span>
+      </div>
+      <div>
+       <img alt="TND" src="/5/flag/TND.png"/>
+       <span id="tTND">
+       </span>
+      </div>
+     </div>
+     <span class="no" id="basefx">
+      {"CNY":0.129,"ARS":0.0026996018087332117,"AUD":0.5955926146515783,"CAD":0.6887052341597797,"CHF":1.0570824524312896,"CZK":0.04058771004139946,"DKK":0.13404825737265416,"DZD":0.00689122884392745,"GBP":1.148105625717566,"GHS":0.08,"HKD":0.12075836251660427,"HUF":0.0026174584478471405,"IDR":5.948450726008412E-05,"ILS":0.23266635644485806,"JPY":0.0063000063000063005,"KES":0.00630596544330937,"KRW":0.0006962624630980894,"LYD":0.19098548510313218,"MAD":0.09143275121148396,"MXN":0.05157031612603786,"NGN":0.0010986837768353513,"NOK":0.08545547769612032,"NZD":0.5503577325261421,"PHP":0.016707600287370724,"PKR":0.003403050494463237,"PLN":0.22441651705565527,"QAR":0.2703433360367667,"RUB":0.009890707680134513,"SEK":0.0861994655633135,"SGD":0.6882312456985547,"THB":0.025972002181648184,"TND":0.30066145520144316,"TRY":0.03377693710734311,"TWD":0.029197932786358724,"USD":0.9442870632672333,"XOF":0.001524390243902439,"XPF":0.008385041086701324,"ZAR":0.04972155926809865,"INR":0.011,"EUR":1}
+     </span>
+    </div>
+    <br/>
+   </div>
+  </div>
+  <div class="bannermain">
+   <div id="div-gpt-ad-1616660604392-0">
+    <script>
+     googletag.cmd.push(function () { googletag.display('div-gpt-ad-1616660604392-0'); });
+    </script>
+   </div>
+  </div>
+  <div class="bar1 mt37">
+   <div class="footer">
+    Copyright © 2012-2023 ilboursa.com - Tous droits réservés - designed by
+    <a href="https://www.facebook.com/ChezNelly/" target="_blank">
+     Chez Nelly
+    </a>
+    <br/>
+    <a href="/contact">
+     Contacter l'équipe
+    </a>
+    |
+    <a href="/politique_confidentialite">
+     Notre politique de confidentialité
+    </a>
+    |
+    <a href="/partenaires">
+     Les partenaires
+    </a>
+    |
+    <a href="/qui_sommes_nous">
+     A propos de nous ?
+    </a>
+    <div class="foot_socials">
+     <span>
+      WE ARE SOCIAL
+     </span>
+     <br/>
+     <a href="https://www.facebook.com/ilboursa/" target="_blank">
+      <img alt="" height="27" src="/i/facebook.png" width="27"/>
+     </a>
+     <a href="https://twitter.com/ilboursa" target="_blank">
+      <img alt="" height="27" src="/i/twit.png" width="27"/>
+     </a>
+     <a href="https://www.linkedin.com/groups/ilboursacom-5067897" target="_blank">
+      <img alt="" height="27" src="/i/linkedin.png" width="27"/>
+     </a>
+     <a href="https://www.youtube.com/channel/UCIWq9frqGHuOWYETcPH9V3g" target="_blank">
+      <img alt="" height="27" src="/i/youtube.png" width="27"/>
+     </a>
+    </div>
+   </div>
+  </div>
+  <script src="/scripts2/jqtools29.min.js">
+  </script>
+  <script src="/scripts2/converter4.min.js">
+  </script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7HQK4NNBSV">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-7HQK4NNBSV');
+  </script>
+ </body>
+</html>

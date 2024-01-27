@@ -1,0 +1,158 @@
+.container-fluid {
+  width: 100%;
+  background-color: #343a40;
+  color: #6c757d;
+  padding: 1rem; /* Added padding for aesthetic spacing */
+}
+
+/* Styling for the icons, titles, subtitles, and text */
+.container-fluid i,
+.container-fluid .title,
+.container-fluid .subtitle,
+.container-fluid .text {
+  display: block; /* makes sure it takes the full width */
+  text-align: center;
+}
+
+/* Titles and text specifically */
+.container-fluid .title {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.container-fluid .subtitle {
+  color: #adb5bd;
+  margin-bottom: 0.25rem;
+}
+
+.container-fluid .text {
+  color: #ced4da;
+}
+
+/* Select container at the top of the tables */
+.select-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+/* The select element in the form */
+.form-select {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Ensuring that tables are responsive */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Style for the tables and cells to center content */
+.table {
+  width: 100%;
+  margin: auto;
+}
+
+.table th,
+.table td {
+  text-align: center; /* Center align table headers and cells */
+  vertical-align: middle; /* Align cells to the middle of the row */
+}
+.title {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+.text {
+  font-size: 1rem; /* Taille réduite du texte */
+  color: #777;
+}
+.container-fluid {
+  background-color: #343a40;
+  padding: 20px 0;
+  text-align: center;
+}
+.icon-annuler {
+  color: red; /* Définir la couleur rouge */
+}
+/* Styles pour la barre de recherche */
+.input-group {
+  width: 100%;
+  max-width: 400px; /* Ajuste la largeur maximale selon tes besoins */
+  margin: 0 auto; /* Centre la barre de recherche horizontalement */
+}
+
+.custom-search {
+  display: flex;
+  align-items: center; /* Aligne les éléments verticalement */
+  width: 100%;
+  max-width: 400px; /* Ajuste la largeur maximale selon tes besoins */
+  margin-left: 20px; /* Ajuste la marge à gauche pour positionner la barre */
+}
+
+.form-control {
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  margin-right: 10px; /* Espace entre l'input et le bouton */
+}
+
+.btn {
+  border-radius: 20px;
+}
+.search-container {
+  max-width: 500px; /* Maximum width for the search bar */
+  margin-left: auto; /* This will push the search bar to the left */
+  margin-right: auto; /* This will ensure the search bar remains centered */
+}
+
+.input-group .form-control {
+  border-right: none; /* Remove the border between the input and the button */
+}
+
+.input-group .btn {
+  border-left: none; /* Remove the border between the input and the button */
+}
+
+.input-group .btn:focus,
+.input-group .btn:active {
+  box-shadow: none; /* Remove the focus box shadow from the button*/
+}
+
+/* Optionally remove the border from the left side of the search button to make it one seamless bar */
+.input-group-append .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* style specifically for the search icon */
+.fa-search {
+  color: #495057; /* The color of the search icon */
+}
+
+  .container {
+    display: flex;
+    justify-content: left; /* Centre le 'search-container' horizontalement */
+  }
+
+.search-container {
+  position: relative;
+  width: 50%; /* Ou la largeur que vous souhaitez */
+}
+
+.search-bar {
+  width: 100%;
+  padding-left: 30px; /* Espace pour l'icône de loupe à l'intérieur de la barre */
+}
+
+/* Styles pour modifier l'apparence de l'input de recherche */
+.search-bar::-webkit-search-decoration,
+.search-bar::-webkit-search-cancel-button,
+.search-bar::-webkit-search-results-button,
+.search-bar::-webkit-search-results-decoration {
+  display: none;
+}

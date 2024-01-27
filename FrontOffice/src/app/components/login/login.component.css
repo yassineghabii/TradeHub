@@ -1,0 +1,272 @@
+.login-container {
+  max-width: 500px;
+  margin: 40px auto;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0e4d92;
+}
+
+.error-message {
+  color: #d32f2f;
+  margin-bottom: 10px;
+  text-align: center;
+}
+/* Base and layout styling */
+.container-fluid {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-section {
+  width: 100%;
+}
+
+.login-container {
+  max-width: 500px;
+  margin: 40px auto;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25);
+}
+
+.error-text,
+.error-message {
+  color: #d32f2f;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+}
+
+.form-control.rounded-pill {
+  border-radius: 50px;
+  border: 1px solid #ced4da;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+.btn-social {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.btn-google {
+  background-color: transparent; /* Fond transparent */
+  color: #000; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement du bouton */
+  font-size: 5px; /* Taille du texte */
+  border-radius: 3px; /* Coins arrondis */
+  display: flex; /* Alignement des éléments horizontalement */
+  align-items: center; /* Centrage vertical */
+  justify-content: center; /* Centrage horizontal */
+  text-decoration: none; /* Pas de soulignement */
+  cursor: pointer; /* Curseur de type pointeur */
+}
+.btn-google img {
+  width: 31px; /* Réglez la largeur de l'image à 20 pixels */
+  /* Autres styles spécifiques à l'image si nécessaire */
+}
+.btn-facebook {
+  background-color: transparent; /* Fond transparent */
+  color: #000; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement du bouton */
+  font-size: 5px; /* Taille du texte */
+  border-radius: 3px; /* Coins arrondis */
+  display: flex; /* Alignement des éléments horizontalement */
+  align-items: center; /* Centrage vertical */
+  justify-content: center; /* Centrage horizontal */
+  text-decoration: none; /* Pas de soulignement */
+  cursor: pointer; /* Curseur de type pointeur */
+}
+.btn-facebook img {
+  width: 23px; /* Réglez la largeur de l'image à 20 pixels */
+  /* Autres styles spécifiques à l'image si nécessaire */
+}
+.btn-amazon {
+  background-color: transparent; /* Fond transparent */
+  color: #000; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement du bouton */
+  font-size: 5px; /* Taille du texte */
+  border-radius: 3px; /* Coins arrondis */
+  display: flex; /* Alignement des éléments horizontalement */
+  align-items: center; /* Centrage vertical */
+  justify-content: center; /* Centrage horizontal */
+  text-decoration: none; /* Pas de soulignement */
+  cursor: pointer; /* Curseur de type pointeur */
+}
+.btn-amazon img {
+  width: 23px; /* Réglez la largeur de l'image à 20 pixels */
+  /* Autres styles spécifiques à l'image si nécessaire */
+}
+
+.divider {
+  position: relative;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.divider span {
+  background-color: white;
+  padding: 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #aaa;
+  z-index: 0;
+}
+.google-btn {
+  background-color: #4285F4;
+  border-radius: 2px;
+  border: 1px solid #4285F4;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,0.25);
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.google-btn:hover {
+  background-color: #357ABD;
+  border-color: #2F5BB7;
+}
+
+.google-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.google-text {
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.auth-buttons-container {
+  display: flex;
+  justify-content: space-around; /* Or 'space-between' depending on your design */
+}
+
+/* Adjust the button styling accordingly */
+.auth-buttons-container > button, .auth-buttons-container > asl-google-signin-button {
+  flex-basis: 48%; /* Or another percentage to give some space between the buttons */
+  margin: 1%; /* Optional for spacing */
+}
+.btn-microsoft {
+  background-color: transparent; /* Fond transparent */
+  color: #000; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement du bouton */
+  font-size: 16px; /* Taille du texte */
+  border-radius: 5px; /* Coins arrondis */
+  display: flex; /* Alignement des éléments horizontalement */
+  align-items: center; /* Centrage vertical */
+  justify-content: center; /* Centrage horizontal */
+  text-decoration: none; /* Pas de soulignement */
+  cursor: pointer; /* Curseur de type pointeur */
+}
+
+.btn-microsoft img {
+  width: 20px; /* Ajuster la largeur de l'image */
+  margin-right: 5px; /* Espacement entre l'image et le texte */
+}
+

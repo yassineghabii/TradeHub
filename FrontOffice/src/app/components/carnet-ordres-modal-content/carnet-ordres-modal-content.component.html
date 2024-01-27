@@ -1,0 +1,50 @@
+<div class="modal-body carnet-ordres">
+  <button type="button" class="close left-close" (click)="activeModal.dismiss()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <h4>Carnet d'ordres - {{ selectedSymbol }}</h4>
+  <div class="single-bar-container">
+  <span class="single-bar">
+    <span class="achat" [ngStyle]="{ 'width.%': getPercentage('nb_ordres_achat') }"></span>
+    <span class="vente" [ngStyle]="{ 'width.%': getPercentage('nb_ordres_vente') }"></span>
+  </span>
+  </div>
+
+
+
+  <table class="table text-center custom-table">
+    <thead>
+    <tr>
+      <th>Ordres</th>
+      <th>Qté</th>
+      <th>Achat</th>
+      <th>Vente</th>
+      <th>Qté</th>
+      <th>Ordres</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let orderPair of combinedOrders; let i = index" [ngClass]="{'bold-text': i === 0}">
+      <td>{{ orderPair.nb_ordres_achat !== 0 ? orderPair.nb_ordres_achat : ' ' }}</td>
+      <td>{{ orderPair.quantite_achat !== 0 ? orderPair.quantite_achat : ' ' }}</td>
+      <td>{{ orderPair.prix_achat !== 0 ? orderPair.prix_achat : ' ' }}</td>
+      <td>{{ orderPair.prix_vente !== 0 ? orderPair.prix_vente : ' ' }}</td>
+      <td>{{ orderPair.quantite_vente !== 0 ? orderPair.quantite_vente : ' ' }}</td>
+      <td>{{ orderPair.nb_ordres_vente !== 0 ? orderPair.nb_ordres_vente : ' ' }}</td>
+    </tr>
+    <tr class="bold-text">
+      <td>{{ getTotal('nb_ordres_achat') }}</td>
+      <td>{{ getTotal('quantite_achat') }}</td>
+      <td class="total"> TOTAL </td>
+      <td class="total"> TOTAL </td>
+      <td>{{ getTotal('quantite_vente') }}</td>
+      <td>{{ getTotal('nb_ordres_vente') }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="bar-container">
+    <span class="achat-bar" [style.width.%]="getPercentage('quantite_achat')"></span>
+    <span class="vente-bar" [style.width.%]="getPercentage('quantite_vente')"></span>
+  </div>
+</div>

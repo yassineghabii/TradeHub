@@ -1,0 +1,1130 @@
+#valSeuilH,#valSeuilB,#valMM {
+    width: 25px
+}
+
+.eod_slider {
+    float: left;
+    width: 150px
+}
+
+#param1Automatic {
+    margin: 0 5px 0 10px
+}
+
+#stylSeuilH,#stylSeuilB,#valMM {
+    margin-left: 10px
+}
+
+.eodupdown {
+    float: left
+}
+
+.eod_sp10 {
+    margin-left: 10px;
+    float: left
+}
+
+#annotationTxt {
+    margin: 0 10px
+}
+
+.sliderbar {
+    height: 10px;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+    overflow: hidden
+}
+
+.sliderin {
+    position: absolute;
+    height: 100%;
+    background-color: #0a5e8a
+}
+
+.sliderpointer {
+    position: absolute;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    top: 0;
+    border-radius: 50%
+}
+
+.sliderout {
+    position: relative;
+    padding: 5px 0
+}
+
+div.colorPicker-picker {
+    height: 20px;
+    width: 31px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    float: left;
+    position: relative
+}
+
+.palette {
+    width: 175px;
+    border: 1px solid #ccc;
+    background-color: #ebebeb;
+    position: absolute;
+    top: 20px;
+    padding: 4px;
+    z-index: 5
+}
+
+.palettein {
+    float: left;
+    margin: 1px;
+    width: 25px;
+    height: 21px;
+    border: 1px solid #000
+}
+
+.palettein:hover {
+    border: 1px solid #9dd1ff
+}
+
+.is_clickable {
+    cursor: pointer
+}
+
+.pad5 {
+    padding: 5px
+}
+
+.eod_pname {
+    float: left;
+    width: 75px;
+    padding-top: 4px
+}
+
+.eod_cname {
+    float: left;
+    width: 115px
+}
+
+.eod_inp {
+    float: left;
+    width: 27px;
+    margin: 0 10px 0 10px
+}
+
+#cbMM,#cbSeuilH,#cbSeuilB {
+    float: left;
+    margin-right: 10px
+}
+
+.eod_cbv {
+    float: left;
+    margin-right: 10px
+}
+
+.widthSelect,.fontSelect,.styleSelect {
+    position: relative;
+    width: 20px;
+    height: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    float: left;
+    padding: 5px;
+    margin-left: 10px;
+    cursor: pointer
+}
+
+.widthSelect ul,.styleSelect ul {
+    list-style-position: outside;
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0 -6px
+}
+
+.fontSelect ul {
+    list-style-position: outside;
+    list-style: none;
+    padding: 0;
+    margin: 2px 0 0 -6px
+}
+
+.widthSelect li,.styleSelect li {
+    border: 1px solid #ccc;
+    border-top: 0;
+    width: 20px;
+    padding: 5px;
+    height: 10px;
+    z-index: 4;
+    position: relative
+}
+
+.fontSelect li {
+    border: 1px solid #ccc;
+    border-top: 0;
+    width: 20px;
+    padding: 5px;
+    padding: 3px 5px;
+    background-color: #fff;
+    z-index: 4;
+    position: relative
+}
+
+.widthSelect li:hover,.styleSelect li:hover,.fontSelect li:hover {
+    background-color: #ebebeb
+}
+
+.opSelect {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    background: url('i/back_opacity.png');
+    border: 1px solid #ccc;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer
+}
+
+.opContent {
+    position: absolute;
+    width: 110px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    height: 20px;
+    margin-top: 20px;
+    z-index: 10
+}
+
+.fontSelect {
+    padding: 3px 5px 7px 5px
+}
+
+.w1,.w2,.w3,.w4,.s1,.s2,.s3,.s4 {
+    background: url(i/sprite69.png) #fff no-repeat
+}
+
+.w1 {
+    background-position: -5px -3351px
+}
+
+.w2 {
+    background-position: -5px -3372px
+}
+
+.w3 {
+    background-position: -5px -3395px
+}
+
+.w4 {
+    background-position: -5px -3418px
+}
+
+.s1 {
+    background-position: -5px -2853px
+}
+
+.s2 {
+    background-position: -5px -2874px
+}
+
+.s3 {
+    background-position: -5px -2895px
+}
+
+.s4 {
+    background-position: -5px -2916px
+}
+
+.textSR {
+    border: 1px solid #ccc;
+    width: 60px;
+    margin: 0 5px 0 10px;
+    text-align: right;
+    padding: 1px;
+    height: 18px
+}
+
+.btnSR {
+    border: 0;
+    height: 22px;
+    background-color: #0a5e8a;
+    color: #fff
+}
+
+.fontSizeZone {
+    float: left;
+    padding: 2px 0 0 12px
+}
+
+.fontSizeZone input {
+    vertical-align: middle
+}
+
+.linemodif {
+    min-width: 135px;
+    background-color: #ebebeb;
+    border: 1px solid #ccc;
+    border-left: 15px solid #bbb;
+    padding: 5px;
+    z-index: 6;
+    position: absolute;
+    box-shadow: 0 0 7px 0 rgba(0,0,0,.3)
+}
+
+.linemodif:hover {
+    cursor: move
+}
+
+.resizehandler {
+    height: 17px;
+    width: 17px;
+    z-index: 5;
+    border-radius: 10px;
+    border: 2px solid #fe0000;
+    background-color: #ccc;
+    position: absolute;
+    cursor: pointer
+}
+
+.eod_infofi {
+    line-height: 18px;
+    font-size: 11px;
+    z-index: 5;
+    width: 140px;
+    height: 52px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    position: absolute;
+    display: none;
+    overflow: hidden
+}
+
+.eod_cola {
+    background-color: #ffd5d6
+}
+
+.eod_colr {
+    background-color: #ffd5d6
+}
+
+.eod_cols {
+    background-color: #ffc0ff
+}
+
+.eod_cold {
+    background-color: #d5d6ff
+}
+
+.eod_colc {
+    background-color: #c0ffc0
+}
+
+.eod_fullscreen_on {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    border: 0
+}
+
+.eod_coursval {
+    padding-left: 15px
+}
+
+.eod_coursval span {
+    min-width: 62px;
+    margin-left: 11px;
+    display: inline-block
+}
+
+.eod_coursval span:last-of-type {
+    min-width: 40px;
+    text-align: right;
+    margin-left: 0
+}
+
+.eod_container canvas {
+    position: absolute;
+    background-color: transparent;
+    left: 0;
+    top: 0;
+    z-index: 1
+}
+
+.eod_container canvas:focus {
+    outline: none
+}
+
+.eod_container {
+    position: relative;
+    margin: 10px 5px 10px 5px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.eod_topinfo {
+    position: absolute;
+    top: 2px;
+    z-index: 1;
+    font-size: 12px
+}
+
+.eod_topinfo span:first-child {
+    padding-right: 30px
+}
+
+.eod_graphcommands {
+    margin-bottom: 20px;
+    position: relative;
+    font-size: 11px;
+    padding: 8px 4px;
+    background-color: #f3f3f3;
+    user-select: none
+}
+
+.indicname {
+    margin-left: 5px;
+    color: #808080;
+    text-transform: uppercase;
+    vertical-align: text-top
+}
+
+.indicval {
+    margin-left: 5px;
+    color: #4d4d4d;
+    vertical-align: text-top
+}
+
+.infoindic {
+    z-index: 4;
+    position: absolute;
+    font-size: 12px;
+    font-family: Arial
+}
+
+.eod_mainchartinfos {
+    z-index: 4;
+    position: absolute;
+    font-size: 12px;
+    font-family: Arial
+}
+
+.eod_mainchartinfos div {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 5px
+}
+
+.eod_mainchartinfos div:first-child {
+    display: block
+}
+
+.eod_param {
+    cursor: pointer;
+    padding-right: 5px
+}
+
+#coursval {
+    min-width: 84px;
+    display: inline-block
+}
+
+.mci-p,.closeparams,.closelayericon,.paramlayericon,.eodmoveup,.eodmovedown,.suppressMainIndic,.delalert {
+    background-image: url(i/sprite69.png);
+    background-repeat: no-repeat
+}
+
+.delalert {
+    margin-left: 6px;
+    cursor: pointer;
+    background-position: -10px -614px;
+    width: 16px;
+    height: 16px;
+    display: block
+}
+
+.suppressMainIndic {
+    padding: 3px 0 3px 25px;
+    background-position: -7px -1812px;
+    cursor: pointer
+}
+
+.mtb10 {
+    margin: 10px 0
+}
+
+.uParams {
+    z-index: 50;
+    position: relative
+}
+
+.eodmoveup,.eodmovedown {
+    opacity: .25;
+    width: 16px;
+    margin-left: 4px;
+    height: 16px;
+    display: inline-block
+}
+
+.eodmoveup {
+    background-position: -10px -266px
+}
+
+.eodmovedown {
+    background-position: -10px -194px
+}
+
+.eodmoveup:hover,.eodmovedown:hover {
+    cursor: pointer;
+    opacity: .8
+}
+
+.mci-p {
+    display: block;
+    float: left;
+    opacity: .3;
+    background-position: -10px -758px;
+    width: 21px;
+    height: 12px
+}
+
+.mci-p:hover {
+    opacity: 1
+}
+
+.closeparams {
+    cursor: pointer;
+    float: right;
+    background-position: -10px -614px;
+    width: 16px;
+    height: 18px
+}
+
+.closelayericon,.paramlayericon {
+    cursor: pointer;
+    opacity: .25;
+    display: block;
+    float: left
+}
+
+.filter1 {
+    filter: invert(1);
+    opacity: .4
+}
+
+.closelayericon {
+    background-position: -10px -614px;
+    width: 16px;
+    height: 16px
+}
+
+.paramlayericon {
+    background-position: -10px -686px;
+    width: 22px;
+    height: 16px;
+    margin-left: 7px
+}
+
+.closelayericon:hover,.paramlayericon:hover {
+    opacity: .8
+}
+
+.params_zone {
+    display: none;
+    background-color: #ebebeb;
+    position: absolute;
+    border: 1px solid #bbb;
+    z-index: 4;
+    width: 320px
+}
+
+.params_zone input {
+    border: 1px solid #ccc;
+    padding: 4px
+}
+
+.params_zone_in {
+    background-color: #bbb;
+    padding: 6px
+}
+
+.eod_graphcommands>div {
+    position: relative;
+    background-color: #fff;
+    cursor: pointer;
+    float: left;
+    height: 30px;
+    -ms-user-select: none
+}
+
+.eod_graphcommands>div:hover {
+    background-color: #afd8f7
+}
+
+.eod_graphcommands div {
+    background-repeat: no-repeat;
+    background-color: #fff
+}
+
+.eod_b1 {
+    width: 34px;
+    border: 1px solid #ccc;
+    border-right: 0
+}
+
+.eod_b2 {
+    width: 34px;
+    margin-right: 14px;
+    border: 1px solid #ccc
+}
+
+.eod_b3 {
+    width: 60px;
+    margin-right: 14px;
+    color: #4d4d4d;
+    border: 1px solid #ccc
+}
+
+.eod_b4 {
+    border: 1px solid #ccc;
+    min-width: 50px;
+    margin-right: 14px;
+    padding: 0 3px 0 3px;
+    color: #4d4d4d
+}
+
+.eod_b4 span {
+    line-height: 30px
+}
+
+.eod_b5 {
+    width: 34px;
+    border: 1px solid #ccc
+}
+
+.eod_deroul {
+    float: right;
+    border-left: 1px dashed #ccc;
+    width: 21px;
+    height: 100%;
+    background-image: url(i/sprite69.png);
+    background-position: -8px -912px
+}
+
+.eod_deroulh {
+    float: right;
+    padding: 10px;
+    background-image: url(i/sprite69.png);
+    background-position: -8px -958px
+}
+
+.navig_trace,.navig_trace ul {
+    width: 200px;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.navig_trace ul {
+    display: none;
+    position: absolute;
+    left: 200px;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    border: 1px solid #ccc
+}
+
+.navig_trace li:hover ul.niv2 {
+    display: block
+}
+
+.navig_trace li {
+    padding: 9px 8px 9px 45px;
+    white-space: nowrap;
+    color: #4d4d4d;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    position: relative
+}
+
+.navig_trace li:hover {
+    background-color: #afd8f7
+}
+
+.spg {
+    background-image: url(i/sprite69.png)
+}
+
+.delLine {
+    float: left;
+    cursor: pointer;
+    background-position: -10px -1812px;
+    width: 16px;
+    height: 19px;
+    margin-right: 10px
+}
+
+.eod_copy {
+    float: left;
+    cursor: pointer;
+    background-position: -9px -856px;
+    width: 21px;
+    height: 22px;
+    margin-left: 10px
+}
+
+.eod_alert {
+    background-position: -8px -557px;
+    float: left;
+    width: 21px;
+    height: 22px;
+    margin-left: 10px;
+    cursor: pointer
+}
+
+.eodi_angle {
+    background-position: -8px -8px
+}
+
+.eodi_ganng {
+    background-position: -8px -1444px
+}
+
+.eodi_ganna {
+    background-position: -8px -1398px
+}
+
+.eodi_cross {
+    background-position: -8px -820px
+}
+
+.eodi_gomme {
+    background-position: -8px -1490px
+}
+
+.eodi_mouse {
+    background-position: -8px -2216px
+}
+
+.eodi_zoom {
+    background-position: -8px -2516px
+}
+
+.eodi_block {
+    background-position: -6px -3887px
+}
+
+.eodi_tslte {
+    background-position: -8px -3921px
+}
+
+.eodi_duree {
+    background-position: -8px -994px
+}
+
+.eodi_period {
+    background-position: -8px -2400px
+}
+
+.eodi_indics {
+    background-position: -8px -1848px
+}
+
+.eodi_fullscreen {
+    background-position: -8px -1306px
+}
+
+.eodi_fullscreenout {
+    background-position: -8px -1352px
+}
+
+.eodi_capture {
+    background-position: -8px -520px
+}
+
+.eodi_settings {
+    background-position: -8px -3128px
+}
+
+.eodi_line {
+    background-position: -8px -100px
+}
+
+.eodi_line2 {
+    background-position: -8px -1940px
+}
+
+.eodi_candle {
+    background-position: -8px -474px
+}
+
+.eodi_renko {
+    background-position: -8px -2814px
+}
+
+.eodi_linebreak {
+    background-position: -8px -1986px
+}
+
+.eodi_kagi {
+    background-position: -8px -1894px
+}
+
+.eodi_bar {
+    background-position: -8px -382px
+}
+
+.eodi_barcolor {
+    background-position: -8px -428px
+}
+
+.eodi_heikin {
+    background-position: -8px -1536px
+}
+
+.eodi_hollow {
+    background-position: -8px -1720px
+}
+
+.eodi_perf {
+    background-position: -8px -2354px
+}
+
+.eodi_season {
+    background-position: -8px -3082px
+}
+
+.eodi_equivolume {
+    background-position: -8px -3594px
+}
+
+.eodi_pnf {
+    background-position: -7px -3627px
+}
+
+.eodi_arrup {
+    background-position: -8px -1578px
+}
+
+.eodi_arrdw {
+    background-position: -8px -1672px
+}
+
+.eodi_arrrt {
+    background-position: -8px -3532px
+}
+
+.eodi_arrlt {
+    background-position: -8px -3562px
+}
+
+.eodi_sm1 {
+    background-position: -8px -1080px
+}
+
+.eodi_sm2 {
+    background-position: -9px -2485px
+}
+
+.eodi_sm3 {
+    background-position: -7px -3790px
+}
+
+.eodi_oblic {
+    background-position: -8px -2262px
+}
+
+.eodi_horiz {
+    background-position: -8px -1766px
+}
+
+.eodi_pitchfork {
+    background-position: -8px -2446px
+}
+
+.eodi_text {
+    background-position: -8px -3220px
+}
+
+.eodi_vertical {
+    background-position: -8px -3312px
+}
+
+.eodi_sr {
+    background-position: -8px -3174px
+}
+
+.eodi_mesure {
+    background-position: -8px -2078px
+}
+
+.eodi_mesurev {
+    background-position: -8px -2170px
+}
+
+.eodi_mesureh {
+    background-position: -8px -2124px
+}
+
+.eodi_mesuremg {
+    background-position: -6px -3854px
+}
+
+.eodi_rect {
+    background-position: -8px -2768px
+}
+
+.eodi_fiboe {
+    background-position: -8px -1168px
+}
+
+.eodi_fibor {
+    background-position: -8px -1260px
+}
+
+.eodi_para {
+    background-position: -8px -2308px
+}
+
+.eodi_elipse {
+    background-position: -8px -1040px
+}
+
+.eodi_arrow {
+    background-position: -8px -146px
+}
+
+.eodi_tri {
+    background-position: -8px -3266px
+}
+
+.eodi_af {
+    background-position: -8px -54px
+}
+
+.eodi_fiboc {
+    background-position: -8px -1122px
+}
+
+.eodi_fibof {
+    background-position: -8px -1214px
+}
+
+.eodi_cloche {
+    background-position: -4px -553px
+}
+
+.eodi_ewi {
+    background-position: -7px -3659px
+}
+
+.eodi_ewc {
+    background-position: -7px -3691px
+}
+
+.eodi_fibow {
+    background-position: -6px -3757px
+}
+
+.eodi_zp {
+    background-position: -8px -3494px
+}
+
+.eodi_zm {
+    background-position: -8px -3448px
+}
+
+.eodi_help {
+    background-position: -8px -1628px
+}
+
+.eodi_bt {
+    background-position: -8px -885px
+}
+
+.eodi_hst {
+    background-position: -7px -3722px
+}
+
+.hst_icon {
+    z-index: 4;
+    position: absolute;
+    cursor: pointer;
+    background-position: -11px -3822px;
+    width: 24px;
+    height: 24px
+}
+
+.eodi_save,.eodi_savenew,.eodi_savem {
+    border: 1px solid #ccc;
+    padding-left: 35px;
+    height: 30px;
+    line-height: 30px;
+    width: 80px;
+    color: #4d4d4d;
+    float: left;
+    margin-right: 15px;
+    background: url(i/sprite69.png) no-repeat #fff;
+    user-select: none
+}
+
+.eodi_save:hover,.eodi_savenew:hover,.eodi_savem:hover {
+    background-color: #afd8f7;
+    cursor: pointer;
+    -ms-user-select: none
+}
+
+.eodi_save {
+    background-position: -8px -2944px
+}
+
+.eodi_savenew {
+    background-position: -8px -3036px
+}
+
+.eodi_savem {
+    background-position: -8px -2990px
+}
+
+.menu_d,.menu_i,.menu_e {
+    position: absolute;
+    border: 1px solid #ccc;
+    display: none;
+    z-index: 10;
+    background-color: #fff;
+    font-size: 11px;
+    margin-top: 30px;
+    margin-left: -1px
+}
+
+.menu_d,.menu_e {
+    min-width: 100px
+}
+
+.menu_i {
+    width: 606px
+}
+
+.menu_i1 {
+    float: left;
+    width: 190px;
+    padding: 5px;
+    height: 460px
+}
+
+.menu_i2,.menu_i3 {
+    float: left;
+    width: 190px;
+    border-left: 2px solid #ebebeb;
+    padding-left: 15px;
+    padding: 5px;
+    height: 460px
+}
+
+.menu_i1 div div,.menu_i2 div div,.menu_i3 div div {
+    padding: 4px 0 4px 0
+}
+
+.menu_i1 div div:hover,.menu_i2 div div:hover,.menu_i3 div div:hover {
+    background-color: #afd8f7
+}
+
+.menu_iin {
+    height: 440px;
+    overflow-y: auto;
+    margin-top: 8px;
+    -webkit-overflow-scrolling: touch
+}
+
+.menu_iin .selected {
+    background-color: #afd8f7
+}
+
+.menu_d div {
+    padding: 9px 8px 9px 45px;
+    white-space: nowrap
+}
+
+.menu_d div:hover,.menu_e div:hover {
+    background-color: #afd8f7;
+    cursor: pointer
+}
+
+.menu_e div {
+    padding: 8px;
+    white-space: nowrap
+}
+
+#canvasflatten {
+    display: none
+}
+
+@media screen and (max-width: 800px) {
+    .eod_container {
+        margin:10px 0 10px 0
+    }
+
+    .eod_mainchartinfos,.paramlayericon,.eodmovedown,.eodmoveup {
+        display: none
+    }
+
+    .eod_graphcommands {
+        padding: 14px 0 14px 6px;
+        margin-top: 10px
+    }
+
+    .eod_graphcommands>div {
+        padding: 3px 1px 1px 3px
+    }
+
+    #trace_btn,.eodi_settings,.eod_compare,.eodi_capture,.eodi_help,.eodi_cloche,.eodi_bt,.eodi_zm,.eodi_zp {
+        display: none
+    }
+
+    .eod_b1 {
+        border-right: 1px solid #ccc;
+        margin-right: 12px
+    }
+
+    .eod_b2 {
+        margin-right: 12px
+    }
+
+    .eodi_fullscreen {
+        margin-right: 0
+    }
+
+    .eod_topinfo span:first-child {
+        display: none
+    }
+
+    .menu_i2,.menu_i1,.menu_i3 {
+        float: none;
+        width: auto;
+        height: auto
+    }
+
+    .menu_i {
+        height: 300px;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto
+    }
+
+    .menu_iin {
+        height: auto
+    }
+
+    .eod_copy,.eod_alert,.fontSizeZone {
+        display: none
+    }
+}

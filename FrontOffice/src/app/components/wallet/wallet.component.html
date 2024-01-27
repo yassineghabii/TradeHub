@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Styles pour la mise en page générale */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+
+    }
+
+    .container-fluid {
+      background-color: #343a40;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    /* Styles pour la section de détails du portefeuille */
+    .wallet-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      justify-content: space-around;
+    }
+
+    .wallet-container  {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      position: relative;
+      margin-bottom: 20px; /* Espace entre chaque cadre */
+      justify-content: space-between;
+
+
+    }
+    .label,
+    .balance,.text ,.status i,.fas{
+      flex: 1;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      /* Autres styles nécessaires */
+    }
+
+    .label {
+      font-size: 1.2rem;
+      /* Vous pouvez ajuster la taille selon vos préférences */
+    }
+
+
+    .balance {
+      color: #28a745;
+      font-size: 1.2rem;
+
+    }
+
+    .status i {
+      font-size: 1.5rem;
+    }
+
+    .toggle-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 10rem;
+      transition: transform 0.3s;
+    }
+    .toggle-button i {
+      transition: transform 0.3s;
+    }
+    .toggle-button.active {
+      background-color: #28a745;
+    }
+    .toggle-button.active i {
+      transform: translateX(25px);
+    }
+    .button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .delete-button {
+      background-color: #dc3545;
+      margin-right: 10px;
+    }
+    .charge-button {
+      background-color: #28a745;
+    }
+    /* Styles pour les titres et les éléments textuels */
+    .title {
+      font-size: 2rem;
+      color: #fff;
+    }
+    .text {
+      font-size: 1rem; /* Taille réduite du texte */
+      color: #777;
+    }
+    .subtitle {
+      font-size: 1.5rem;
+      color: #007bff;
+    }
+    .label1 {
+      flex: 1;
+      text-align: left;
+      margin-right: auto;
+    }
+    .status1{
+      flex: 1;
+      text-align: right;
+      margin-left: auto;
+    }
+    .button-with-border {
+      border: 1px solid rgba(0, 0, 0, 0.1); /* Couleur du contour avec une légère opacité */
+      border-radius: 0px; /* Pour arrondir les coins du contour */
+      padding: 1px; /* Espace à l'intérieur du contour réduit */
+      height: 39px; /* Réduire la hauteur du bouton */
+
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid bg-dark text-secondary p-1">
+  <i class="fa fa-wallet fa-3x text-primary mb-3" aria-hidden="true"></i>
+  <h1 class="title">Mon Portefeuille</h1>
+  <h2 class="subtitle">Détails du Portefeuille</h2>
+  <p class="text">Consultez les informations de votre portefeuille.</p>
+</div>
+<div style="margin-bottom: 60px;"></div> <!-- Ajout d'un espace de 20 pixels, vous pouvez ajuster cette valeur -->
+<div class="app-description">
+  Votre portefeuille sécurisé offre des transactions fiables, des chargements simples via Stripe, ainsi qu'une consultation aisée de votre solde réel.
+  <br/>
+  <br/>
+  <span style="color: red; font-weight: bold; text-decoration: underline;">Attention :</span> Par défaut, le statut de votre portefeuille est <span style="color: red;">inactif</span>. Veuillez l'<span style="color: green;">activer</span> pour profiter pleinement des différents services de notre application.
+</div>
+<br><br>
+<div class="wallet-details">
+  <!-- Section 1: Solde Virtuel -->
+  <div class="wallet-container">
+    <div class="label">Solde Virtuel</div>
+    <div class="balance">{{ wallet.Virtual_balance }} {{ wallet.Virtual_Currency }}</div>
+  </div>
+  <!-- Section 2: Solde Réel -->
+  <div class="wallet-container">
+    <div class="label">Solde Réel</div>
+    <div class="balance">{{ wallet.Real_balance }} {{ wallet.Real_Currency }}</div>
+    <button class="w-1 mt-0 button-with-border"  (click)="openPaymentModal()">
+      <i class="fab fa-stripe" style="border: none; font-size: 35px; display: block; margin-bottom: 10px;"></i>
+    </button>
+  </div>
+  <!-- Section 3: Date de Création -->
+  <div class="wallet-container">
+    <div class="label">Date Création</div>
+    <div class="text">{{ wallet.createdAt}}</div>
+  </div>
+  <!-- Section 4: Statut et Bouton de Toggle -->
+  <div class="wallet-container">
+    <div class="label1">Statut</div>
+    <button class="toggle-button  " (click)="toggleWalletStatus()">
+      <i class="fas" [ngClass]="{'fa-toggle-on': wallet.isActive, 'fa-toggle-off': !wallet.isActive}"></i>
+    </button>
+    <div class="status1">
+      <i *ngIf="wallet.isActive" class="fas fa-check-circle" style="color: #28a745;"></i>
+      <i *ngIf="!wallet.isActive" class="fas fa-times-circle" style="color: #dc3545;"></i>
+    </div>
+  </div>
+  <!-- Section 6: Type -->
+  <div class="wallet-container">
+    <div class="label1">Type</div>
+    <div class="label1">{{ wallet.type }}</div>
+  </div>
+</div>
+
+<div class="app-description">
+  Explorez visuellement vos opportunités d'investissement à travers un graphique circulaire détaillé, accompagné d'une table récapitulative des actifs financiers.
+  <br/>
+</div>
+<div class="app-description">
+  Ces données essentielles sont dédiées au processus d'exécution d'ordres d'achat et de vente, offrant ainsi une perspective claire sur les gains potentiels.
+  <br/>
+</div>
+<br>
+<br>
+
+<div class="content-center ">
+  <div class="svg-container">
+
+<svg viewBox="0 0 50 32" style="width:100%; max-width:500px;">
+  <circle r="16" cx="16" cy="16" fill="#f8f9fa" />
+  <ng-container *ngIf="pieChartSegments">
+    <g *ngFor="let segment of pieChartSegments">
+      <path
+        [attr.d]="describeArc(16, 16, 15.5, segment.startAngle, segment.endAngle)"
+        [attr.fill]="segment.color"
+        stroke-width="1"
+        stroke="#fff">
+      </path>
+    </g>
+    <!-- Legend -->
+    <g *ngFor="let segment of pieChartSegments; let i = index"
+       [attr.transform]="'translate(34,' + (6 + i * 3) + ')'">
+      <!-- Augmenter la taille du rectangle pour mieux visualiser la couleur -->
+      <rect width="2" height="2" [attr.fill]="segment.color"></rect>
+      <text x="3" dy="1.5" fill="black" font-size="1" alignment-baseline="middle">
+        {{ segment.symbol }} ({{ segment.percent.toFixed(1) }}%)
+      </text>
+    </g>
+  </ng-container>
+</svg>
+  </div>
+
+  <div class="table-container"> <!-- Ajoute une classe de marge (mt-4) pour l'espace -->
+  <!-- Votre tableau ici -->
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Actif</th>
+      <th>Poids</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let segment of pieChartSegments">
+      <td>{{ segment.symbol }}</td>
+      <td>{{ segment.percent.toFixed(1) }}%</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+
+</body>
+
+</html>

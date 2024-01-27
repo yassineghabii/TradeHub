@@ -1,0 +1,211 @@
+  <div>
+    <div class="container-fluid bg-dark text-secondary p-1">
+      <i class="fa fa-bar-chart fa-3x text-primary mb-3" aria-hidden="true"></i>
+      <h1 class="title">Nos Marchés</h1>
+      <h2 class="subtitle">Détails du Marché</h2>
+      <p class="text">Consultez les informations de nos titres.</p>
+    </div>
+    <table class="market-table">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Symbole</th>
+        <th>OUV</th>
+        <th>Dernier</th>
+        <th>+HAUT</th>
+        <th>-BAS</th>
+        <th>Date de Maj</th>
+        <th>Carnet D'ordres</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let titre of titres" (click)="openOrdreModal(modalContent, titre)">
+        <td>{{ titre.nom }}</td>
+        <td>{{ titre.symbole }}</td>
+        <td>{{ titre.prix_ouverture }}</td>
+        <td>
+          {{ titre.prix_actuel }}
+          <i *ngIf="titre.prix_actuel > titre.prix_ouverture" class="fas fa-arrow-up fade-in-out"
+             style="color: green;"></i>
+          <i *ngIf="titre.prix_actuel < titre.prix_ouverture" class="fas fa-arrow-down fade-in-out"
+             style="color: red;"></i>
+        </td>
+        <td>{{ titre.prix_plus_haut }}</td>
+        <td>{{ titre.prix_plus_bas }}</td>
+        <td>{{ titre.date_maj }}</td>
+        <td>
+          <button (click)="openCarnetOrdresModal(titre.id_titre, $event)" style="border: none; background: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+              <path d="M19 2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 1.99 2H17c1.1 0 2-.9 2-2V6l-4-4zM8 6h8v2H8V6zm6 3H8v2h6V9z"/>
+            </svg>
+          </button>
+        </td>
+
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <ng-template #modalContent let-modal>
+    <div class="modal-dialog modal-dialog-centered" style="width: 100%; margin: 1px;">
+      <div class="modal-content" style="background-color: #152440; border: none;">
+        <div class="modal-header">
+          <h4 class="modal-title" style="color: #f3525a;">{{ selectedTitre?.nom }}</h4>
+          <button type="button" class="close" aria-label="Close" (click)="dismissModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+  </div>
+        <div class="modal-body form-content" style="background-color: rgba(255, 255, 255, 0.9); padding: 15px; margin: 1px;">
+          <form [formGroup]="ordreFormGroup" (ngSubmit)="validerOrdre()" class="form-content">
+
+
+            <div *ngIf="!ordreScenario" class="alert alert-danger text-center">
+              Veuillez préciser s'il s'agit bien d'un passage d'ordre d'achat ou bien de vente.
+            </div>
+
+
+            <!-- Buy and Sell Buttons -->
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <!-- Bouton Acheter -->
+              <button type="button"
+                      class="btn btn-success btn-lg w-100"
+                      (click)="selectionnerScenario('ACHAT')"
+                      [ngClass]="{'active-btn': ordreScenario === 'ACHAT', 'disabled-look': ordreScenario !== 'ACHAT'}">Acheter</button>
+
+
+              <!-- Bouton Vendre -->
+              <button type="button"
+                      class="btn btn-secondary btn-lg w-100"
+                      (click)="selectionnerScenario('VENTE')"
+                      [ngClass]="{'active-btn': ordreScenario === 'VENTE', 'disabled-look': ordreScenario !== 'VENTE'}">Vendre</button>
+            </div>
+
+
+            <!-- Order Type Dropdown -->
+            <div class="form-group">
+              <label for="typeOrdre">Type d'Ordre</label>
+              <select class="form-control" id="typeOrdre" formControlName="type_ordre">
+                <option value="AU_MARCHE">Au Marché</option>
+                <option value="LIMITE">Limite</option>
+              </select>
+              <div *ngIf="ordreFormGroup.controls['type_ordre'].touched && ordreFormGroup.controls['type_ordre'].errors" class="alert alert-danger">
+                Type d'Ordre est requis.
+              </div>
+            </div>
+
+
+            <!-- Limit Price Input -->
+            <div class="form-group" *ngIf="ordreFormGroup.get('type_ordre').value === 'LIMITE'">
+              <label for="prixLimite">{{ ordreFormGroup.get('ordreScenario').value === 'ACHAT' ? 'Prix Limite Achat' : 'Prix Limite Vente' }}</label>
+              <input type="number" class="form-control" id="prixLimite" [formControlName]="getPrixLimiteFieldName()">
+
+
+
+              <!-- Error messages for 'prix_limite_a' -->
+              <div *ngIf="ordreFormGroup.get(getPrixLimiteFieldName()).touched && ordreFormGroup.get(getPrixLimiteFieldName()).errors" class="alert alert-danger">
+                <div *ngIf="ordreFormGroup.get(getPrixLimiteFieldName()).errors['required']">
+                  {{ ordreScenario === 'ACHAT' ? 'Prix Limite Achat est requis.' : 'Prix Limite Vente est requis.'}}
+                </div>
+                <div *ngIf="ordreFormGroup.get(getPrixLimiteFieldName()).errors['min']">
+                  {{ ordreScenario === 'ACHAT' ? 'Prix Limite Achat doit être supérieur à 0.' : 'Prix Limite Vente doit être supérieur à 0.'}}
+                </div>
+              </div>
+
+
+            </div>
+
+
+            <!-- Quantity Input -->
+            <div class="form-group">
+              <label for="quantite">Quantité</label>
+              <input type="number" class="form-control" id="quantite" formControlName="quantite">
+              <div *ngIf="ordreFormGroup.controls['quantite'].touched && ordreFormGroup.controls['quantite'].errors" class="alert alert-danger">
+                La Quantité est requise et doit être au minimum de 1.
+              </div>
+            </div>
+
+
+            <!-- Validity Dropdown -->
+            <div class="form-group" *ngIf="ordreFormGroup.controls['type_ordre'].value === 'LIMITE'">
+              <label for="validite">Validité</label>
+              <select class="form-control" id="validite" formControlName="duree_validite">
+                <option value="JOUR_MEME">Jour même</option>
+                <option value="A_LA_CLOTURE">À la clôture</option>
+                <option value="UNE_SEMAINE">Une semaine</option>
+                <option value="UN_MOIS">Un mois</option>
+                <option value="GTC">Good 'Til Canceled (GTC)</option>
+              </select>
+              <div *ngIf="ordreFormGroup.controls['duree_validite'].touched && ordreFormGroup.controls['duree_validite'].errors" class="alert alert-danger">
+                La Validité est requise.
+              </div>
+            </div>
+
+
+            <!-- Validation and Cancel Buttons -->
+            <div class="d-flex justify-content-between mt-3">
+              <button type="submit" class="btn btn-primary btn-lg w-100"
+                      [disabled]="(ordreFormGroup.invalid && (ordreScenario === 'ACHAT' || ordreScenario === 'VENTE')) ||
+                      (ordreScenario !== 'ACHAT' && ordreScenario !== 'VENTE' && ordreFormGroup.invalid)">
+                Valider
+              </button>
+              <button type="button" class="btn btn-secondary btn-lg w-100" (click)="dismissModal()">Annuler</button>
+
+            </div>
+
+
+            <!-- Success and Error Messages -->
+            <div *ngIf="messageSucces" class="alert alert-success mt-3" role="alert">
+              {{ messageSucces }}
+            </div>
+            <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+              {{ errorMessage }}
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <!-- Message informatif éducatif occupying most of the space -->
+              <div class="flex-fill">
+                <p class="small font-weight-bold mb-0">Encore débutant ?<br>Téléchargez notre guide bourse !</p>
+              </div>
+
+
+              <!-- PDF icon on the far right -->
+              <a href="assets/images/pdf.pdf" target="_blank" download style="border: none; padding: 0; box-shadow: none;">
+                <i class="fa fa-file-pdf-o fa-2x" style="color: #f3525a;"></i>
+              </a>
+            </div>        </form>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </ng-template>
+  <ng-template #confirmationModal>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #f3525a;">
+          <h5 class="modal-title text-dark">Attention&nbsp;!</h5>
+          <button type="button" class="close" aria-label="Close" (click)="dismissModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="icon-box d-flex align-items-center">
+            <i class="fas fa-exclamation-circle fa-2x" style="color: #f3525a; margin-right: 10px;"></i>
+            <p class="confirmation-text ml-4">
+              Êtes-vous sûr de vouloir passer un ordre&nbsp;<strong>{{ ordreScenario === 'ACHAT' ? 'd\'achat' : 'de vente' }}</strong>&nbsp;
+              <strong>{{ ordreFormControls['type_ordre'].value === 'AU_MARCHE' ? 'au marché' : 'limite' }}</strong>
+              sur&nbsp;<strong>{{ selectedTitre?.nom }}</strong> ?
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-dark" (click)="confirmOrder()">Oui, je confirme</button>
+          <button type="button" class="btn btn-outline-dark" (click)="dismissModal()">Non</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>

@@ -1,0 +1,12 @@
+/* styles.css (or faq-list.component.css, faq-details.component.css) */
+.faq-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.faq-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+}

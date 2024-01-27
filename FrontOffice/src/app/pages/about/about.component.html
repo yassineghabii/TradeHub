@@ -1,0 +1,49 @@
+<!-- Page Header Start -->
+<div class="container-fluid bg-dark p-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4 text-white">About Us</h1>
+            <a href="">Home</a>
+            <i class="far fa-square text-primary px-2"></i>
+            <a href="">About</a>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<div class="container-fluid bg-secondary p-0 text-center">
+    <div class="row g-0">
+        <div class="col-lg-12 py-6 px-5 flex-column justify-content-center">
+            <h1 class="display-5 mb-4">Welcome To <span class="text-primary">CONSULT</span></h1>
+            <h4 class="text-primary mb-4">Diam dolor diam ipsum sit. Clita erat ipsum et lorem stet no lorem
+                sit clita
+                duo justo
+                magna dolore</h4>
+            <p class="mb-4">Et stet ipsum nonumy rebum eos justo, accusam invidunt aliquyam stet magna at et
+                sanctus,
+                vero sea
+                sit amet dolores, sit dolor duo invidunt dolor, kasd rebum consetetur diam invidunt erat stet. Accusam
+                nonumy
+                lorem kasd eirmod. Justo clita sadipscing ea invidunt rebum sadipscing consetetur. Amet diam amet amet
+                sanctus
+                sanctus invidunt erat ipsum eirmod.</p>
+            <a href="" class="btn btn-primary py-md-3 px-md-5 rounded-pill">Get A Quote</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-3 px-5">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+        <h1 class="display-5 mb-0">Our Team Members</h1>
+        <hr class="w-25 mx-auto bg-primary">
+    </div>
+    <div class="row g-5">
+        <ng-container *ngFor="let item of teamMember">
+            <div class="col-lg-4">
+                <app-team-member [data]="item"></app-team-member>
+            </div>
+        </ng-container>
+
+    </div>
+
+</div>

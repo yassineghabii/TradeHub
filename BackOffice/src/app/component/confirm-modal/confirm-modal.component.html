@@ -1,0 +1,92 @@
+<h2 class="mat-dialog-title" *ngIf="mode === 'update'">Modification des informations de {{data.admin.firstname}} {{data.admin.lastname}}</h2>
+<h2 class="mat-dialog-title" *ngIf="mode === 'confirmAdd'"> Attention !</h2>
+<h2 class="mat-dialog-title" *ngIf="mode === 'add'">Ajout d'un nouvel administrateur</h2>
+
+<mat-dialog-content>
+    <div *ngIf="mode === 'delete'">
+        Êtes-vous sûr de vouloir {{ data.action }} ces données ?
+    </div>
+    <div *ngIf="mode === 'activite'">
+        Êtes-vous sûr de vouloir activer/desactiver ce portefeuille ?
+    </div>
+    <div *ngIf="mode === 'confirmAdd'">
+        Êtes-vous sûr de vouloir {{ data.action }} cet administrateur ?
+    </div>
+    <div *ngIf="mode === 'confirmUpdate'">
+        Êtes-vous sûr de vouloir {{ data.action }} ces informations  ?
+    </div>
+    <div *ngIf="mode === 'add'">
+        <form>
+            <!-- Prénom -->
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>person</mat-icon>
+                <input type="text" matInput id="firstname" name="firstname" [(ngModel)]="newAdmin.firstname" placeholder="Prénom" style="margin-left: 10px;">
+            </div>
+
+            <!-- Nom -->
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>person</mat-icon>
+                <input type="text" matInput id="lastname" name="lastname" [(ngModel)]="newAdmin.lastname" placeholder="Nom" style="margin-left: 10px;">
+            </div>
+
+            <!-- E-Mail -->
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>email</mat-icon>
+                <input type="email" matInput id="emaile" name="email" [(ngModel)]="newAdmin.email" placeholder="Adresse E-Mail" style="margin-left: 10px;">
+            </div>
+
+            <!-- Numéro de téléphone -->
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>phone</mat-icon>
+                <input type="tel" matInput id="phone_number" name="phone_number" [(ngModel)]="newAdmin.phone_number" placeholder="Numéro de téléphone" style="margin-left: 10px;">
+            </div>
+
+            <!-- CIN -->
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>credit_card</mat-icon>
+                <input type="text" matInput id="cin" name="cin" [(ngModel)]="newAdmin.cin" placeholder="CIN" style="margin-left: 10px;">
+            </div>
+
+            <!-- Adresse -->
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>home</mat-icon>
+                <input type="text" matInput id="addresse" name="address" [(ngModel)]="newAdmin.address" placeholder="Adresse" style="margin-left: 10px;">
+            </div>
+        </form>
+    </div>
+    <div *ngIf="mode === 'update'">
+        <form>
+
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>email</mat-icon>
+                <input type="email" matInput id="email" name="email" [(ngModel)]="adminUpdates.email" placeholder="Adresse E-Mail" style="margin-left: 10px;">
+            </div>
+
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>phone</mat-icon>
+                <input type="tel" matInput id="phoneNumber" name="phoneNumber" [(ngModel)]="adminUpdates.phone_number" placeholder="Numéro de Téléphone" style="margin-left: 10px;">
+            </div>
+
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>home</mat-icon>
+                <input type="text" matInput id="address" name="address" [(ngModel)]="adminUpdates.address" placeholder="Adresse" style="margin-left: 10px;">
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <mat-icon>password</mat-icon>
+                <input type="text" matInput id="pwd" name="pwd" [(ngModel)]="adminUpdates.pwd_user" placeholder="Mot De Passe" style="margin-left: 10px;">
+            </div>
+
+        </form>
+    </div>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" *ngIf="mode === 'update'" (click)="confirmUpdate()">Confirmer</button>
+    <button mat-raised-button color="primary" *ngIf="mode === 'add'" (click)="confirmAdd()">Confirmer</button>
+    <button mat-raised-button color="primary" *ngIf="mode === 'activite'" (click)="Actif()">Confirmer</button>
+    <button mat-raised-button color="warn" *ngIf="mode === 'delete'" (click)="directDelete()">Supprimer</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial *ngIf="mode === 'confirmUpdate' || mode === 'confirmAdd'">Confirmer</button>
+    <button mat-flat-button (click)="onNoClick()">Annuler</button>
+</mat-dialog-actions>

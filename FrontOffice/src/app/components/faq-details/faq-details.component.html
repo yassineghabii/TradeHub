@@ -1,0 +1,7 @@
+<p>faq-details works!</p>
+<!-- faq-details.component.html -->
+<div *ngIf="faq" class="faq-details">
+  <h2>{{ faq.question }}</h2>
+  <p>{{ faq.answer }}</p>
+  <a routerLink="/">Back to FAQ List</a>
+</div>

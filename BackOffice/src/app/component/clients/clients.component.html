@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste Des Clients</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Importation de la police Roboto -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        tbody {
+            display: block;
+            overflow-y: auto;
+        }
+        thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 8px;
+            margin: 4px; /* Ajoutez une marge de 4 pixels entre les cellules */
+        }
+        thead {
+            background-color: #f5f5f5;
+        }
+        th {
+            padding: 25px;
+            padding-bottom: 10px;
+            font-weight: 500;
+        }
+        .text-success {
+            color: green;
+        }
+        .text-danger {
+            color: red;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .search-container {
+            position: relative;
+            width: 20%;
+            margin-right: 20px;
+            margin-left: 5px;
+            margin-bottom: 1px;
+            display: inline-block;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            padding-right: 40px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #f5f5f5;
+        }
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            cursor: pointer;
+        }
+        .material-icons:hover {
+            cursor: pointer;
+            color: #007BFF;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 17%;
+        }
+        th:nth-child(8), td:nth-child(8),
+        th:nth-child(10), td:nth-child(10) {
+            width: 8%;
+        }
+        /* Ajoutez ces styles dans votre fichier CSS ou dans la section des styles de votre composant */
+        .profile-photo-cell {
+            /* max-width: 2px; */
+            max-height: 150px; /* Essayez de modifier cette valeur pour ajuster la hauteur de la photo */
+        }
+
+
+        .profile-photo {
+            display: block;
+            width: 30%;
+            height: auto;
+            object-fit: cover; /* Assurez-vous que l'image couvre entièrement la zone définie */
+            margin: 0 auto; /* Centrez l'image horizontalement dans la cellule */
+            border: 1px solid #ddd; /* Ajoutez une bordure de 1 pixel */
+            border-radius: 4px; /* Ajoutez des coins arrondis */
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Liste Des Clients</h4>
+                    </div>
+                    <!-- Zone de recherche -->
+                    <div style="display: flex; justify-content: flex-start; align-items: center;">
+                        <div class="search-container">
+                            <input class="search-input" type="text" [(ngModel)]="searchStr" (input)="searchPlayers()" placeholder="Rechercher un client...">
+                            <i class="material-icons search-icon">search</i>
+                        </div>
+                    </div>
+
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Photo de Profil</th>
+                                <th>CIN</th>
+                                <th>Numéro de téléphone</th>
+                                <th>Adresse</th>
+                                <th>E-Mail</th>
+                                <th>Connecté(e)?</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <!-- ... (autres parties du code) ... -->
+
+                            <tbody>
+                            <tr *ngFor="let player of filteredPlayers">
+                                <td>{{ player.lastname }}</td>
+                                <td>{{ player.firstname }}</td>
+                                <td class="profile-photo-cell">
+                                    <img [src]="'http://localhost:8080/users/'+ player.id +'/image'" alt="Materiel Image" class="profile-photo">
+                                </td>
+                                <td>{{ player.cin }}</td>
+                                <td>{{ player.phone_number }}</td>
+                                <td>{{ player.address }}</td>
+                                <td>{{ player.email }} </td>
+                                <td>
+                                    <span *ngIf="player.isAuthenticated" class="text-success">● Connecté</span>
+                                    <span *ngIf="!player.isAuthenticated" class="text-danger">● Non connecté</span>
+                                </td>
+                                <td>
+                                    <i class="material-icons text-primary" style="cursor:pointer;" (click)="openUpdateModal(player)">edit</i>
+                                    <i class="material-icons text-danger" style="cursor:pointer;" (click)="deletePlayer(player.id)">delete</i>
+                                </td>
+                            </tr>
+                            </tbody>
+
+                            <!-- ... (autres parties du code) ... -->
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

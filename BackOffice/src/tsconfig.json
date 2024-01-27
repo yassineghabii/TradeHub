@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "baseUrl": "",
+    "skipLibCheck": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2020",
+      "dom",
+      "webworker"
+    ],
+    "mapRoot": "./",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "../dist/out-tsc",
+    "sourceMap": true,
+    "target": "es2020",
+    "allowJs":true,
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

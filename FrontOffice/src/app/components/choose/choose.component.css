@@ -1,0 +1,71 @@
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container-fluid.bg-dark {
+  padding: 3rem 5rem; /* Réduit de 5rem à 3rem */
+}
+
+.display-3, .display-5, .lead {
+  font-weight: 500;
+}
+
+.display-3 {
+  font-size: 2.5rem; /* Encore plus petit */
+}
+
+.lead {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-control {
+  border-radius: 8px;
+  box-shadow: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #0046d5;
+  box-shadow: 0 0 5px rgba(0, 70, 213, 0.5);
+}
+
+.btn {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background-color: #f3525a !important;
+  border-color: #f3525a !important;
+}
+
+
+.editor-toolbar i {
+  margin: 0 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.editor-toolbar i:hover {
+  color: #0046d5;
+}
+
+.alert {
+  border-radius: 8px;
+}
+.bg-dark {
+  background-color: #152440 !important; /* Cette valeur définie la couleur bleue sombre de l'arrière-plan. */
+}
+.btn-primary:hover {
+  background-color: #d3464a !important;
+  border-color: #d3464a !important;
+}

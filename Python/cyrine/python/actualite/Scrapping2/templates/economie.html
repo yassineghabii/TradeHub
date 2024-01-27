@@ -1,0 +1,728 @@
+<!doctype html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <link href="{{ url_for('serve_static_css', filename='v93.min.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/i/favicon32.png">
+
+    <meta property="fb:pages" content="296266907136787" />
+
+    
+
+    <title>L'actualité économique de Tunisie</title>
+
+    <meta name="description" content="Retrouvez toute l'actualité économique de Tunisie et du Maghreb couverte par les journalistes d'ilboursa.com" />
+
+
+
+    <script>
+
+        var googletag = googletag || {};
+
+        googletag.cmd = googletag.cmd || [];
+
+        (function () {
+
+            var gads = document.createElement('script');
+
+            gads.async = true;
+
+            gads.type = 'text/javascript';
+
+            var useSSL = 'https:' == document.location.protocol;
+
+            gads.src = (useSSL ? 'https:' : 'http:') +
+
+                '//www.googletagservices.com/tag/js/gpt.js';
+
+            var node = document.getElementsByTagName('script')[0];
+
+            node.parentNode.insertBefore(gads, node);
+
+        })();
+
+    </script>
+
+    <script>
+
+        googletag.cmd.push(function () {
+
+            googletag.defineSlot('/112668056/banner_allsite', [[728, 90], [728, 300], [1000, 300], [1000, 90]], 'div-gpt-ad-1424879557921-0').addService(googletag.pubads());
+
+            googletag.defineSlot('/112668056/square_allsite', [300, 250], 'div-gpt-ad-1424879557921-1').addService(googletag.pubads());
+
+            googletag.defineSlot('/112668056/banner_Ilb2', [[1000, 300], [1000, 90], [728, 90], [970, 90], [1000, 200]], 'div-gpt-ad-1616660604392-0').addService(googletag.pubads());
+
+            googletag.pubads().enableSingleRequest();
+
+            googletag.enableServices();
+
+        });
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="headup">
+
+
+
+        </div>
+
+        <div class="menufixed">
+
+            <div class="container clearfix">
+
+                <a href="/"><img src="/i/logo_small.png" class="logo_s" alt="bourse tunis" /></a>
+
+                <div class="menu_head">
+
+                    <ul class="nav_2" id="nav2onglets">
+
+                        <li id="ong_eco" class="droisel_2"><a href="/economie/">ECONOMIE</a></li>
+
+                        <li id="ong_bourse" class="droisel_2">
+
+                            <a href="/bourse/">BOURSE</a>
+
+                            <ul>
+
+                                <li><a href="/marches/actualites_bourse_tunis">Actualités du marché</a></li>
+
+                                <li><a href="/marches/aaz">Cotations de A à Z</a></li>
+
+                                <li><a href="/marches/convertisseur_devises">Convertisseur de devises</a></li>
+
+                                <li><a href="/analyses/synthese_fiches">Fiches conseil</a></li>
+
+                                <li><a href="/applet/graphe_dynamique">Graphique dynamique</a></li>
+
+                                <li><a href="/marches/devises">Les devises</a></li>
+
+                                <li><a href="/analyses/experts_de_leco">Les Experts de l'Eco</a></li>
+
+                                <li><a href="/marches/matieres_premieres">Les matières premières</a></li>
+
+                                <li><a href="/marches/videos">Les vidéos économiques</a></li>
+
+                                <li><a href="/marches/marketmap">Market Map</a></li>
+
+                                <li><a href="/marches/palmares">Palmarès de la bourse</a></li>
+
+                                <li><a href="/analyses/screening_at">Screening technique</a></li>
+
+                                <li><a href="/marches/secteurs">Secteurs d'activité</a></li>
+
+                                <li><a href="/backtest/settings">Testez vos stratégies</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li id="ong_opc" class="droisel_2"><a href="/opcvm/">OPCVM</a></li>
+
+                        <li id="ong_start" class="droisel_2"><a href="/startup/">START UP</a></li>
+
+                        <li id="ong_life" class="droisel_2"><a href="/lifestyle/">LIFESTYLE</a></li>
+
+                        <li id="ong_afric" class="droisel_2"><a href="/afrique/">AFRIQUE</a></li>
+
+                        <li id="ong_commu" class="droisel_2"><a href="/forums/displaynewthread">FORUM</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="btn_cpte"><a target="_blank" href="/fcp/fcp_cea_ilboursa">FCP ILBOURSA CEA</a></div>
+
+            </div>
+
+            <div class="top_log">
+
+                <div class="container2 clearfix">
+
+                    <div id="userShow" class="btn_cx"><a href=""><img src="/i/pict_login.png" /><br /><span>CONNEXION</span></a></div>
+
+                    <div class="btn_search"><a href="/search"><img src="/i/pict_search.png" /><br /><span>RECHERCHE</span></a></div>
+
+                    <div class="deroulvalues">
+
+                        <select id="select_place" class="ddheader mlr10 ddplaces">
+
+                            <option value="tn">Tunis</option>
+
+                            <option value="dz">Alger</option>
+
+                            <option value="ma">Casablanca</option>
+
+                            <option value="fx">Devises</option>
+
+                        </select>
+
+
+
+                        <select id="dpShares" class="ddheader ddvalues">
+
+                            
+
+                                <option value="">Choisir une valeur</option>
+
+        <option value="ADWYA">ADWYA</option>
+
+        <option value="AETEC">AETECH</option>
+
+        <option value="AL">AIR LIQUIDE TUNISIE</option>
+
+        <option value="AB">AMEN BANK</option>
+
+        <option value="AMI">AMI</option>
+
+        <option value="AMS">AMS</option>
+
+        <option value="ATB">ARAB TUNISIAN BANK</option>
+
+        <option value="ATL">ARAB TUNISIAN LEASE</option>
+
+        <option value="ARTES">ARTES</option>
+
+        <option value="ASSAD">ASSAD</option>
+
+        <option value="ASSMA">ASSURANCES MAGHREBIA</option>
+
+        <option value="AST">ASTREE</option>
+
+        <option value="TJL">ATTIJARI LEASING</option>
+
+        <option value="TJARI">BANQUE ATTIJARI DE TUNIS</option>
+
+        <option value="BT">BANQUE DE TUNISIE</option>
+
+        <option value="BNA">BANQUE NATIONALE AGRICOLE</option>
+
+        <option value="BL">BEST LEASE</option>
+
+        <option value="BHASS">BH ASSURANCE</option>
+
+        <option value="BH">BH BANK</option>
+
+        <option value="BHL">BH LEASING</option>
+
+        <option value="BIAT">BIAT</option>
+
+        <option value="BTE">BTE (ADP)</option>
+
+        <option value="CC">CARTHAGE CEMENT</option>
+
+        <option value="CELL">CELLCOM</option>
+
+        <option value="CREAL">CEREALIS</option>
+
+        <option value="CIL">CIL</option>
+
+        <option value="SCB">CIMENTS DE BIZERTE</option>
+
+        <option value="CITY">CITY CARS</option>
+
+        <option value="DH">DELICE HOLDING</option>
+
+        <option value="ELBEN">ELBENE</option>
+
+        <option value="LSTR">ELECTROSTAR</option>
+
+        <option value="NAKL">ENNAKL AUTOMOBILES</option>
+
+        <option value="SOKNA">ESSOUKNA</option>
+
+        <option value="ECYCL">EURO-CYCLES</option>
+
+        <option value="GIF">GIF FILTER</option>
+
+        <option value="HL">HANNIBAL LEASE</option>
+
+        <option value="XABYT">HEXABYTE</option>
+
+        <option value="ICF">ICF</option>
+
+        <option value="LNDOR">LAND&#x27;OR</option>
+
+        <option value="MAG">MAGASIN GENERAL</option>
+
+        <option value="AMV">MAGHREBIA VIE</option>
+
+        <option value="SAM">MEUBLES INTERIEURS</option>
+
+        <option value="MIP">MIP</option>
+
+        <option value="MNP">MONOPRIX</option>
+
+        <option value="MPBS">MPBS</option>
+
+        <option value="NBL">NEW BODY LINE</option>
+
+        <option value="PLAST">OFFICE PLAST</option>
+
+        <option value="OTH">ONE TECH</option>
+
+        <option value="PLTU">PLACEMENTS DE TUNISIE - SICAF</option>
+
+        <option value="PGH">POULINA GROUP HOLDING</option>
+
+        <option value="SAH">SAH</option>
+
+        <option value="SMD">SANIMED</option>
+
+        <option value="SERVI">SERVICOM</option>
+
+        <option value="SFBT">SFBT</option>
+
+        <option value="SIAME">SIAME</option>
+
+        <option value="SIMPA">SIMPAR</option>
+
+        <option value="SIPHA">SIPHAT</option>
+
+        <option value="SITS">SITS</option>
+
+        <option value="SMART">SMART TUNISIE</option>
+
+        <option value="ALKIM">SOCIETE CHIMIQUE ALKIMIA</option>
+
+        <option value="SOMOC">SOMOCER</option>
+
+        <option value="SOPAT">SOPAT</option>
+
+        <option value="SOTEM">SOTEMAIL</option>
+
+        <option value="SOTET">SOTETEL</option>
+
+        <option value="STPAP">SOTIPAPIER</option>
+
+        <option value="STPIL">SOTRAPIL</option>
+
+        <option value="MGR">SOTUMAG</option>
+
+        <option value="SOTUV">SOTUVER</option>
+
+        <option value="SPDIT">SPDIT - SICAF</option>
+
+        <option value="STA">STA</option>
+
+        <option value="STAR">STAR</option>
+
+        <option value="STB">STB BANK</option>
+
+        <option value="STEQ">STEQ</option>
+
+        <option value="STIP">STIP</option>
+
+        <option value="SPHAX">SYPHAX AIRLINES</option>
+
+        <option value="TGH">TAWASOL</option>
+
+        <option value="TLNET">TELNET HOLDING</option>
+
+        <option value="TPR">TPR</option>
+
+        <option value="PX1">TUNINDEX</option>
+
+        <option value="TINV">TUNINVEST - SICAR</option>
+
+        <option value="TRE">TUNIS RE</option>
+
+        <option value="TAIR">TUNISAIR</option>
+
+        <option value="TBIDX">TUNISIAN BOND INDEX</option>
+
+        <option value="TLS">TUNISIE LEASING &amp; FACTORING</option>
+
+        <option value="TVAL">TUNISIE VALEURS</option>
+
+        <option value="UADH">UADH</option>
+
+        <option value="UBCI">UBCI</option>
+
+        <option value="UIB">UIB</option>
+
+        <option value="UMED">UNIMED</option>
+
+        <option value="WIFAK">WIFAK INT BANK</option>
+
+
+
+                            
+
+                        </select>
+
+                    </div>
+
+                    <div id="logZone">
+
+                            <div id="logArea">
+
+                                <p class="alct"><b>CONNECTEZ-VOUS</b></p>
+
+                                <input id="txtPseudoMain" type="text" class="txtLog" aria-label="Nom d'utilisateur" placeholder="Nom d'utilisateur" />
+
+                                <input id="txtPassMain" type="password" class="txtLog mt15" aria-label="Mot de passe" placeholder="Mot de passe" />
+
+                                <div id="btnLogUser" class="btnR mt15">CONNEXION</div>
+
+
+
+                                <p>
+
+                                    <a href="/users/password">Identifiant oublié ?</a><br />
+
+                                    <a href="/users/login">Créer un compte gratuit</a>
+
+                                </p>
+
+                            </div>
+
+                        <div id="memberArea" class="no">
+
+                            <p>
+
+                                <a href="/listes/displaylist">Liste de valeurs</a>
+
+                            </p>
+
+                            <p><a href="/portif/displayp">Portefeuille virtuel</a></p>
+
+                            <p>
+
+                                <a href="/users/compte">Mon compte</a>
+
+                            </p>
+
+                            <p><a href="#" id="logoutMain">Se déconnecter</a></p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+        <div id="bannerup" class="bannermain">
+
+            <div id='div-gpt-ad-1424879557921-0'>
+
+    <script>
+
+        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1424879557921-0'); });
+
+    </script>
+
+</div>
+
+        </div>
+
+        <div id="skinHab">
+
+            <div class="contentpad" id="containerPage">
+    
+                
+    
+    <h1 class="h2t">ECONOMIE</h1>
+    
+    <div class="rubUne">
+    
+        <a class="titMed" href="/marches/l-encours-des-bons-du-tresor-atteint-un-record-de-25-milliards-de-dinars-a-fin-novembre_43829">
+    
+            L'encours des Bons du Trésor atteint un record de 25 milliards de dinars à fin novembre
+    
+            <img src="/i/info/b/PX1000_686ebfe9-3705-448f-b413-4c84fe2f7b15_b.jpg" alt="" />
+    
+        </a>
+    
+        <br />
+    
+        
+    Dans un contexte marqué par le resserrement des conditions de financement extérieur, la pression exercée sur la liquidité nécessaire pour le fonctionnement de ...
+    
+        <span class="rubDateUne">04 d&#xE9;cembre - 10:13</span>
+    
+    </div>
+    
+    
+    
+    
+    
+    <div class="rubSepa"></div>
+    
+    <div class="clearfix">
+    
+            <div class="rubOut">
+    
+                <div class="rubImgC">
+    
+                    <a href="/marches/topnet-signe-un-partenariat-strategique-avec-la-poste-tunisienne_43830">
+    
+                        <img src="/i/info/b/PX1000_c9fb2cbb-80c7-480f-b7fd-fd9d1cf5708c_b.jpg" width="450" alt="" />
+    
+                    </a>
+    
+                </div>
+    
+                <p>
+    
+                    <a class="f16" href="/marches/topnet-signe-un-partenariat-strategique-avec-la-poste-tunisienne_43830">
+    
+                        TOPNET signe un partenariat stratégique avec La Poste Tunisienne
+    
+                    </a>
+    
+                </p>
+    
+                &#xA;TOPNET, leader des Services Internet en Tunisie, vient de signer un partenariat strat&#xE9;gique avec La Poste Tunisienne lors d&#x27;une c&#xE9;r&#xE9;monie organis&#xE9;e le vendredi...
+    
+                <span class="rubDate">04 d&#xE9;cembre - 10:00</span>
+    
+            </div>
+    
+            <div class="rubOut">
+    
+                <div class="rubImgC">
+    
+                    <a href="/marches/le-tmm-stagne-en-novembre-a-7-99_43801">
+    
+                        <img src="/i/info/b/PX1000_300d89ed-fa64-4be2-b7c7-c16dfa5f3a62_b.jpg" width="450" alt="" />
+    
+                    </a>
+    
+                </div>
+    
+                <p>
+    
+                    <a class="f16" href="/marches/le-tmm-stagne-en-novembre-a-7-99_43801">
+    
+                        Le TMM stagne en novembre à 7,99%
+    
+                    </a>
+    
+                </p>
+    
+                &#xA;&amp;nbsp;&#xA;Le&amp;nbsp;Taux moyen du March&#xE9; Mon&#xE9;taire (TMM) du mois de novembre s&#x27;est stabilis&#xE9; &#xE0; 7,99% pour le deuxi&#xE8;me mois cons&#xE9;cutif, selon les donn&#xE9;es de la Banqu...
+    
+                <span class="rubDate">01 d&#xE9;cembre - 10:17</span>
+    
+            </div>
+    
+            <div class="rubOut">
+    
+                <div class="rubImgC">
+    
+                    <a href="/marches/vers-le-report-de-la-soumission-des-logements-au-taux-de-tva-de-19-a-2025_43779">
+    
+                        <img src="/i/info/b/PX1000_2a859044-2d1c-4dc3-9641-f414a704af0a_b.jpg" width="450" alt="" />
+    
+                    </a>
+    
+                </div>
+    
+                <p>
+    
+                    <a class="f16" href="/marches/vers-le-report-de-la-soumission-des-logements-au-taux-de-tva-de-19-a-2025_43779">
+    
+                        Vers le report de la soumission des logements au taux de TVA de 19% à 2025
+    
+                    </a>
+    
+                </p>
+    
+                &#xA;La Commission des Finances et du Budget de l&#x27;Assembl&#xE9;e des Repr&#xE9;sentants du Peuple (ARP) a conclu ses discussions en approuvant tous les articles du projet de ...
+    
+                <span class="rubDate">30 novembre - 09:42</span>
+    
+            </div>
+    
+            <div class="rubOut">
+    
+                <div class="rubImgC">
+    
+                    <a href="/marches/enda-preneur-a-la-conquete-de-l-entrepreneuriat-etudiant-dans-sa-2eme-edition_43782">
+    
+                        <img src="/i/info/b/PX1000_1ce7d02f-32ad-4cfe-90a3-4e87e2d7dbd7_b.jpg" width="450" alt="" />
+    
+                    </a>
+    
+                </div>
+    
+                <p>
+    
+                    <a class="f16" href="/marches/enda-preneur-a-la-conquete-de-l-entrepreneuriat-etudiant-dans-sa-2eme-edition_43782">
+    
+                        “Enda'preneur” : À la conquête de l'Entrepreneuriat Étudiant dans sa 2ème édition
+    
+                    </a>
+    
+                </p>
+    
+                &#xA;Quel est le statut national de l&#x27;&#xE9;tudiant-entrepreneur (E-E) ? Quels avantages offre-t-il aux &#xE9;tudiants et comment enrichit-il leur parcours acad&#xE9;mique ? Toute...
+    
+                <span class="rubDate">30 novembre - 08:28</span>
+    
+            </div>
+    
+            <div class="rubOut">
+    
+                <div class="rubImgC">
+    
+                    <a href="/marches/commissions-bancaires-en-tunisie-le-vrai-du-faux_43772">
+    
+                        <img src="/i/info/b/PX1000_51781df7-1a04-4de2-a309-0260380cc0de_b.jpg" width="450" alt="" />
+    
+                    </a>
+    
+                </div>
+    
+                <p>
+    
+                    <a class="f16" href="/marches/commissions-bancaires-en-tunisie-le-vrai-du-faux_43772">
+    
+                        Commissions bancaires en Tunisie : Le vrai du faux
+    
+                    </a>
+    
+                </p>
+    
+                Le sujet des commissions bancaires et autres conditions des banques suscite, toujours et encore, beaucoup de pol&#xE9;mique. Nous allons essayer de r&#xE9;pondre aux ques...
+    
+                <span class="rubDate">29 novembre - 14:13</span>
+    
+            </div>
+    
+            <div class="rubOut">
+    
+                <div class="rubImgC">
+    
+                    <a href="/marches/a-partir-du-5-decembre-sodexo-devient-pluxee-tunisie_43771">
+    
+                        <img src="/i/info/b/PX1000_2781713f-e3b2-4e17-9e2a-e9fa187aa454_b.jpg" width="450" alt="" />
+    
+                    </a>
+    
+                </div>
+    
+                <p>
+    
+                    <a class="f16" href="/marches/a-partir-du-5-decembre-sodexo-devient-pluxee-tunisie_43771">
+    
+                        A partir du 5 décembre, Sodexo devient Pluxee Tunisie
+    
+                    </a>
+    
+                </p>
+    
+                &#xA;Slim Ben Ammar,&amp;nbsp;Directeur G&#xE9;n&#xE9;ral de Sodexo Avantages et R&#xE9;compenses Tunisie &amp;amp; Maroc&#xA;&amp;nbsp;&#xA;Annonc&#xE9; officiellement en juin dernier, le Groupe Sodexo l...
+    
+                <span class="rubDate">29 novembre - 12:43</span>
+    
+            </div>
+    
+    </div>
+    
+    <div class="clearfix">
+    
+        <div class="vp1"></div>
+    
+        <div class="vp2"><a href="/marches/actualites_bourse_tunis">Voir +</a></div>
+    
+    </div>
+    
+            </div>
+    
+        </div>
+    
+    
+    
+            <div class="bannermain">
+    
+                <div id='div-gpt-ad-1616660604392-0'>
+    
+        <script>
+    
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1616660604392-0'); });
+    
+        </script>
+    
+    </div>
+    
+            </div>
+    
+    
+    
+        <div class="bar1 mt37">
+    
+            <div class="footer">
+    
+                Copyright © 2012-2023 ilboursa.com - Tous droits réservés - designed by <a target="_blank" href="https://www.facebook.com/ChezNelly/">Chez Nelly</a><br />
+    
+                <a href="/contact">Contacter l'équipe</a> | <a href="/politique_confidentialite">Notre politique de confidentialité</a> | <a href="/partenaires">Les partenaires</a> | <a href="/qui_sommes_nous">A propos de nous ?</a>
+    
+                <div class="foot_socials">
+    
+                    <span>WE ARE SOCIAL</span><br />
+    
+                    <a href="https://www.facebook.com/ilboursa/" target="_blank"><img src="/i/facebook.png" alt="" width="27" height="27" /></a>
+    
+                    <a href="https://twitter.com/ilboursa" target="_blank"><img src="/i/twit.png" alt="" width="27" height="27" /></a>
+    
+                    <a href="https://www.linkedin.com/groups/ilboursacom-5067897" target="_blank"><img src="/i/linkedin.png" alt="" width="27" height="27" /></a>
+    
+                    <a href="https://www.youtube.com/channel/UCIWq9frqGHuOWYETcPH9V3g" target="_blank"><img src="/i/youtube.png" alt="" width="27" height="27" /></a>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    
+    
+        <script src="/scripts2/jqtools29.min.js"></script>
+    
+        
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7HQK4NNBSV"></script>
+    
+    <script>
+    
+      window.dataLayer = window.dataLayer || [];
+    
+      function gtag(){dataLayer.push(arguments);}
+    
+      gtag('js', new Date());
+    
+    
+    
+      gtag('config', 'G-7HQK4NNBSV');
+    
+    </script>
+    
+    </body>
+    
+    </html>
